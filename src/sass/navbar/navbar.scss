@@ -1,0 +1,66 @@
+.navbar__container{
+    background-color: $background;
+    color: white;
+    height: 100vh;
+    width: 150px;
+    @include displayFlex(row, center, unset);
+    
+
+    
+
+
+    a{
+        color: #ffffff7a;
+        text-decoration: unset;
+        @include displayFlex(column, center, center);
+
+    }
+
+    ul{
+        
+        position: relative;
+        width: 100%;
+       
+        
+
+
+        li{
+            @include displayFlex(column, center, center);
+            font-size: 16px;
+            padding: 25px;
+            transition: 0.5s;
+            color: #ffffff7a;
+        }
+        li:hover{
+            background-color: rgba(245, 245, 245, 0.301);
+            transition: 0.5s;
+        }
+
+        .selected__tab{
+            color: white!important;
+            a{
+                color: white!important;
+            }
+        }
+
+        .logout__tab{
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        i{
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+    }
+
+    .logo{
+        @include displayFlex(column, unset, center);
+
+        margin-top: 20px; 
+        width: 100%;
+        margin-bottom: 20px; 
+       
+    }
+}

@@ -1,0 +1,33 @@
+.contact__container{
+    @include displayFlex(row, unset, center);
+    padding: 20px;
+    margin: 15px;
+    width: 100%;
+    font-size: 18px;
+    background-color: rgba(175, 159, 159, 0.192);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    div:first-child{
+        margin-right: 30px;
+        width: max-content; 
+    }
+
+    div{
+        // margin-right: 10px;
+        width: calc(90% / 5);
+        @include displayFlex(row, start, unset);
+    }
+
+    i{
+        font-size: 45px;
+    }
+
+}
+
+
+.contact__container:hover{
+    background-color: rgba(177, 191, 197, 0.596);
+    transition: 0.5s;
+}

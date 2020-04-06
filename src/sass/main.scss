@@ -1,0 +1,22 @@
+@import './settings/mixins.scss';
+@import './settings/reset.scss';
+@import './settings/var.scss';
+@import './dashboard/dashboard.scss';
+@import './navbar/navbar.scss';
+@import './contact/contact.scss';
+@import './contacts/contacts.scss';
+
+
+
+// .color{
+//     color: $app-green;
+// }
+
+// @include displayFlex(row);
+//   border-top: 1px solid $faded-bluish-border;
+
+
+// @include mediaMaxWidth(800px) {
+//     top: -115px;
+//     right: 97px;
+//     }
