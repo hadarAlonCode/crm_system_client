@@ -13,7 +13,7 @@ class Dashboard extends Component {
             <div className="dashboard__container">
                 <Router>
                     <NavBar history={history} />
-                    <div>
+                    <div className="dashboard">
                         <Route exact path={DASHBOARD_OVERVIEW} component={Overview} />
                         <Route exact path={DASHBOARD_TASKS} component={Tasks} />
                         <Route exact path={DASHBOARD_CONTACTS} component={Contacts} />

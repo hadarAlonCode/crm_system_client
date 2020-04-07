@@ -13,6 +13,19 @@ class NavBar extends Component {
         }
     }
 
+    componentDidMount() {
+        const { tabs } = this.state
+        for (let tab of tabs) {
+            if (window.location.pathname.includes(tab.toLowerCase())) {
+                this.setState({
+                    selected_tab: tab
+                })
+            }
+        }
+
+
+    }
+
 
     // shouldComponentUpdate() {
     //     console.log(window.location.pathname)

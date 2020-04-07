@@ -1,8 +1,8 @@
 .contact__container{
     @include displayFlex(row, unset, center);
     padding: 20px;
-    margin: 15px;
-    width: 100%;
+    margin-top: 15px;
+    width: 98%;
     font-size: 18px;
     background-color: rgba(175, 159, 159, 0.192);
     border-radius: 5px;

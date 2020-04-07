@@ -64,3 +64,24 @@ table {
     box-sizing: border-box;
     
 }
+
+
+  *::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* Track */
+  *::-webkit-scrollbar-track {
+    background: #3d4c54
+  }
+   
+  /* Handle */
+  *::-webkit-scrollbar-thumb {
+    background: rgba(185, 182, 182, 0.733);
+    // border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  *::-webkit-scrollbar-thumb:hover {
+    background: #f1f1f1d8; 
+  }
