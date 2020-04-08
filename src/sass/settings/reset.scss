@@ -16,6 +16,7 @@ time, mark, audio, video {
  padding: 0;
  border: 0;
  font-size: 100%;
+
  font: inherit;
  vertical-align: baseline;
  box-sizing: border-box;
@@ -29,8 +30,8 @@ footer, header, hgroup, menu, nav, section {
 
 body {
  line-height: 1;
-
  overflow-x: hidden;
+ 
  font-family: 'Montserrat', sans-serif!important;
  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
  
@@ -60,28 +61,34 @@ table {
  border-collapse: collapse;
  border-spacing: 0;
 }
+
+input {
+  font-family: 'Montserrat', sans-serif!important;
+
+}
 *{
     box-sizing: border-box;
+   
     
 }
 
 
   *::-webkit-scrollbar {
-    width: 15px;
+    width: 20px;
   }
   
   /* Track */
   *::-webkit-scrollbar-track {
-    background: #3d4c54
+    background: #e6ab9af3 
   }
    
   /* Handle */
   *::-webkit-scrollbar-thumb {
-    background: rgba(185, 182, 182, 0.733);
+    background: #CC5333
     // border-radius: 20px;
   }
   
   /* Handle on hover */
   *::-webkit-scrollbar-thumb:hover {
-    background: #f1f1f1d8; 
+    // background: #f1f1f1d8; 
   }

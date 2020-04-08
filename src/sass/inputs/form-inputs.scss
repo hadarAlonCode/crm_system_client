@@ -1,0 +1,36 @@
+.input__container{
+    padding: 10px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    position: relative;
+
+
+    h3{
+        font-weight: 500;
+        padding-bottom: 5px;
+
+    }
+
+    input {
+        border: unset;
+        border-bottom: 2px solid $strong;
+        box-shadow: unset;
+        height: 30px;
+        width: 200px;
+        font-size: 15px;
+    }
+
+    input:focus{
+        border-bottom: 2px solid $S_light;
+ 
+    }
+
+    .validation_error{
+        position: absolute;
+        bottom:-2px;
+        color: $light;
+        font-size: 14px;
+    }
+
+
+}

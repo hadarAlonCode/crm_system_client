@@ -6,10 +6,6 @@
 
 }
 
-.contacts__nav{
-     height: 80px;
-     background-color: #3d4c54
-}
 
 .contacts__scroll__container{
      @include displayFlex(column, unset, center);

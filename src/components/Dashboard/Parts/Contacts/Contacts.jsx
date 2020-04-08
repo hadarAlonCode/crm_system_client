@@ -3,6 +3,8 @@ import demo_contacts from '../../../../tools/demo/demo_contacts';
 import Contact from './Parts/Contact';
 import { getContactsPagination } from '../../../../tools/functions/api/contacts_api';
 import InfiniteScroll from 'react-infinite-scroller';
+import ContactNavBar from './Parts/ContactNavBar';
+import FormPopup from '../../../Popups/FormPopup/FormPopup'
 
 
 
@@ -15,7 +17,8 @@ class Contacts extends Component {
             page: 1,
             contacts: [],
             load_page: false,
-            scroll_has_more: false
+            scroll_has_more: false,
+            toggle_add_popup: false
         }
     }
 
@@ -62,25 +65,24 @@ class Contacts extends Component {
                     scroll_has_more: true,
                     page: page + 1
                 })
-
-
             }
-
-
-
         })
+    }
 
-
+    toggle_add_popup = (boolean) => {
+        this.setState({
+            toggle_add_popup: boolean
+        })
     }
 
 
     render() {
-        const { contacts, load_page, scroll_has_more } = this.state
-        console.log(scroll_has_more, "scroll_has_more", contacts)
+        const { contacts, load_page, scroll_has_more, toggle_add_popup } = this.state
         return (
             load_page ?
                 <div>
-                    <div className="contacts__nav"></div>
+                    <ContactNavBar openAddPopup={this.toggle_add_popup} />
+
                     <div className="contacts__container">
                         <InfiniteScroll
                             className="contacts__scroll__container"
@@ -95,6 +97,16 @@ class Contacts extends Component {
                         </InfiniteScroll>
 
                     </div>
+
+                    {toggle_add_popup ?
+
+                        <FormPopup form={"AddClientForm"} closePopUp={() => this.toggle_add_popup(false)} />
+
+                        : null
+
+                    }
+
+
                 </div>
                 : null
         );

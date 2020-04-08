@@ -1,0 +1,49 @@
+.add__contact__popup__container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: 99999999;
+    display: flex;
+    justify-content: center;
+    
+    transition: 0.2s all;
+
+    //class-not-active:
+    // opacity: 0;
+    // pointer-events: none;
+
+    //class - active:
+    opacity: 1;
+    pointer-events: all;
+
+    .overlay{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        background: rgba(0, 0, 0, 0.465);
+    }
+}
+
+.add__contact__popup__inner__container{
+    border-radius: 5px;
+    margin-top: 20%;
+    box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.8);
+    background-color: #ffffff;
+    width: 600px;
+    height: max-content;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    z-index: 9999999;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+
+    h2{
+        font-weight: bold;
+    }
+}

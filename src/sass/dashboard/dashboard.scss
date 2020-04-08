@@ -1,7 +1,7 @@
 .dashboard__container{
     @include displayFlex('row');
     background-color: $main_background;
-    color: white;
+    color: rgb(0, 0, 0);
 };
 
 .dashboard{

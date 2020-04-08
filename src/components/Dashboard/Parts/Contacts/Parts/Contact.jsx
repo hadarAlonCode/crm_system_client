@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 
@@ -10,9 +11,11 @@ class Contact extends Component {
             <Fade >
 
                 <div className="contact__container">
-                    <div>{contact.img ? <img src={contact.img} alt="Smiley face" height="42" width="42"></img> : <i class="fas fa-user-circle"></i>}
+                    <div>
+                        <div className="icon__container">{contact.img ? <img src={contact.img} alt="Smiley face" height="42" width="42"></img> : <i class="fas fa-user-circle"></i>} </div>
+                        <div className="name__container">{contact.name ? contact.name : "-"}</div>
                     </div>
-                    <div>{contact.name ? contact.name : "-"}</div>
+
                     <div>{contact.email ? contact.email : "-"}</div>
                     <div>{contact.company ? contact.company : "-"}</div>
                     <div>{contact.status ? contact.status : "-"}</div>
