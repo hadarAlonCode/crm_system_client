@@ -9,6 +9,7 @@
     cursor: pointer;
     transition: 0.5s;
     position: relative;
+    justify-content: unset;
 
   
     .name__container{
@@ -25,11 +26,14 @@
        
     }
 
-    div{
+    .conatct_text{
         // margin-right: 10px;
-        // width: calc(90% / 5);
-        @include displayFlex(row, start, center);
-        
+        width: calc(100% / 4);
+        @include displayFlex(row, start, center);  
+    }
+
+    .conatct_company{
+        padding-left: 40px;
     }
 
     i{
