@@ -56,6 +56,16 @@ class TextInput extends Component {
             }
 
 
+        } else if (state_name === "phone") {
+
+
+            this.setState({
+                is_validate: true
+            })
+
+
+
+
         } else {
 
             if (value === '') {

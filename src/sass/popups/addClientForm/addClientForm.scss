@@ -1,0 +1,10 @@
+.add__client__form__container{
+     max-width: 470px;
+
+    .form__inputs__container{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

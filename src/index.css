@@ -148,7 +148,6 @@ input {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  padding-right: 20%;
   margin-top: 15px;
   width: 98%;
   background-color: #662d5b41;
@@ -243,7 +242,7 @@ input {
   margin-top: 200px;
   box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.8);
   background-color: #ffffff;
-  width: 600px;
+  min-width: 200px;
   height: max-content;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -254,6 +253,14 @@ input {
   padding: 20px; }
   .add__contact__popup__inner__container h2 {
     font-weight: bold; }
+
+.add__client__form__container {
+  max-width: 470px; }
+  .add__client__form__container .form__inputs__container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
 
 .input__container {
   padding: 10px;
@@ -275,14 +282,17 @@ input {
   .input__container .validation_error {
     position: absolute;
     bottom: -2px;
-    color: #CC5333;
-    font-size: 14px; }
+    color: red;
+    font-size: 11px; }
 
 .select__box__container {
   padding: 10px;
   padding-bottom: 15px;
   padding-left: 0px;
   position: relative; }
+  .select__box__container h3 {
+    font-weight: 500;
+    padding-bottom: 5px; }
 
 .select__box__icon {
   margin-left: 4px; }
@@ -299,7 +309,8 @@ input {
   position: relative; }
   .selected__box ul {
     position: absolute;
-    height: 300px; }
+    height: fit-content;
+    max-height: 150px; }
     .selected__box ul li {
       background-color: #ffffff; }
 
@@ -314,6 +325,11 @@ input {
   position: relative;
   height: 30px;
   width: 200px; }
+  .header__select input {
+    border: unset;
+    box-shadow: unset;
+    width: 180px;
+    font-size: 15px; }
 
 .header__select:focus {
   border-bottom: 2px solid #ff7c57; }
@@ -321,8 +337,7 @@ input {
 #selected__box--off {
   transform: scaleY(0);
   transition: transform 0.2s;
-  transform-origin: top;
-  height: 300px; }
+  transform-origin: top; }
 
 #selected__box--off li {
   width: 100%;
@@ -344,8 +359,7 @@ input {
   transition: transform 0.2s;
   transform-origin: top;
   margin-bottom: 31px;
-  width: 100%;
-  height: 300px; }
+  width: 100%; }
 
 #selected__box--active li {
   width: 100%;

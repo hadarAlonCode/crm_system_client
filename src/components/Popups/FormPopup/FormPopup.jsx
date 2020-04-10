@@ -15,7 +15,7 @@ class FormPopup extends Component {
                     <div className="add__contact__popup__inner__container">
 
                         {form === "AddClientForm" ?
-                            <AddClientForm />
+                            <AddClientForm closePopUp={closePopUp} />
                             : null
                         }
 

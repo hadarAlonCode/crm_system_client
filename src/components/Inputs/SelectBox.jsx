@@ -28,23 +28,42 @@ class SelectBox extends Component {
     selectOption = option => {
         const { updateForm, state_name } = this.props;
 
-        // // update the select in the select array
-        updateForm(state_name, option);
+        if (option === "Clear Select") {
+            updateForm(state_name, "");
+            this.setState({
+                selected_val: ""
+            })
+
+        } else {
+            updateForm(state_name, option);
+            this.setState({
+                selected_val: option
+            })
+
+        }
 
         this.toggle();
-        this.setState({
-            selected_val: option
-        })
+
     };
 
 
     handleChange = (e) => {
+        const { selected } = this.state;
+
         let value = e.target.value
         this.match(value)
+
+        if (selected) {
+            this.setState({
+                selected: false
+            });
+        }
 
         this.setState({
             selected_val: value
         })
+
+
     }
 
 
@@ -89,10 +108,11 @@ class SelectBox extends Component {
 
     render() {
         const { selected, selected_val, options } = this.state;
-        const { state_value, state_name } = this.props
+        const { state_value, state_name, title_text } = this.props
 
         return (
             <div className="select__box__container" ref={this.setWrapperRef}>
+                <h3>{title_text}</h3>
                 <section className="selected__box" >
                     <header onClick={this.toggle} className="header__select">
 
