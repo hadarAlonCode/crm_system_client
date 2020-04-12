@@ -5,19 +5,20 @@ import AddClientForm from '../../Forms/AddClientForm/AddClientForm';
 //Popup container for Forms & Alerst
 
 
-class FormPopup extends Component {
+class MessagePopup extends Component {
     render() {
-        const { closePopUp, form } = this.props
+        const { closePopUp, okBtn, message } = this.props
         return (
-            <div className="main__popup__container">
+            <div className="main__popup__container message__popup">
                 <div onClick={() => closePopUp()} className="overlay"></div>
-                <Fade top >
+                <Fade >
                     <div className="main__popup__inner__container">
 
-                        {form === "AddClientForm" ?
-                            <AddClientForm closePopUp={closePopUp} />
-                            : null
-                        }
+                        <div>{message}</div>
+                        <div>
+                            <button className="btn">Ok</button>
+                            <button className="btn">Cancle</button>
+                        </div>
 
                     </div>
                 </Fade>
@@ -27,4 +28,4 @@ class FormPopup extends Component {
     }
 }
 
-export default FormPopup;
+export default MessagePopup;

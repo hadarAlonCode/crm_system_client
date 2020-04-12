@@ -92,3 +92,24 @@ input {
   *::-webkit-scrollbar-thumb:hover {
     // background: #f1f1f1d8; 
   }
+
+
+  .btn{
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif!important;
+
+    border: none;
+    background: linear-gradient(to right, #23074d, #cc5333);
+    color: white;
+    padding: 10px;
+    transition: 0.2s;
+    border-radius: 3px;
+    opacity: 1;
+  }
+
+  .btn:hover{
+    transition: 0.2s;
+    opacity: 0.9;
+
+
+  }

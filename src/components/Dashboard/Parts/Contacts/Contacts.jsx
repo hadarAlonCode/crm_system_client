@@ -5,6 +5,7 @@ import { getContactsPagination } from '../../../../tools/functions/api/contacts_
 import InfiniteScroll from 'react-infinite-scroller';
 import ContactNavBar from './Parts/ContactNavBar';
 import FormPopup from '../../../Popups/FormPopup/FormPopup'
+import ContactSideBar from './Parts/ContactSideBar/ContactSideBar';
 
 
 
@@ -18,7 +19,8 @@ class Contacts extends Component {
             contacts: [],
             load_page: false,
             scroll_has_more: false,
-            toggle_add_popup: false
+            toggle_add_popup: false,
+            selected_contact: {}
         }
     }
 
@@ -69,19 +71,61 @@ class Contacts extends Component {
         })
     }
 
-    toggle_add_popup = (boolean) => {
+    toggleAddPopup = (boolean) => {
         this.setState({
             toggle_add_popup: boolean
         })
     }
 
+    toggleSideBar = () => {
+        const { toggle_side_bar } = this.state
+        this.setState({
+            toggle_side_bar: !toggle_side_bar
+        })
+
+        let contacts__scroll__container = document.getElementsByClassName("contacts__scroll__container");
+
+        if (!toggle_side_bar) {
+            contacts__scroll__container[0].style.width = 'calc(100% - 305px)';
+        } else {
+            contacts__scroll__container[0].style.width = '100%';
+
+        }
+    }
+
+    selectedContact = (contact) => {
+        this.setState({
+            selected_contact: contact
+        })
+
+        this.toggleSideBar()
+
+    }
+
+
+    editContactdata = (state_name, val) => {
+        const {selected_contact} = this.state
+
+        let body ={
+            [state_name]: val,
+            _id: selected_contact._id
+        }
+
+        console.log(body)
+        //update server -> update in the edit mode
+
+        //return true
+
+    }
+
+
 
     render() {
-        const { contacts, load_page, scroll_has_more, toggle_add_popup } = this.state
+        const { contacts, load_page, scroll_has_more, toggle_add_popup, toggle_side_bar, selected_contact } = this.state
         return (
             load_page ?
-                <div>
-                    <ContactNavBar openAddPopup={this.toggle_add_popup} />
+                <div className="contacts__page__container">
+                    <ContactNavBar openAddPopup={this.toggleAddPopup} />
 
                     <div className="contacts__container">
                         <InfiniteScroll
@@ -92,7 +136,7 @@ class Contacts extends Component {
                             useWindow={false}
                         >
                             {contacts.map(contact => {
-                                return <Contact contact={contact} />
+                                return <Contact contact={contact} selectedContact={this.selectedContact} />
                             })}
                         </InfiniteScroll>
 
@@ -100,12 +144,12 @@ class Contacts extends Component {
 
                     {toggle_add_popup ?
 
-                        <FormPopup form={"AddClientForm"} closePopUp={() => this.toggle_add_popup(false)} />
+                        <FormPopup form={"AddClientForm"} closePopUp={() => this.toggleAddPopup(false)} />
 
                         : null
-
                     }
 
+                    <ContactSideBar editContactdata={this.editContactdata} toggle_side_bar={toggle_side_bar} contact={selected_contact} />
 
                 </div>
                 : null

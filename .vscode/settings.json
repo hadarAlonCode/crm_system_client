@@ -1,0 +1,6 @@
+{
+    "explorer.autoReveal": true,
+    "javascript.autoClosingTags": true,
+    "javascript.suggestionActions.enabled": true,
+    "javascript.preferences.renameShorthandProperties": true
+}

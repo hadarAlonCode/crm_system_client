@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import validator from 'validator';
 
-class TextInput extends Component {
+class EditContactInput extends Component {
 
     constructor() {
         super()
         this.state = {
             value: "",
-            is_validate: true
+            is_validate: true,
+            edit_mode: false
         }
     }
 
@@ -17,20 +18,21 @@ class TextInput extends Component {
 
         if (state_value) {
             this.setState({
-                vlaue: state_value
+                value: state_value
             })
         }
     }
 
 
     componentDidUpdate(prevProps) {
+        const { state_value } = this.props
 
-        console.log(this.props.check_validation)
+        if (prevProps.state_value != state_value) {
 
-        if (prevProps.check_validation !== this.props.check_validation) {
-            if (this.props.check_validation) {
-                this.validation()
-            }
+            this.setState({
+                value: state_value
+            })
+
         }
 
     }
@@ -47,6 +49,8 @@ class TextInput extends Component {
     validation = () => {
         const { value } = this.state
         const { state_name } = this.props
+
+        console.log(state_name)
 
         if (state_name === "email") {
 
@@ -118,14 +122,24 @@ class TextInput extends Component {
     }
 
 
-    handleBlur = () => {
+    handleSubmit = () => {
 
-        const { state_name, state_value, updateForm } = this.props
+        const { state_name, state_value, editContactdata } = this.props
         const { value } = this.state
         let validation_result = this.validation()
         if (validation_result) {
-            updateForm(state_name, value)
+            
+          let update_res = editContactdata(state_name, value)
+          if(update_res.ok){
+              
+            this.setState({
+                edit_mode: false
+            }) 
+          }
+ 
         }
+
+        //close edit mode
 
     }
 
@@ -135,30 +149,68 @@ class TextInput extends Component {
         })
     }
 
+    toggleEditMode = () => {
+        const { edit_mode } = this.state
+
+        this.setState({
+            edit_mode: !edit_mode
+        })
+    }
+
 
 
     render() {
         const { state_name, state_value, err_text, title_text } = this.props
-        const { value, is_validate } = this.state
+        const { value, is_validate, edit_mode } = this.state
 
         return (
             <div className="input__container">
                 {title_text ? <h3>{title_text}</h3> : null}
-                <input
-                    type="text"
-                    value={value}
-                    onChange={(e) => this.handleChange(e)}
-                    onBlur={() => this.handleBlur()}
-                    onFocus={() => this.handleFocus()}
-                ></input>
 
-                {is_validate ?
-                    null :
-                    <div className="validation_error">{err_text}</div>
+
+                {edit_mode ?
+
+                    <div>
+                        <input
+                            type="text"
+                            value={value}
+                            onChange={(e) => this.handleChange(e)}
+                            onFocus={() => this.handleFocus()}
+                        ></input>
+
+                        {is_validate ?
+                            null :
+                            <div className="validation_error">{err_text}</div>
+                        }
+
+                        <div>
+                            <button onClick={() => this.handleSubmit()}>Ok</button>
+                            <button onClick={() => this.toggleEditMode()}>Cancle</button>
+                        </div>
+                    </div>
+
+                    :
+
+                    <div>
+
+                        <input
+                            type="text"
+                            value={value}
+                            onChange={(e) => this.handleChange(e)}
+                            onFocus={() => this.handleFocus()}
+                            disabled
+                        ></input>
+
+                        <button onClick={() => this.toggleEditMode()}>EDIT</button>
+
+                    </div>
                 }
+
+
+
             </div>
         );
     }
 }
 
-export default TextInput;
+export default EditContactInput;

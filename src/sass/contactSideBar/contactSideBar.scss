@@ -1,0 +1,30 @@
+.contact__side__bar__container{
+    height: calc( 100vh - 80px);
+    margin-top:80px ;
+    width: 320px;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 15px;
+
+    transition: transform 0.2s;
+    transform-origin: right;
+    transform: scaleX(1);
+}
+
+.contact__side__bar__container--off{
+    transform: scaleX(0);
+    transition: transform 0.2s;
+    transform-origin: right;
+
+}
+
+.contact__info__container  {
+    section{
+        padding: 10px;
+        padding-left: 0px;
+
+    }
+    
+}
