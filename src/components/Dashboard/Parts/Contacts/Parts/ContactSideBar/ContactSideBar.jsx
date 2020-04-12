@@ -5,13 +5,15 @@ import moment from "moment"
 class ContactSideBar extends Component {
     render() {
 
-        const {toggle_side_bar, contact, editContactdata} = this.props
+        const {toggle_side_bar, contact, editContactdata, toggleSideBar} = this.props
         console.log(contact)
 
         return (
             <div className={toggle_side_bar ? "contact__side__bar__container" : "contact__side__bar__container contact__side__bar__container--off"}>
+                <div onClick={()=>toggleSideBar()} className="exit__side__bar"><i class="fas fa-chevron-right"></i></div>
+           
                 <div className="contact__side__bar__title__container">
-                    <div className="icon__container">{contact.img ? <img src={contact.img} alt="Smiley face" height="42" width="42"></img> : <i class="fas fa-user-circle"></i>} </div>
+                    <div className="icon__container">{contact.img ? <img src={contact.img} alt="Smiley face" height="42" width="42"></img> : <i className="fas fa-user-circle"></i>} </div>
                     <h2>Contact Info</h2>
                 </div>
                 <div className="contact__info__container">
@@ -33,21 +35,21 @@ class ContactSideBar extends Component {
 
                     <section>
 
-                        <EditContactInput err_text="Please enter a valid phone number" state_name="phone" title_text="Phone" state_value={contact.phone ? contact.phone : "-"} />
+                        <EditContactInput editContactdata={editContactdata} err_text="Please enter a valid phone number" state_name="phone" title_text="Phone" state_value={contact.phone ? contact.phone : "-"} />
 
                     </section>
 
 
                     <section>
-                        <h3>Country</h3>
-                        <p>{contact.country ? contact.country : "-"}</p>
-                        <button>EDIT</button>
+
+                        <EditContactInput editContactdata={editContactdata} state_name="country" title_text="Country" state_value={contact.country ? contact.country : "-"} />
+
                     </section>
 
 
                     <section>
 
-                        <EditContactInput err_text="Please enter company name" state_name="company" title_text="Company" state_value={contact.company ? contact.company : "-"} />
+                        <EditContactInput  editContactdata={editContactdata} err_text="Please enter company name" state_name="company" title_text="Company" state_value={contact.company ? contact.company : "-"} />
 
 
                     </section>
@@ -62,15 +64,14 @@ class ContactSideBar extends Component {
 
                     <section>
 
-                        <h3>Status</h3>
-                        <p>{contact.status ? contact.status : "-"}</p>
-                        <button>EDIT</button>
+                    <EditContactInput editContactdata={editContactdata} state_name="status" title_text="Status" state_value={contact.status ? contact.status : "-"} />
+
                     </section>
 
 
 
                     <section>
-                        <h3>First Contacted</h3>
+                        <h3 className="edit__title">First Contacted</h3>
                         <p>{contact.firstContact ? moment(contact.firstContact).format('L') : "-"}</p>
                     </section>
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 class ContactNavBar extends Component {
     render() {
+        
         const { openAddPopup } = this.props
         return (
             <div className="contacts__nav">

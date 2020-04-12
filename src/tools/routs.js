@@ -6,5 +6,7 @@ export const DASHBOARD_CONTACTS = '/dashboard/contacts'
 
 export const CONTACT_CREATE = '/contact/create'
 export const CONTACT_UPDATE = '/contact/update'
+export const CONTACT_GET_ALL = '/contact/get'
+
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import demo_contacts from '../../../../tools/demo/demo_contacts';
 import Contact from './Parts/Contact';
-import { getContactsPagination } from '../../../../tools/functions/api/contacts_api';
+import { getContactsPagination, updateContact } from '../../../../tools/functions/api/contacts_api';
 import InfiniteScroll from 'react-infinite-scroller';
 import ContactNavBar from './Parts/ContactNavBar';
 import FormPopup from '../../../Popups/FormPopup/FormPopup'
@@ -77,6 +77,8 @@ class Contacts extends Component {
         })
     }
 
+  
+
     toggleSideBar = () => {
         const { toggle_side_bar } = this.state
         this.setState({
@@ -94,27 +96,55 @@ class Contacts extends Component {
     }
 
     selectedContact = (contact) => {
+        const {selected_contact , toggle_side_bar} = this.state
         this.setState({
             selected_contact: contact
         })
 
-        this.toggleSideBar()
+        if(contact._id === selected_contact._id ){
+            this.toggleSideBar()
+        }
+
+        if(!toggle_side_bar){
+            this.toggleSideBar()
+        }
+
+      
 
     }
 
 
-    editContactdata = (state_name, val) => {
+    editContactdata = async (state_name, val) => {
         const {selected_contact} = this.state
 
         let body ={
             [state_name]: val,
-            _id: selected_contact._id
         }
 
-        console.log(body)
-        //update server -> update in the edit mode
+        let update = await updateContact(body ,  selected_contact._id)
+        if(update.ok){
+            this.setState({
+                selected_contact: update.result
+            }) 
 
-        //return true
+            this.editContactsAfterUpdate(update.result)
+
+            return update
+        }
+
+    }
+
+
+    editContactsAfterUpdate =(update_contact)=>{
+
+        const {  contacts } = this.state
+        let copy_contacts = JSON.parse(JSON.stringify(contacts))
+        let index = copy_contacts.findIndex(contact => contact._id === update_contact._id)
+        copy_contacts.splice(index, 1, update_contact);
+
+        this.setState({
+            contacts: copy_contacts
+        })
 
     }
 
@@ -125,8 +155,7 @@ class Contacts extends Component {
         return (
             load_page ?
                 <div className="contacts__page__container">
-                    <ContactNavBar openAddPopup={this.toggleAddPopup} />
-
+                    <ContactNavBar  openAddPopup={this.toggleAddPopup} />
                     <div className="contacts__container">
                         <InfiniteScroll
                             className="contacts__scroll__container"
@@ -139,6 +168,7 @@ class Contacts extends Component {
                                 return <Contact contact={contact} selectedContact={this.selectedContact} />
                             })}
                         </InfiniteScroll>
+                    
 
                     </div>
 
@@ -149,8 +179,7 @@ class Contacts extends Component {
                         : null
                     }
 
-                    <ContactSideBar editContactdata={this.editContactdata} toggle_side_bar={toggle_side_bar} contact={selected_contact} />
-
+                    <ContactSideBar toggleSideBar={this.toggleSideBar} editContactdata={this.editContactdata} toggle_side_bar={toggle_side_bar} contact={selected_contact} />
                 </div>
                 : null
         );

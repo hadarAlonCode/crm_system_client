@@ -45,7 +45,8 @@ q:before, q:after {
 
 button {
   cursor: pointer;
-  border: none; }
+  border: none;
+  font-family: "Montserrat", sans-serif !important; }
 
 button:focus {
   outline: none; }
@@ -95,7 +96,7 @@ input {
   flex-direction: "row";
   justify-content: "unset";
   align-items: "unset";
-  background-color: #e2c29c46;
+  background-color: #dbcbb746;
   color: black; }
 
 .dashboard {
@@ -175,10 +176,11 @@ input {
     font-weight: 500;
     padding-left: 20px; }
   .contact__container .icon__container {
-    border: 4px solid #ff7c57;
+    border: 1px solid white;
     border-radius: 50%;
     color: #23074d;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); }
+    box-shadow: 0px 0px 0px 2px #ff7c57;
+    background-color: transparent; }
   .contact__container .conatct_text {
     width: calc(100% / 4);
     display: flex;
@@ -238,7 +240,7 @@ input {
 
 .main__popup__container {
   position: absolute;
-  width: 100vw;
+  width: calc(100vw - 150px);
   height: 100vh;
   top: 0px;
   left: 0px;
@@ -305,16 +307,89 @@ input {
   padding: 15px;
   transition: transform 0.2s;
   transform-origin: right;
-  transform: scaleX(1); }
+  transform: scaleX(1);
+  overflow-x: hidden;
+  overflow-y: auto; }
+  .contact__side__bar__container .exit__side__bar {
+    position: absolute;
+    right: 18px;
+    top: 29px;
+    font-size: 25px;
+    color: #CC5333;
+    cursor: pointer; }
 
 .contact__side__bar__container--off {
   transform: scaleX(0);
   transition: transform 0.2s;
   transform-origin: right; }
 
-.contact__info__container section {
-  padding: 10px;
-  padding-left: 0px; }
+.contact__info__container {
+  border-top: 1px solid rgba(0, 0, 0, 0.288);
+  padding-top: 30px; }
+  .contact__info__container section {
+    padding-bottom: 15px;
+    padding-bottom: 27px;
+    padding-left: 0px; }
+    .contact__info__container section input:disabled {
+      background-color: transparent;
+      border-bottom: unset; }
+    .contact__info__container section .edit__input__and__btn {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: end; }
+    .contact__info__container section .btn__container {
+      display: flex;
+      flex-direction: column;
+      text-align: end; }
+    .contact__info__container section .edit__btn {
+      background-color: transparent;
+      color: #CC5333; }
+    .contact__info__container section .edit__ok__btn {
+      background-color: transparent;
+      color: #CC5333;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-align: end; }
+    .contact__info__container section .edit__cancle__btn {
+      background-color: transparent;
+      color: #5f0f4e; }
+    .contact__info__container section .input__container {
+      padding: unset;
+      padding-bottom: 3px; }
+    .contact__info__container section .validation_error {
+      bottom: -9px; }
+    .contact__info__container section .select__box__container {
+      padding: unset; }
+      .contact__info__container section .select__box__container input {
+        border-bottom: 1px solid #5f0f4e; }
+      .contact__info__container section .select__box__container .selected__box {
+        padding: 0px; }
+      .contact__info__container section .select__box__container .header__select {
+        width: 188px; }
+        .contact__info__container section .select__box__container .header__select .select__box__icon {
+          margin-left: -5px; }
+    .contact__info__container section .edit__title {
+      font-weight: 500;
+      padding-bottom: 15px; }
+
+.contact__side__bar__title__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: unset;
+  align-items: center;
+  padding: 8px;
+  padding-left: 0px;
+  padding-bottom: 25px; }
+  .contact__side__bar__title__container .icon__container {
+    margin-right: 10px;
+    font-size: 35px;
+    border: 1px solid white;
+    border-radius: 50%;
+    color: #23074d;
+    box-shadow: 0px 0px 0px 2px #ff7c57;
+    background-color: transparent; }
 
 .input__container {
   padding: 10px;

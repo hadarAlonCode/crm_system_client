@@ -1,6 +1,7 @@
 .main__popup__container{
     position: absolute;
-    width: 100vw;
+    // width: 100vw;
+    width: calc(100vw - 150px);
     height: 100vh;
     top: 0px;
     left: 0px;

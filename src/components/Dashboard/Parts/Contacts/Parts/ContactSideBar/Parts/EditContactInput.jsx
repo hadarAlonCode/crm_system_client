@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import validator from 'validator';
+import SelectBox from '../../../../../../Inputs/SelectBox';
+import status_options from '../../../../../../../tools/functions/data/status_options';
+import countries_options  from '../../../../../../../tools/functions/data/countries_options';
+
 
 class EditContactInput extends Component {
 
@@ -90,8 +94,6 @@ class EditContactInput extends Component {
             }
 
 
-
-
         } else if (state_name === "name") {
 
             if (value === '') {
@@ -116,30 +118,27 @@ class EditContactInput extends Component {
             })
             return true
         }
-
-
-
     }
 
 
-    handleSubmit = () => {
+    handleSubmit = async () => {
 
-        const { state_name, state_value, editContactdata } = this.props
+        const { state_name, editContactdata } = this.props
         const { value } = this.state
         let validation_result = this.validation()
+
         if (validation_result) {
             
-          let update_res = editContactdata(state_name, value)
+          let update_res = await editContactdata(state_name, value)
           if(update_res.ok){
               
             this.setState({
                 edit_mode: false
             }) 
+          }else{
+              alert("Edit Client Erorr")
           }
- 
         }
-
-        //close edit mode
 
     }
 
@@ -158,6 +157,26 @@ class EditContactInput extends Component {
     }
 
 
+    cancleEdit =()=>{
+        const { state_name, state_value } = this.props
+
+        if (state_value) {
+            this.setState({
+                value: state_value,
+                edit_mode: false
+            })
+        }
+    }
+
+
+    hendleSelect =(name, value)=>{
+        this.setState({
+            value
+        })
+
+        console.log(value, "value")
+    }
+
 
     render() {
         const { state_name, state_value, err_text, title_text } = this.props
@@ -167,31 +186,42 @@ class EditContactInput extends Component {
             <div className="input__container">
                 {title_text ? <h3>{title_text}</h3> : null}
 
-
                 {edit_mode ?
 
-                    <div>
-                        <input
-                            type="text"
-                            value={value}
-                            onChange={(e) => this.handleChange(e)}
-                            onFocus={() => this.handleFocus()}
-                        ></input>
+                
+
+                    <div className="edit__input__and__btn">
+                         {state_name === "country" || state_name === "status" ? 
+
+                            <SelectBox options={state_name === "country" ? countries_options : status_options  }
+                            state_value={value}
+                            state_name={state_name} 
+                            updateForm={this.hendleSelect} />
+
+                        :
+                            <input
+                                type="text"
+                                value={value}
+                                onChange={(e) => this.handleChange(e)}
+                                onFocus={() => this.handleFocus()}
+                            ></input>
+
+                        }
 
                         {is_validate ?
                             null :
                             <div className="validation_error">{err_text}</div>
                         }
 
-                        <div>
-                            <button onClick={() => this.handleSubmit()}>Ok</button>
-                            <button onClick={() => this.toggleEditMode()}>Cancle</button>
+                        <div className="btn__container">
+                            <button className="edit__ok__btn" onClick={() => this.handleSubmit()}>OK</button>
+                            <button className="edit__cancle__btn" onClick={() => this.cancleEdit()}>CANCLE</button>
                         </div>
                     </div>
 
                     :
 
-                    <div>
+                    <div className="edit__input__and__btn">
 
                         <input
                             type="text"
@@ -201,10 +231,11 @@ class EditContactInput extends Component {
                             disabled
                         ></input>
 
-                        <button onClick={() => this.toggleEditMode()}>EDIT</button>
+                        <button className="edit__btn" onClick={() => this.toggleEditMode()}>EDIT</button>
 
                     </div>
                 }
+
 
 
 

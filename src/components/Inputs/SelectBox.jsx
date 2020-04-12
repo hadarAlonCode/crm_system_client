@@ -10,6 +10,32 @@ class SelectBox extends Component {
         }
     }
 
+    componentDidMount() {
+        const { options, state_value } = this.props;
+        this.setState({
+            options: options,
+            selected_val: state_value
+        })
+
+        document.addEventListener("mousedown", this.handleClickOutside);
+    }
+    componentWillUnmount() {
+        document.removeEventListener("mousedown", this.handleClickOutside);
+    }
+
+    setWrapperRef = node => {
+        this.wrapperRef = node;
+    };
+
+
+    handleClickOutside = event => {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.closeSelectedBox();
+        }
+    };
+
+    
+
     toggle = () => {
         const { selected } = this.state;
 
@@ -83,28 +109,7 @@ class SelectBox extends Component {
 
     };
 
-    setWrapperRef = node => {
-        this.wrapperRef = node;
-    };
 
-
-    componentDidMount() {
-        const { options } = this.props;
-        this.setState({
-            options: options
-        })
-
-        document.addEventListener("mousedown", this.handleClickOutside);
-    }
-    componentWillUnmount() {
-        document.removeEventListener("mousedown", this.handleClickOutside);
-    }
-
-    handleClickOutside = event => {
-        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-            this.closeSelectedBox();
-        }
-    };
 
     render() {
         const { selected, selected_val, options } = this.state;

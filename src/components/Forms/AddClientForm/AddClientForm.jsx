@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import TextInput from '../../Inputs/TextInput';
 import EmailInput from '../../Inputs/EmailInput';
 import SelectBox from '../../Inputs/SelectBox';
-import { country_list } from '../../../tools/functions/data/countries';
+import countries_options  from '../../../tools/functions/data/countries_options';
 import { addContact } from '../../../tools/functions/api/contacts_api';
 import MessagePopup from '../../Popups/MessagePopup/MessagePopup';
-const status_options = ["Lead", "Contacted", "Sold", "Lost"]
+import status_options from '../../../tools/functions/data/status_options';
 
 
 class AddClientForm extends Component {
@@ -134,7 +134,7 @@ class AddClientForm extends Component {
                     />
 
                     <SelectBox
-                        options={country_list}
+                        options={countries_options}
                         state_value={form_data["country"]}
                         state_name={"country"}
                         title_text={"Country"}
