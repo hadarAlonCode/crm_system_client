@@ -214,7 +214,7 @@ input {
   padding-bottom: 15px;
   transition: 0.2s; }
 
-.contacts__nav {
+.top__bar__nav {
   height: 80px;
   display: flex;
   flex-direction: row;
@@ -225,16 +225,43 @@ input {
   background: -webkit-linear-gradient(to right, #23074d, #cc5333);
   /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #23074d, #cc5333);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
-  .contacts__nav .add__btn {
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white; }
+  .top__bar__nav .top__bar__search__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: unset;
+    align-items: center; }
+    .top__bar__nav .top__bar__search__container .top__bar__search__icon {
+      padding-left: 20px;
+      padding-right: 20px; }
+      .top__bar__nav .top__bar__search__container .top__bar__search__icon i {
+        font-size: 30px; }
+    .top__bar__nav .top__bar__search__container .top__bar__search__input input {
+      color: black;
+      height: 30px;
+      border-radius: 25px;
+      border: unset;
+      text-indent: 10px; }
+    .top__bar__nav .top__bar__search__container .top__bar__search__input .top__bar__input {
+      width: 0px;
+      opacity: 0;
+      transition: 0.4s;
+      pointer-events: none; }
+    .top__bar__nav .top__bar__search__container .top__bar__search__input .top__bar__input--active {
+      opacity: 1;
+      transition: 0.4s;
+      width: 200px;
+      pointer-events: all; }
+  .top__bar__nav .add__btn {
     background-color: transparent;
     border: unset;
     margin-right: 1.5%; }
-    .contacts__nav .add__btn i {
+    .top__bar__nav .add__btn i {
       font-size: 45px;
       color: white;
       transition: 0.3s; }
-    .contacts__nav .add__btn i:hover {
+    .top__bar__nav .add__btn i:hover {
       color: #23074d;
       transition: 0.3s; }
 

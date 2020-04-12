@@ -214,8 +214,8 @@ class EditContactInput extends Component {
                         }
 
                         <div className="btn__container">
-                            <button className="edit__ok__btn" onClick={() => this.handleSubmit()}>OK</button>
-                            <button className="edit__cancle__btn" onClick={() => this.cancleEdit()}>CANCLE</button>
+                            <button className="edit__ok__btn" onClick={() => this.handleSubmit()}>Ok</button>
+                            <button className="edit__cancle__btn" onClick={() => this.cancleEdit()}>Cancel</button>
                         </div>
                     </div>
 
@@ -231,7 +231,7 @@ class EditContactInput extends Component {
                             disabled
                         ></input>
 
-                        <button className="edit__btn" onClick={() => this.toggleEditMode()}>EDIT</button>
+                        <button className="edit__btn" onClick={() => this.toggleEditMode()}>Edit</button>
 
                     </div>
                 }

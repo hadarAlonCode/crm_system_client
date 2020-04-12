@@ -56,7 +56,7 @@ class ContactSideBar extends Component {
 
                     <section>
 
-                        <EditContactInput err_text={"Please enter position"} state_name="position" title_text="Position" state_value={contact.position ? contact.position : "-"} />
+                        <EditContactInput editContactdata={editContactdata} err_text={"Please enter position"} state_name="position" title_text="Position" state_value={contact.position ? contact.position : "-"} />
 
                     </section>
 

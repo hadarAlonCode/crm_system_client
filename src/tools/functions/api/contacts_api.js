@@ -56,10 +56,10 @@ export const updateContact = (body , _id) => new Promise(resolve => {
 
 
 
-export const searchByName = (body) => new Promise(resolve => {
-    console.log(body);
+export const searchByName = (keyword) => new Promise(resolve => {
+    console.log(keyword);
     
-    axios.get(`${API}/contact/pagination/get`, body).then(res => {
+    axios.get(`${API}/contact/search/name/get?keyword=${keyword}`).then(res => {
         const {
             ok,
             result
@@ -76,23 +76,5 @@ export const searchByName = (body) => new Promise(resolve => {
 
 
 
-// let search =()=>{
-//     let val = 'bar'
-
-//     let char = val.toLowerCase()
-
-//     const p = Array.from(char).reduce((a, v, i) => `${a}[^${char.substr(i)}]*?${v}`, '');
-//     const re = RegExp(char);
-//     console.log(re);
-
-//     let body = {
-//         name: re
-//     }
-
-//     searchByName(body)
-    
-// }
-
-// search()
 
 

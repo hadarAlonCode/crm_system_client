@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import demo_contacts from '../../../../tools/demo/demo_contacts';
 import Contact from './Parts/Contact';
-import { getContactsPagination, updateContact } from '../../../../tools/functions/api/contacts_api';
+import { getContactsPagination, updateContact, searchByName } from '../../../../tools/functions/api/contacts_api';
 import InfiniteScroll from 'react-infinite-scroller';
-import ContactNavBar from './Parts/ContactNavBar';
 import FormPopup from '../../../Popups/FormPopup/FormPopup'
 import ContactSideBar from './Parts/ContactSideBar/ContactSideBar';
+import TopBar from '../../../TopBar/TopBar';
 
 
 
@@ -114,7 +114,7 @@ class Contacts extends Component {
     }
 
 
-    editContactdata = async (state_name, val) => {
+    editContactData = async (state_name, val) => {
         const {selected_contact} = this.state
 
         let body ={
@@ -149,13 +149,47 @@ class Contacts extends Component {
     }
 
 
+    handleSearch = async (keyword) => {
+
+        this.setState({
+            filter_name: keyword
+        })
+
+        window.clearTimeout(this.state.timeout)
+        if (!keyword) {
+
+            //search all
+            this.setState({
+                contacts: [],
+            },()=>{
+                this.getContactsFirstTime()
+            })
+
+        } else {
+            const timeout = setTimeout(async () => {
+                let res = await searchByName(keyword)
+                if (res.ok) {
+                    this.setState({
+                        contacts: res.result,
+                        scroll_has_more: false
+                    })
+                }
+            }, 300);
+            this.setState({
+                timeout
+            })
+
+        }
+    }
+
+
 
     render() {
         const { contacts, load_page, scroll_has_more, toggle_add_popup, toggle_side_bar, selected_contact } = this.state
         return (
             load_page ?
                 <div className="contacts__page__container">
-                    <ContactNavBar  openAddPopup={this.toggleAddPopup} />
+                    <TopBar handleSearch={this.handleSearch}  openAddPopup={this.toggleAddPopup} />
                     <div className="contacts__container">
                         <InfiniteScroll
                             className="contacts__scroll__container"
@@ -179,7 +213,7 @@ class Contacts extends Component {
                         : null
                     }
 
-                    <ContactSideBar toggleSideBar={this.toggleSideBar} editContactdata={this.editContactdata} toggle_side_bar={toggle_side_bar} contact={selected_contact} />
+                    <ContactSideBar toggleSideBar={this.toggleSideBar} editContactdata={this.editContactData} toggle_side_bar={toggle_side_bar} contact={selected_contact} />
                 </div>
                 : null
         );

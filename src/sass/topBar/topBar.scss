@@ -1,0 +1,77 @@
+.top__bar__nav{
+    height: 80px;
+    // background-color: $background;
+    @include displayFlex(row, space-between, center);
+    @include gradient();
+
+    color: white;
+
+   
+
+    .top__bar__search__container{
+
+        @include displayFlex(row, unset, center);
+
+
+        .top__bar__search__icon{
+            padding-left: 20px;
+            padding-right: 20px;
+            
+            i{
+                font-size: 30px
+            }
+        }
+
+
+        .top__bar__search__input{
+
+            input{
+                color: black;
+                height: 30px;
+                border-radius: 25px;
+                border: unset;
+                text-indent: 10px;
+
+            }
+
+            .top__bar__input{
+                width: 0px;
+                opacity: 0;
+                transition: 0.4s;
+                pointer-events: none;
+
+            }
+
+            .top__bar__input--active{
+                opacity: 1;
+                transition: 0.4s;
+                width: 200px;
+                pointer-events: all;
+            }
+
+        }
+
+      
+
+    }
+
+   
+
+    .add__btn{
+        background-color: transparent;
+        border: unset;
+        margin-right: 1.5%;
+
+        i{
+            font-size: 45px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        i:hover{
+            color: $background;
+            transition: 0.3s;
+        }
+    }
+
+}
