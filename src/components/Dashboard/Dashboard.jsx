@@ -5,6 +5,7 @@ import Contacts from './Parts/Contacts/Contacts';
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 import Overview from './Parts/Overview/Overview';
 import { DASHBOARD_OVERVIEW, DASHBOARD_CONTACTS, DASHBOARD_TASKS } from '../../tools/routs';
+import TopBar from '../TopBar/TopBar';
 
 class Dashboard extends Component {
     render() {
@@ -14,6 +15,8 @@ class Dashboard extends Component {
                 <Router>
                     <NavBar history={history} />
                     <div className="dashboard">
+                        <div className="top__nav__back"></div>
+                    
                         <Route exact path={DASHBOARD_OVERVIEW} component={Overview} />
                         <Route exact path={DASHBOARD_TASKS} component={Tasks} />
                         <Route exact path={DASHBOARD_CONTACTS} component={Contacts} />

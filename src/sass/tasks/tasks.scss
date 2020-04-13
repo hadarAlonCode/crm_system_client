@@ -1,0 +1,29 @@
+.tasks__page__container{
+    position: relative;
+
+
+    .tasks__scroll__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 15px;
+        transition: 0.2s;
+    
+        @include mediaMaxWidth(1000px){
+            width: 100vw 
+        }
+    }
+
+    .tasks__page__add__box__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: unset;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 40px;
+        transition: 0.2s;
+    }
+}
+

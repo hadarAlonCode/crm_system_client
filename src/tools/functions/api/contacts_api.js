@@ -1,8 +1,25 @@
 import { API } from "../../keys"
 import axios from 'axios'
-import { CONTACT_CREATE , CONTACT_UPDATE } from "../../routs"
+import { CONTACT_CREATE , CONTACT_UPDATE, CONTACT_GET_ALL } from "../../routs"
 export const getContactsPagination = (limit, page) => new Promise(resolve => {
     axios.get(`${API}/contact/pagination/get?limit=${limit}&page=${page}`).then(res => {
+        const {
+            ok,
+            result
+        } = res.data
+        const output = {
+            ok,
+            result
+        }
+        resolve(output)
+    }).catch(err => {
+        resolve({ ok: false })
+    })
+})
+
+
+export const getAllContacts = () => new Promise(resolve => {
+    axios.get(`${API}${CONTACT_GET_ALL}`).then(res => {
         const {
             ok,
             result

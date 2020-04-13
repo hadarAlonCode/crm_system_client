@@ -62,9 +62,16 @@ class SelectBox extends Component {
 
         } else {
             updateForm(state_name, option);
+
+            if(state_name === "contact"){
             this.setState({
-                selected_val: option
+                selected_val: option.name
             })
+            }else{
+                this.setState({
+                    selected_val: option
+                })
+            }
 
         }
 
@@ -94,14 +101,20 @@ class SelectBox extends Component {
 
 
     match = (s) => {
-        const { options } = this.props;
+        const { options, state_name } = this.props;
 
         let char = s.toLowerCase()
 
         const p = Array.from(char).reduce((a, v, i) => `${a}[^${char.substr(i)}]*?${v}`, '');
         const re = RegExp(p);
+        let new_options
+        if(state_name === "contact"){
+            new_options = options.filter(v => v.name.toLowerCase().match(re));
+        }else{
+            new_options = options.filter(v => v.toLowerCase().match(re));
 
-        let new_options = options.filter(v => v.toLowerCase().match(re));
+        }
+
 
         this.setState({
             options: new_options
@@ -113,7 +126,7 @@ class SelectBox extends Component {
 
     render() {
         const { selected, selected_val, options } = this.state;
-        const { state_value, state_name, title_text } = this.props
+        const { state_value, state_name, title_text, placeholder } = this.props
 
         return (
             <div className="select__box__container" ref={this.setWrapperRef}>
@@ -122,11 +135,12 @@ class SelectBox extends Component {
                     <header onClick={this.toggle} className="header__select">
 
                         {
-                            state_name === "country" ?
+                            state_name === "country" || state_name === "contact"  ? 
 
                                 <input type="text"
                                     value={selected_val ? selected_val : ""}
                                     onChange={(e) => this.handleChange(e)}
+                                    placeholder={placeholder? placeholder : null}
 
                                 ></input>
 
@@ -157,7 +171,7 @@ class SelectBox extends Component {
                                     onClick={() => this.selectOption(option)}
                                     key={index}
                                 >
-                                    <span>{option}</span>
+                                    <span>{state_name === "contact" ? option.name : option}</span>
                                 </li>
                             );
                         })}

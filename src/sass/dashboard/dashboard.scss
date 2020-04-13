@@ -6,4 +6,15 @@
 
 .dashboard{
     width: calc(100vw - 150px);
+    @include mediaMaxWidth(1000px){
+        width: 100vw 
+    }
+}
+
+.top__nav__back{
+    position: absolute;
+    @include gradient();
+    height: 80px;
+    width: 100vw;
+
 }

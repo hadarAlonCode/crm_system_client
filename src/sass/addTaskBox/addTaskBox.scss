@@ -1,0 +1,65 @@
+.add__task__box__container{
+    @include displayFlex(row, space-between, center);
+    padding: 15px;
+    margin-top: 15px;
+    width: 98%;
+    background-color: white;
+    border-radius: 5px;
+    // cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    justify-content: unset;
+
+    input{
+        border: unset;
+        width: 100%;
+    }
+
+    .add__task__box__left{
+        @include displayFlex(row, unset, center);
+        width: 50%;
+        position: relative;
+
+        .add__task__box__icon{
+            margin-right: 20px;
+            color: $background;
+            transition: 0.2s;
+            i{
+                font-size: 25px;
+                cursor: pointer;
+            }
+
+            &:hover{
+                color: $light; 
+                transition: 0.2s;
+            }
+        }
+
+        .add__task__box__input{
+            width: 100%;
+        }
+    }
+
+    
+    .add__task__box__center{
+        @include displayFlex(row, unset, center);
+        width: 25%;
+        position: relative;
+
+        .add__task__box__contact__icon{
+            margin-right: 20px;
+        }
+
+        .add__task__box__contact__input{
+            width: 100%;
+        }
+    }
+
+    .add__task__box__right{
+        @include displayFlex(row, flex-end, center);
+        width: 25%;
+        padding-right: 43px;
+    }
+
+
+}

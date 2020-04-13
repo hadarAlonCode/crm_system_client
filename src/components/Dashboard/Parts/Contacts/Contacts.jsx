@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import demo_contacts from '../../../../tools/demo/demo_contacts';
 import Contact from './Parts/Contact';
 import { getContactsPagination, updateContact, searchByName } from '../../../../tools/functions/api/contacts_api';
 import InfiniteScroll from 'react-infinite-scroller';
@@ -189,7 +188,7 @@ class Contacts extends Component {
         return (
             load_page ?
                 <div className="contacts__page__container">
-                    <TopBar handleSearch={this.handleSearch}  openAddPopup={this.toggleAddPopup} />
+                    <TopBar handleSearch={this.handleSearch} openAddPopup={this.toggleAddPopup} />
                     <div className="contacts__container">
                         <InfiniteScroll
                             className="contacts__scroll__container"

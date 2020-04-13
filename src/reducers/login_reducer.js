@@ -4,7 +4,8 @@ import {
 
 const initialState = {
     username: "hadar",
-    password: ""
+    password: "",
+ 
 }
 
 
@@ -16,11 +17,11 @@ export default function (state = initialState, action) {
                 user: action.payload
             }
 
-        // case SET_USER_DATA: 
-        // return{
-        //     ...state,
-        //     user:action.payload
-        // }
+        case SET_USER_DATA: 
+        return{
+            ...state,
+            user:action.payload
+        }
 
 
         default:

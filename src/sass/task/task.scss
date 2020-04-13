@@ -1,0 +1,56 @@
+.task__container {
+    
+    @include displayFlex(row, space-between, center);
+    padding: 15px;
+    margin-top: 15px;
+    width: 98%;
+    background-color: white;
+    border-radius: 5px;
+    // cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    justify-content: unset;
+
+    .task__left{
+        @include displayFlex(row, unset, center);
+        width: 50%;
+
+        .task__status{
+            margin-right: 20px;
+            i{
+                font-size: 25px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .task__center{
+        @include displayFlex(row, unset, center);
+        width: 25%;
+
+        .task__contact__icon{
+            margin-right: 20px;
+            i{
+                font-size: 25px;
+            }
+        }
+
+    }
+
+    .task__right{
+        @include displayFlex(row, flex-end, center);
+        width: 25%;
+
+        .task__date{
+            margin-right: 40px;
+            
+        }
+
+        .task__menu{
+            i{
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+}

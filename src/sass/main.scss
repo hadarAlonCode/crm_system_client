@@ -11,18 +11,21 @@
 @import './contactSideBar/contactSideBar.scss';
 @import './inputs/form-inputs.scss';
 @import './inputs/selectBox.scss';
+@import './hamburgers/hamburgers.scss';
+@import './tasks/tasks.scss';
+@import './task/task.scss';
+@import './addTaskBox/addTaskBox.scss';
+@import './datePicker/datePicker.scss';
 
 
 
-// .color{
-//     color: $app-green;
-// }
-
-// @include displayFlex(row);
-//   border-top: 1px solid $faded-bluish-border;
 
 
-// @include mediaMaxWidth(800px) {
-//     top: -115px;
-//     right: 97px;
-//     }
+//media screen:
+
+//Bars - under 1000px;
+
+//800px
+
+//560px
+

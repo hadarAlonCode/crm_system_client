@@ -3,6 +3,7 @@
     // background-color: $background;
     @include displayFlex(row, space-between, center);
     @include gradient();
+    z-index: 999;
 
     color: white;
 
@@ -12,18 +13,24 @@
 
         @include displayFlex(row, unset, center);
 
+        @include mediaMaxWidth(1000px){
+            margin-left: auto;
+        }
+
 
         .top__bar__search__icon{
             padding-left: 20px;
             padding-right: 20px;
             
             i{
-                font-size: 30px
+                font-size: 30px;
+               
             }
         }
 
 
         .top__bar__search__input{
+           
 
             input{
                 color: black;
@@ -47,6 +54,9 @@
                 transition: 0.4s;
                 width: 200px;
                 pointer-events: all;
+                @include mediaMaxWidth(1000px){
+                    margin-right: 15px;
+                }
             }
 
         }
@@ -60,10 +70,10 @@
     .add__btn{
         background-color: transparent;
         border: unset;
-        margin-right: 1.5%;
+        margin-right: 20px;
 
         i{
-            font-size: 45px;
+            font-size: 35px;
             color: white;
             transition: 0.3s;
         }
@@ -71,6 +81,25 @@
         i:hover{
             color: $background;
             transition: 0.3s;
+        }
+    }
+}
+
+
+.top__bar__nav__task__page{
+    @include displayFlex(row, unset, center);
+
+    @include mediaMaxWidth(1000px){
+        @include displayFlex(row, flex-end, center);
+    }
+
+
+    .top__bar__icon__container{
+
+        padding: 30px;
+        i{
+            font-size: 30px;
+            cursor: pointer;
         }
     }
 
