@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import { getTasksPagination } from '../../../../tools/functions/api/tasks_api';
+import { getTasksPagination, updateTaskApi , deleteTaskApi } from '../../../../tools/functions/api/tasks_api';
 import TopBar from '../../../TopBar/TopBar';
 import Task from './Parts/Task';
 import AddTaskBox from './Parts/AddTaskBox';
@@ -42,6 +42,10 @@ class Tasks extends Component {
         }
     }
 
+    updateTasksList =()=>{
+        this.getTasksFirstTime()
+    }
+
     getTasks = async () => {
         const { limit, page, tasks } = this.state
         console.log(tasks, "tasks")
@@ -67,7 +71,37 @@ class Tasks extends Component {
 
 
 
+    updateTask = async(task_status , task)=>{
 
+        console.log(task)
+
+        let body ={
+            status : task_status ? false : true
+        }
+
+        let task_id = task._id
+
+        let update = await updateTaskApi(body, task_id)
+        console.log(update)
+    }
+
+
+    deleteTask =  async (delete_task)=>{
+       let task_res = await deleteTaskApi(delete_task._id)
+
+       if(task_res.ok){
+         
+        const { tasks } = this.state
+        let copy_tasks = JSON.parse(JSON.stringify(tasks))
+        let index = copy_tasks.findIndex(task => task._id === delete_task._id)
+        copy_tasks.splice(index, 1);
+
+        this.setState({
+            tasks: copy_tasks
+        })
+
+       }
+    }
 
 
 
@@ -84,7 +118,7 @@ class Tasks extends Component {
                 <TopBar />
 
                 <div className="tasks__page__add__box__container">
-                   <AddTaskBox />
+                   <AddTaskBox updateTasksList={this.updateTasksList} />
                 </div>
                 
                 <div>
@@ -96,7 +130,7 @@ class Tasks extends Component {
                             useWindow={false}
                         >
                             {tasks.map(task => {
-                                return <Task task={task} />
+                                return <Task task={task} updateTask={this.updateTask} deleteTask={this.deleteTask} />
                             })}
                         </InfiniteScroll>
 

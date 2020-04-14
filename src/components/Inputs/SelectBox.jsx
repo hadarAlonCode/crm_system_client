@@ -19,6 +19,19 @@ class SelectBox extends Component {
 
         document.addEventListener("mousedown", this.handleClickOutside);
     }
+
+    componentDidUpdate(prevProps){
+        const {  state_value } = this.props;
+
+        if(prevProps.state_value !==  state_value){
+            this.setState({
+                selected_val: state_value
+            })
+        }
+        
+    }
+
+
     componentWillUnmount() {
         document.removeEventListener("mousedown", this.handleClickOutside);
     }

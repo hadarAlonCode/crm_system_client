@@ -20,20 +20,22 @@ class DateSelect extends Component {
     handleChange = date => {
         const { state_name } = this.props
         this.props.updateForm(state_name, date)
-        this.setState({
-            validation_error:false
-        })
+        // this.setState({
+        //     validation_error:false
+        // })
     }
-    componentWillReceiveProps(nextProps) {
-        const { validate_form, value } = this.props
-        if (nextProps.validate_form !== validate_form) {
-            if (!value) {
-                this.setState({
-                    validation_error: true
-                })
-            }
-        }
-    }
+
+
+    // componentWillReceiveProps(nextProps) {
+    //     const { validate_form, value } = this.props
+    //     if (nextProps.validate_form !== validate_form) {
+    //         if (!value) {
+    //             this.setState({
+    //                 validation_error: true
+    //             })
+    //         }
+    //     }
+    // }
 
 
 
@@ -57,6 +59,8 @@ class DateSelect extends Component {
                     id={value ? 'datepicker__label__active' : ''}
                     className='datepicker__label'>{placeholder}</label>
                 <aside>
+
+                    <i class="fas fa-calendar-alt"></i>
                     <h4>
                         {value ? moment(value).format('DD/MM/YY') : ''}
                     </h4>
@@ -68,11 +72,12 @@ class DateSelect extends Component {
                     onChange={this.handleChange}
                     // locale={he}
                     // maxDate={moment().toDate()}
+                    minDate={moment().toDate()}
                     showYearDropdown
                     yearDropdownItemNumber={45}
                     scrollableYearDropdown = {5}
                 />
-                 {validation_error ? <p className='form__error__msg'>{error}</p> : ''}
+                 {/* {validation_error ? <p className='form__error__msg'>{error}</p> : ''} */}
             </div>
         )
     }

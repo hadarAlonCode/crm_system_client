@@ -69,11 +69,13 @@ input {
 
 /* Track */
 *::-webkit-scrollbar-track {
-  background: #e6ab9af3; }
+  background: #e6ab9af3;
+  border-radius: 20px; }
 
 /* Handle */
 *::-webkit-scrollbar-thumb {
-  background: #CC5333; }
+  background: #CC5333;
+  border-radius: 20px; }
 
 /* Handle on hover */
 .btn {
@@ -1471,7 +1473,9 @@ input {
     align-items: center;
     width: 100%;
     padding-bottom: 15px;
-    transition: 0.2s; }
+    transition: 0.2s;
+    overflow-y: auto;
+    height: calc(100vh - 175px); }
     @media screen and (max-width: 1000px) {
       .tasks__page__container .tasks__scroll__container {
         width: 100vw; } }
@@ -1481,8 +1485,11 @@ input {
     justify-content: unset;
     align-items: center;
     width: 100%;
-    padding-bottom: 40px;
+    padding-bottom: 15px;
     transition: 0.2s; }
+
+.task__container:first-child {
+  margin-top: 0px; }
 
 .task__container {
   display: flex;
@@ -1504,6 +1511,7 @@ input {
     align-items: center;
     width: 50%; }
     .task__container .task__left .task__status {
+      color: #23074d;
       margin-right: 20px; }
       .task__container .task__left .task__status i {
         font-size: 25px;
@@ -1515,6 +1523,7 @@ input {
     align-items: center;
     width: 25%; }
     .task__container .task__center .task__contact__icon {
+      color: #5f0f4e;
       margin-right: 20px; }
       .task__container .task__center .task__contact__icon i {
         font-size: 25px; }
@@ -1526,9 +1535,11 @@ input {
     width: 25%; }
     .task__container .task__right .task__date {
       margin-right: 40px; }
-    .task__container .task__right .task__menu i {
-      font-size: 20px;
-      cursor: pointer; }
+    .task__container .task__right .task__menu {
+      color: #CC5333; }
+      .task__container .task__right .task__menu i {
+        font-size: 20px;
+        cursor: pointer; }
 
 .add__task__box__container {
   display: flex;
@@ -1545,7 +1556,8 @@ input {
   justify-content: unset; }
   .add__task__box__container input {
     border: unset;
-    width: 100%; }
+    width: 100%;
+    font-size: 16px; }
   .add__task__box__container .add__task__box__left {
     display: flex;
     flex-direction: row;
@@ -1573,24 +1585,37 @@ input {
     width: 25%;
     position: relative; }
     .add__task__box__container .add__task__box__center .add__task__box__contact__icon {
-      margin-right: 20px; }
+      color: #5f0f4e;
+      margin-right: 20px;
+      font-size: 25px; }
     .add__task__box__container .add__task__box__center .add__task__box__contact__input {
       width: 100%; }
+      .add__task__box__container .add__task__box__center .add__task__box__contact__input .select__box__container {
+        padding: 0px;
+        padding-left: 0px; }
+        .add__task__box__container .add__task__box__center .add__task__box__contact__input .select__box__container .header__select {
+          border-bottom: 1px solid #5f0f4e2b; }
+        .add__task__box__container .add__task__box__center .add__task__box__contact__input .select__box__container #selected__box--active {
+          width: 200px; }
+        .add__task__box__container .add__task__box__center .add__task__box__contact__input .select__box__container #selected__box--off {
+          width: 200px; }
   .add__task__box__container .add__task__box__right {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     width: 25%;
-    padding-right: 43px; }
+    padding-right: 12px; }
+  .add__task__box__container .task_err {
+    position: absolute;
+    bottom: 6px;
+    font-size: 12px;
+    color: red;
+    left: 55px; }
 
 .options__datepicker {
   position: relative;
-  height: 44px;
-  width: 250px;
-  margin-left: 10px;
-  cursor: pointer;
-  margin-bottom: 30px; }
+  cursor: pointer; }
 
 .datepicker__label {
   color: rgba(0, 0, 0, 0.6);
@@ -1610,8 +1635,8 @@ input {
   margin-right: 10px; }
 
 .react-datepicker-popper {
-  transform: none !important;
-  transform: translate(15px, 35px) !important; }
+  top: -50px !important;
+  left: -60px !important; }
 
 .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
   padding-right: 1px;
@@ -1625,16 +1650,20 @@ input {
   position: absolute;
   display: flex;
   align-items: center;
-  top: 6px;
+  top: -5px;
   cursor: pointer;
   background-color: white;
   height: 36px;
-  width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+  width: 100%; }
+  .options__datepicker aside i {
+    padding-top: 11px;
+    font-size: 25px; }
 
 .options__datepicker aside h4 {
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.6); }
+  color: rgba(0, 0, 0, 0.6);
+  padding-top: 16px;
+  padding-left: 18px; }
 
 .payment__select__hour__active {
   transform: scaleY(1) !important; }
@@ -1705,35 +1734,21 @@ input {
   background-color: #0091ff    !important; }
 
 .react-datepicker__navigation--previous {
-  left: 50px;
+  left: 7px !important;
   border: 0px;
   border-top: 2px solid gray;
   border-left: 2px solid gray;
-  -webkit-transform: rotate(135deg);
-  transform: rotate(135deg); }
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg); }
 
 .react-datepicker__navigation--next {
   right: auto;
-  left: 20px;
+  left: 30px;
   border: 0px;
   border-top: 2px solid gray;
   border-right: 2px solid gray;
-  -webkit-transform: rotate(-135deg);
-  transform: rotate(-135deg); }
-
-.react-datepicker__current-month::after {
-  position: absolute;
-  content: '';
-  border-top: 2px solid gray;
-  border-right: 2px solid gray;
-  -webkit-transform: rotate(-135deg);
-  transform: rotate(-135deg);
-  height: 10px;
-  width: 10px;
-  left: 20px;
-  opacity: 0.3;
-  top: 1px;
-  pointer-events: none; }
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg); }
 
 .react-datepicker__header__dropdown {
   margin-bottom: 10px;
@@ -1746,5 +1761,5 @@ input {
 
 .react-datepicker__year-read-view--down-arrow {
   display: block;
-  top: 2px;
+  top: 20px;
   transform: scale(0.7); }

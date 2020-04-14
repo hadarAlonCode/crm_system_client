@@ -55,10 +55,10 @@ class TopBar extends Component {
 
                 <div className="top__bar__nav top__bar__nav__task__page">  
 
-                      <div className="top__bar__icon__container"> <i class="fas fa-calendar-day"></i></div>
+                      {/* <div className="top__bar__icon__container"> <i class="fas fa-calendar-day"></i></div>
                       <div className="top__bar__icon__container"> <i class="fas fa-calendar-alt"></i> </div>
                       <div className="top__bar__icon__container"><i class="fas fa-calendar-check"></i></div>
-                    
+                     */}
                 </div>
 
                 :

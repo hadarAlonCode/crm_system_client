@@ -81,13 +81,14 @@ input {
   
   /* Track */
   *::-webkit-scrollbar-track {
-    background: #e6ab9af3 
+    background: #e6ab9af3 ;
+    border-radius: 20px;
   }
    
   /* Handle */
   *::-webkit-scrollbar-thumb {
-    background: #CC5333
-    // border-radius: 20px;
+    background: #CC5333;
+    border-radius: 20px;
   }
   
   /* Handle on hover */
