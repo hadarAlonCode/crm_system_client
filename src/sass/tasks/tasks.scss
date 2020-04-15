@@ -18,6 +18,9 @@
         }
 
         @include mediaMaxWidth(900px){
+            height: calc(100vh - 185px);
+        }
+        @include mediaMaxWidth(800px){
             height: calc(100vh - 247px);
         }
     }

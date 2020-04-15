@@ -21,9 +21,15 @@
         .top__bar__search__icon{
             padding-left: 20px;
             padding-right: 20px;
+            @include mediaMaxWidth(440px){
+                padding-right: 10px;
+             }
             
             i{
                 font-size: 30px;
+                @include mediaMaxWidth(370px){
+                    font-size: 25px;
+                 }
                
             }
         }
@@ -57,6 +63,16 @@
                 @include mediaMaxWidth(1000px){
                     margin-right: 15px;
                 }
+
+                @include mediaMaxWidth(440px){
+                    width: 155px;
+                    margin-right: 5px;
+                 }
+
+                 @include mediaMaxWidth(370px){
+                    width: 125px;
+                 }
+            }
             }
 
         }
@@ -72,10 +88,15 @@
         border: unset;
         margin-right: 20px;
 
+       
+
         i{
             font-size: 35px;
             color: white;
             transition: 0.3s;
+            @include mediaMaxWidth(370px){
+                font-size: 25px;
+             }
         }
 
         i:hover{
@@ -83,7 +104,7 @@
             transition: 0.3s;
         }
     }
-}
+
 
 
 .top__bar__nav__task__page{
