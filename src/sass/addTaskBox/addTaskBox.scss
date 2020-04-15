@@ -10,6 +10,15 @@
     position: relative;
     justify-content: unset;
 
+    @include mediaMaxWidth(800px){
+        @include displayFlex(column, unset, unset);
+        border-bottom: 2px solid $light;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+            
+    }
+
 
     input{
         border: unset;
@@ -19,13 +28,22 @@
 
     .add__task__box__left{
         @include displayFlex(row, unset, center);
-        width: 50%;
+        width: 40%;
         position: relative;
+
+        @include mediaMaxWidth(900px){
+            width: 100%;
+            flex-direction: row-reverse;
+        }
 
         .add__task__box__icon{
             margin-right: 20px;
             color: $background;
             transition: 0.2s;
+            @include mediaMaxWidth(900px){
+                margin-right: 0px;
+            }
+
             i{
                 font-size: 25px;
                 cursor: pointer;
@@ -38,15 +56,25 @@
         }
 
         .add__task__box__input{
-            width: 100%;
+            width: 90%;
+
+            @include mediaMaxWidth(900px){
+                margin-right: auto;
+            }
+
+            
         }
     }
 
     
     .add__task__box__center{
         @include displayFlex(row, unset, center);
-        width: 25%;
+        width: 20%;
         position: relative;
+        @include mediaMaxWidth(900px){
+            width: 100%;
+            padding-top: 10px;
+        }
 
         .add__task__box__contact__icon{
             color: $strong;
@@ -63,6 +91,7 @@
 
                 .header__select{
                     border-bottom: 1px solid #5f0f4e2b;
+                   
                 }
 
                 #selected__box--active{
@@ -83,8 +112,14 @@
 
     .add__task__box__right{
         @include displayFlex(row, flex-end, center);
-        width: 25%;
-        padding-right: 12px;
+        width: 20%;
+        margin-left: auto;
+        @include mediaMaxWidth(900px){
+            width: 100%;
+            margin-left: unset;
+            @include displayFlex(row, left, center);
+
+        }
     }
 
     .task_err{

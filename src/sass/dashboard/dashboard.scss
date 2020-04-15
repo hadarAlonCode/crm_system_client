@@ -6,6 +6,7 @@
 
 .dashboard{
     width: calc(100vw - 150px);
+    position: relative;
     @include mediaMaxWidth(1000px){
         width: 100vw 
     }
@@ -15,6 +16,6 @@
     position: absolute;
     @include gradient();
     height: 80px;
-    width: 100vw;
+    width: 100%;
 
 }

@@ -16,9 +16,20 @@
     position: relative;
     justify-content: unset;
 
+    @include mediaMaxWidth(800px){
+        @include displayFlex(column, unset, unset);
+
+    }
+
     .task__left{
         @include displayFlex(row, unset, center);
-        width: 50%;
+        width: 40%;
+        position: relative;
+        @include mediaMaxWidth(800px){
+            width: 100%;
+            
+    
+        }
 
         .task__status{
             color: $background;
@@ -28,11 +39,24 @@
                 cursor: pointer;
             }
         }
+
+        .task__text{
+            width: 80%;
+            word-break: break-all;
+            
+        }
     }
 
     .task__center{
         @include displayFlex(row, unset, center);
-        width: 25%;
+        width: 20%;
+
+        
+
+        @include mediaMaxWidth(800px){
+            width: 100%;
+            padding-top:10px;
+        }
 
         .task__contact__icon{
             color: $strong;
@@ -46,7 +70,16 @@
 
     .task__right{
         @include displayFlex(row, flex-end, center);
-        width: 25%;
+        width: 20%;
+        margin-left: auto;
+
+        @include mediaMaxWidth(800px){
+            width: 100%;
+            padding-top:10px;
+            @include displayFlex(row, space-between, center);
+            margin-left: unset;
+
+        }
 
         .task__date{
             margin-right: 40px;

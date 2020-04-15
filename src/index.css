@@ -102,7 +102,8 @@ input {
   color: black; }
 
 .dashboard {
-  width: calc(100vw - 150px); }
+  width: calc(100vw - 150px);
+  position: relative; }
   @media screen and (max-width: 1000px) {
     .dashboard {
       width: 100vw; } }
@@ -116,7 +117,7 @@ input {
   background: linear-gradient(to right, #23074d, #cc5333);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 80px;
-  width: 100vw; }
+  width: 100%; }
 
 .navbar__container {
   background-color: #23074d;
@@ -247,6 +248,12 @@ input {
   transition: 0.5s;
   position: relative;
   justify-content: unset; }
+  @media screen and (max-width: 800px) {
+    .contact__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: unset;
+      align-items: unset; } }
   .contact__container .name__container {
     font-weight: 500;
     padding-left: 20px; }
@@ -262,8 +269,16 @@ input {
     flex-direction: row;
     justify-content: start;
     align-items: center; }
+    @media screen and (max-width: 800px) {
+      .contact__container .conatct_text {
+        padding: 5px;
+        padding-left: 0px;
+        width: 100%; } }
   .contact__container .conatct_company {
     padding-left: 40px; }
+    @media screen and (max-width: 800px) {
+      .contact__container .conatct_company {
+        padding-left: 0px; } }
   .contact__container i {
     font-size: 35px; }
 
@@ -1479,6 +1494,9 @@ input {
     @media screen and (max-width: 1000px) {
       .tasks__page__container .tasks__scroll__container {
         width: 100vw; } }
+    @media screen and (max-width: 900px) {
+      .tasks__page__container .tasks__scroll__container {
+        height: calc(100vh - 247px); } }
   .tasks__page__container .tasks__page__add__box__container {
     display: flex;
     flex-direction: column;
@@ -1504,24 +1522,41 @@ input {
   transition: 0.5s;
   position: relative;
   justify-content: unset; }
+  @media screen and (max-width: 800px) {
+    .task__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: unset;
+      align-items: unset; } }
   .task__container .task__left {
     display: flex;
     flex-direction: row;
     justify-content: unset;
     align-items: center;
-    width: 50%; }
+    width: 40%;
+    position: relative; }
+    @media screen and (max-width: 800px) {
+      .task__container .task__left {
+        width: 100%; } }
     .task__container .task__left .task__status {
       color: #23074d;
       margin-right: 20px; }
       .task__container .task__left .task__status i {
         font-size: 25px;
         cursor: pointer; }
+    .task__container .task__left .task__text {
+      width: 80%;
+      word-break: break-all; }
   .task__container .task__center {
     display: flex;
     flex-direction: row;
     justify-content: unset;
     align-items: center;
-    width: 25%; }
+    width: 20%; }
+    @media screen and (max-width: 800px) {
+      .task__container .task__center {
+        width: 100%;
+        padding-top: 10px; } }
     .task__container .task__center .task__contact__icon {
       color: #5f0f4e;
       margin-right: 20px; }
@@ -1532,7 +1567,17 @@ input {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    width: 25%; }
+    width: 20%;
+    margin-left: auto; }
+    @media screen and (max-width: 800px) {
+      .task__container .task__right {
+        width: 100%;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: unset; } }
     .task__container .task__right .task__date {
       margin-right: 40px; }
     .task__container .task__right .task__menu {
@@ -1554,6 +1599,15 @@ input {
   transition: 0.5s;
   position: relative;
   justify-content: unset; }
+  @media screen and (max-width: 800px) {
+    .add__task__box__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: unset;
+      align-items: unset;
+      border-bottom: 2px solid #CC5333;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px; } }
   .add__task__box__container input {
     border: unset;
     width: 100%;
@@ -1563,12 +1617,19 @@ input {
     flex-direction: row;
     justify-content: unset;
     align-items: center;
-    width: 50%;
+    width: 40%;
     position: relative; }
+    @media screen and (max-width: 900px) {
+      .add__task__box__container .add__task__box__left {
+        width: 100%;
+        flex-direction: row-reverse; } }
     .add__task__box__container .add__task__box__left .add__task__box__icon {
       margin-right: 20px;
       color: #23074d;
       transition: 0.2s; }
+      @media screen and (max-width: 900px) {
+        .add__task__box__container .add__task__box__left .add__task__box__icon {
+          margin-right: 0px; } }
       .add__task__box__container .add__task__box__left .add__task__box__icon i {
         font-size: 25px;
         cursor: pointer; }
@@ -1576,14 +1637,21 @@ input {
         color: #CC5333;
         transition: 0.2s; }
     .add__task__box__container .add__task__box__left .add__task__box__input {
-      width: 100%; }
+      width: 90%; }
+      @media screen and (max-width: 900px) {
+        .add__task__box__container .add__task__box__left .add__task__box__input {
+          margin-right: auto; } }
   .add__task__box__container .add__task__box__center {
     display: flex;
     flex-direction: row;
     justify-content: unset;
     align-items: center;
-    width: 25%;
+    width: 20%;
     position: relative; }
+    @media screen and (max-width: 900px) {
+      .add__task__box__container .add__task__box__center {
+        width: 100%;
+        padding-top: 10px; } }
     .add__task__box__container .add__task__box__center .add__task__box__contact__icon {
       color: #5f0f4e;
       margin-right: 20px;
@@ -1604,8 +1672,16 @@ input {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    width: 25%;
-    padding-right: 12px; }
+    width: 20%;
+    margin-left: auto; }
+    @media screen and (max-width: 900px) {
+      .add__task__box__container .add__task__box__right {
+        width: 100%;
+        margin-left: unset;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center; } }
   .add__task__box__container .task_err {
     position: absolute;
     bottom: 6px;
@@ -1636,7 +1712,10 @@ input {
 
 .react-datepicker-popper {
   top: -50px !important;
-  left: -60px !important; }
+  left: -84px !important; }
+  @media screen and (max-width: 800px) {
+    .react-datepicker-popper {
+      left: 0px !important; } }
 
 .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
   padding-right: 1px;
@@ -1655,6 +1734,9 @@ input {
   background-color: white;
   height: 36px;
   width: 100%; }
+  @media screen and (max-width: 800px) {
+    .options__datepicker aside {
+      top: 1px; } }
   .options__datepicker aside i {
     padding-top: 11px;
     font-size: 25px; }

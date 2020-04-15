@@ -28,7 +28,12 @@
     // transform: none !important;
     // transform: translate(15px, 35px) !important;
     top: -50px!important;
-    left: -60px!important;
+    left: -84px!important;
+
+    @include mediaMaxWidth(800px){
+        left: 0px!important;
+
+    }
 
 
 
@@ -51,6 +56,10 @@
     height: 36px;
     width: 100%;
     // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    @include mediaMaxWidth(800px){
+        top: 1px;
+
+    }
 
     i{
         padding-top: 11px;
