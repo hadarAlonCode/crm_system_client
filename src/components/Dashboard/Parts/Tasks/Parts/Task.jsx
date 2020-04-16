@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from "moment"
+import Fade from 'react-reveal/Fade';
 
 class Task extends Component {
 
@@ -39,6 +40,7 @@ class Task extends Component {
         const {task_status} = this.state
 
         return (
+            <Fade >
             <div className="task__container">
 
                 <div className="task__left">
@@ -64,8 +66,8 @@ class Task extends Component {
                 </div>
 
                 <div className="task__right">
-
-                    <div className="task__date">{task.date ? moment(task.date).format('L') : "-"}</div>
+                    
+                    <div className="task__date"><i class="fas fa-calendar-check"></i>{task.date ? moment(task.date).format('L') : "-"}</div>
                     <div className="task__menu" onClick={()=>deleteTask(task)}><i class="fas fa-trash"></i></div>
 
 
@@ -73,6 +75,7 @@ class Task extends Component {
 
                 
             </div>
+            </Fade>
         );
     }
 }

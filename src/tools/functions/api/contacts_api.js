@@ -1,8 +1,18 @@
 import { API } from "../../keys"
 import axios from 'axios'
 import { CONTACT_CREATE , CONTACT_UPDATE, CONTACT_GET_ALL } from "../../routs"
-export const getContactsPagination = (limit, page) => new Promise(resolve => {
-    axios.get(`${API}/contact/pagination/get?limit=${limit}&page=${page}`).then(res => {
+import { getCookie } from "../../cookie/cookie"
+
+
+export const getContactsPagination = (limit, page, user_key) => new Promise(resolve => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+   
+    axios.get(`${API}/secure/contact/pagination/get?limit=${limit}&page=${page}&user_key=${user_key}`,  {headers}).then(res => {
         const {
             ok,
             result
@@ -18,8 +28,15 @@ export const getContactsPagination = (limit, page) => new Promise(resolve => {
 })
 
 
-export const getAllContacts = () => new Promise(resolve => {
-    axios.get(`${API}${CONTACT_GET_ALL}`).then(res => {
+export const getAllContacts = (user_key) => new Promise(resolve => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+    
+    axios.get(`${API}/secure/contact/get?user_key=${user_key}`,  {headers}).then(res => {
         const {
             ok,
             result
@@ -37,7 +54,13 @@ export const getAllContacts = () => new Promise(resolve => {
 
 
 export const addContact = (body) => new Promise(resolve => {
-    axios.post(`${API}${CONTACT_CREATE}`, body).then(res => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+    axios.post(`${API}${CONTACT_CREATE}`, body,  {headers}).then(res => {
         const {
             ok,
             result
@@ -54,8 +77,14 @@ export const addContact = (body) => new Promise(resolve => {
 
 
 export const updateContact = (body , _id) => new Promise(resolve => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
     
-    axios.post(`${API}/contact/update?_id=${_id}`, body).then(res => {
+    axios.post(`${API}/secure/contact/update?_id=${_id}`, body,  {headers}).then(res => {
         const {
             ok,
             result
@@ -73,10 +102,15 @@ export const updateContact = (body , _id) => new Promise(resolve => {
 
 
 
-export const searchByName = (keyword) => new Promise(resolve => {
-    console.log(keyword);
+export const searchByName = (keyword, user_key) => new Promise(resolve => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
     
-    axios.get(`${API}/contact/search/name/get?keyword=${keyword}`).then(res => {
+    axios.get(`${API}/secure/contact/search/name/get?keyword=${keyword}&user_key=${user_key}`,  {headers}).then(res => {
         const {
             ok,
             result

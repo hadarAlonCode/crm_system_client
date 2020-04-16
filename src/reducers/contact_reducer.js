@@ -1,10 +1,10 @@
 import {
-    SET_USER_DATA
+    ADD_NEW_CONTACT
 } from '../actions/types'
 
 const initialState = {
-    email: "",
-    user_key: "",
+    new_contact: "",
+    
 }
 
 
@@ -13,14 +13,10 @@ export default function (state = initialState, action) {
 
     switch (action.type) {
         
-        case SET_USER_DATA:
-            const { user_key, email } = action.payload
-
-            console.log(email);
+        case ADD_NEW_CONTACT:
             return {
                 ...state,
-                email:email,
-                user_key: user_key,
+                new_contact:action.payload._id
 
             }
         default:

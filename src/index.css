@@ -163,7 +163,8 @@ input {
       .navbar__container ul .selected__tab a {
         color: white !important; }
     .navbar__container ul .logout__tab {
-      margin-top: auto; }
+      margin-top: auto;
+      cursor: pointer; }
     .navbar__container ul i {
       margin-bottom: 10px;
       font-size: 30px; }
@@ -1610,7 +1611,19 @@ input {
         align-items: center;
         margin-left: unset; } }
     .task__container .task__right .task__date {
-      margin-right: 40px; }
+      margin-right: 40px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center; }
+      .task__container .task__right .task__date i {
+        display: none;
+        font-size: 25px;
+        margin-right: 20px;
+        color: #CC5333; }
+        @media screen and (max-width: 800px) {
+          .task__container .task__right .task__date i {
+            display: block; } }
     .task__container .task__right .task__menu {
       color: #CC5333; }
       .task__container .task__right .task__menu i {
@@ -1808,7 +1821,7 @@ input {
   position: relative; }
 
 .react-datepicker__day:hover, .react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover {
-  background: #0091ff;
+  background: #5f0f4e !important;
   border-radius: 50%;
   color: white !important;
   transition: 0.2s; }
@@ -1841,7 +1854,7 @@ input {
   color: black; }
 
 .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range {
-  background-color: #0091ff    !important;
+  background-color: #5f0f4e !important;
   border-radius: 50% !important; }
 
 .react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected {
@@ -1876,5 +1889,66 @@ input {
 
 .react-datepicker__year-read-view--down-arrow {
   display: block;
-  top: 20px;
+  top: 2px !important;
   transform: scale(0.7); }
+
+.login__container {
+  background: #23074d;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #23074d, #cc5333);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #23074d, #cc5333);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .login__container .logo__container {
+    padding: 0px; }
+  .login__container .login__demo__user {
+    color: white;
+    padding-top: 20px; }
+    .login__container .login__demo__user h2 {
+      font-weight: bold;
+      padding: 3px;
+      padding-left: 0px; }
+    .login__container .login__demo__user div {
+      padding: 3px;
+      padding-left: 0px; }
+  .login__container .login__inner__container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative; }
+    .login__container .login__inner__container .input__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: unset;
+      align-items: unset; }
+      .login__container .login__inner__container .input__container span {
+        font-weight: 500; }
+      .login__container .login__inner__container .input__container input {
+        width: 200px;
+        margin: 5px;
+        margin-left: 0px; }
+    .login__container .login__inner__container .err__text {
+      position: absolute;
+      font-size: 12px;
+      color: #F44336;
+      bottom: 62px;
+      left: 27px; }
+    .login__container .login__inner__container button {
+      width: 160px;
+      margin: 5px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }

@@ -4,6 +4,13 @@ import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-
 //redux
 import { connect } from "react-redux";
 import * as actions from '../../actions/actions';
+import { removeCookie } from '../../tools/cookie/cookie';
+import LOGO from "../../tools/images/w_logo_crm.png"
+
+import Fade from 'react-reveal/Fade';
+import Flip  from 'react-reveal/Fade';
+
+
 class NavBar extends Component {
     constructor() {
         super()
@@ -75,6 +82,7 @@ class NavBar extends Component {
 
 
     logout = () => {
+        removeCookie("login_cookie")
         window.location.href = '/login'
     }
 
@@ -85,6 +93,8 @@ class NavBar extends Component {
             open_mobile_nav: !open_mobile_nav
         })
     }
+
+    
 
 
     render() {
@@ -104,18 +114,18 @@ class NavBar extends Component {
                             </span>
                         </button>  
                         :
-                        "LOGO"
-                        
+                        <Fade top delay={100} duration={3000} > <img src={LOGO} alt="logo" height="55" width="55"></img></Fade>
+
                         }
                     
                     </div>
 
                 <ul id={open_mobile_nav ? "mobile__navbar--active" : "mobile__navbar--off" }  className="navbar__list">
                 
-                    <li onClick={() => this.selectTab(tabs[0])} className={selected_tab === tabs[0] ? "selected__tab" : null}><Link to={`/dashboard/overview`}> <i className="fas fa-cube"></i><div>{tabs[0]}</div></Link></li>
-                    <li onClick={() => this.selectTab(tabs[1])} className={selected_tab === tabs[1] ? "selected__tab" : null}><Link to={`/dashboard/tasks`}> <i className="fas fa-tasks"></i><div>{tabs[1]}</div></Link></li>
-                    <li onClick={() => this.selectTab(tabs[2])} className={selected_tab === tabs[2] ? "selected__tab" : null} ><Link to={`/dashboard/contacts`}><i className="far fa-address-book"></i><div>{tabs[2]}</div></Link></li>
-                    <li className="logout__tab" onClick={() => this.logout()}><i className="fas fa-sign-out-alt"></i><div>{tabs[3]}</div></li>
+                <Fade left delay={100} duration={2500} > <li onClick={() => this.selectTab(tabs[0])} className={selected_tab === tabs[0] ? "selected__tab" : null}><Link to={`/dashboard/overview`}> <i className="fas fa-cube"></i><div>{tabs[0]}</div></Link></li></Fade>
+                <Fade left delay={100} duration={2500} > <li onClick={() => this.selectTab(tabs[1])} className={selected_tab === tabs[1] ? "selected__tab" : null}><Link to={`/dashboard/tasks`}> <i className="fas fa-tasks"></i><div>{tabs[1]}</div></Link></li></Fade>
+                <Fade left delay={100} duration={2500} > <li onClick={() => this.selectTab(tabs[3])} className={selected_tab === tabs[2] ? "selected__tab" : null} ><Link to={`/dashboard/contacts`}><i className="far fa-address-book"></i><div>{tabs[2]}</div></Link></li></Fade>
+                <Fade left delay={100} duration={2500} > <li className="logout__tab" onClick={() => this.logout()}><i className="fas fa-sign-out-alt"></i><div>{tabs[3]}</div></li></Fade>
                 </ul>
             </div>
         );

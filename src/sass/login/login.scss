@@ -1,0 +1,73 @@
+.login__container{
+    @include gradient();
+    min-height: 100vh;
+    min-width: 100vw;
+    position: relative;
+    @include displayFlex(column, center , center);
+
+
+    .logo__container{
+      padding: 0px;
+    }
+
+
+    .login__demo__user{
+        color: white;
+        padding-top: 20px;
+
+        h2{
+            font-weight: bold;
+            padding: 3px;
+            padding-left: 0px;
+        }
+
+        div{
+            padding: 3px;
+            padding-left: 0px;
+        }
+    }
+
+    .login__inner__container{
+        background-color: white;
+        @include displayFlex(column, center , center);
+        // margin: auto;
+        padding: 20px;
+        border-radius: 5px;
+        position: relative;
+     
+
+
+        .input__container{
+            @include displayFlex(column, unset , unset);
+            span{
+                font-weight: 500;
+            }
+            input{
+                width: 200px;
+                margin: 5px;
+                margin-left: 0px;
+            }
+        }
+
+        .err__text{
+            position: absolute;
+            font-size: 12px;
+            color: #F44336;
+            bottom: 62px;
+            left: 27px;
+        }
+
+       
+
+       
+
+        button {
+            width: 160px;
+            margin: 5px;
+            height: 30px;
+            @include displayFlex(column, center , center);
+
+        }
+    }
+    
+}

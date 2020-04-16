@@ -6,6 +6,9 @@ import countries_options  from '../../../tools/functions/data/countries_options'
 import { addContact } from '../../../tools/functions/api/contacts_api';
 import MessagePopup from '../../Popups/MessagePopup/MessagePopup';
 import status_options from '../../../tools/functions/data/status_options';
+import { connect } from "react-redux";
+import * as actions from '../../../actions/actions';
+import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 
 
 class AddClientForm extends Component {
@@ -65,6 +68,8 @@ class AddClientForm extends Component {
         //update api
         const { closePopUp } = this.props
         const { form_data } = this.state
+        const { user_key } = this.props.login
+
 
         this.validationForm()
 
@@ -84,11 +89,13 @@ class AddClientForm extends Component {
                     status: form_data.status ? form_data.status : undefined,
                     company: form_data.company ? form_data.company : undefined,
                     position: form_data.position ? form_data.position : undefined,
+                    user_key
                 }
 
                 let new_contact = await addContact(body)
 
                 if (new_contact.ok) {
+                    this.props.setNewContact(new_contact.result)
                     closePopUp()
                 }
 
@@ -174,4 +181,10 @@ class AddClientForm extends Component {
     }
 }
 
-export default AddClientForm;
+
+
+function mapStateToProps({ login }) {
+    return { login };
+  }
+  
+  export default withRouter(connect(mapStateToProps, actions)(AddClientForm))

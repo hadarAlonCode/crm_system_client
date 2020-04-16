@@ -73,6 +73,8 @@
         width: 20%;
         margin-left: auto;
 
+       
+
         @include mediaMaxWidth(800px){
             width: 100%;
             padding-top:10px;
@@ -83,6 +85,22 @@
 
         .task__date{
             margin-right: 40px;
+            @include displayFlex(row, flex-end, center);
+
+            i{
+                display: none;
+                font-size: 25px;
+                margin-right: 20px;
+                color: $light;
+                @include mediaMaxWidth(800px){
+                 display: block;
+                }
+            }
+
+            @include mediaMaxWidth(800px){
+               
+    
+            }
             
         }
 

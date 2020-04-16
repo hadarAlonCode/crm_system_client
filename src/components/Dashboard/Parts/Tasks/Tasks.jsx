@@ -5,6 +5,12 @@ import TopBar from '../../../TopBar/TopBar';
 import Task from './Parts/Task';
 import AddTaskBox from './Parts/AddTaskBox';
 
+
+import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from '../../../../actions/actions';
+
+
 class Tasks extends Component {
     constructor() {
         super()
@@ -30,14 +36,21 @@ class Tasks extends Component {
 
     getTasksFirstTime = async () => {
         const { limit, page } = this.state
+        const {user_key} = this.props.login
 
-        let tasks = await getTasksPagination(5, 1)
+        let tasks = await getTasksPagination(5, 1 , user_key)
         if (tasks.ok && tasks.result.length > 0) {
             this.setState({
                 tasks: tasks.result,
                 load_page: true,
                 scroll_has_more: true,
                 page: 2
+            })
+        }else{
+            this.setState({
+                load_page: true,
+                scroll_has_more: true,
+                
             })
         }
     }
@@ -48,12 +61,14 @@ class Tasks extends Component {
 
     getTasks = async () => {
         const { limit, page, tasks } = this.state
+        const {user_key} = this.props.login
+
         console.log(tasks, "tasks")
         this.setState({
             scroll_has_more: false,
         }, async () => {
 
-            let res = await getTasksPagination(limit, page)
+            let res = await getTasksPagination(limit, page, user_key)
             if (res.ok && res.result.length > 0) {
 
                 let copy_tasks = JSON.parse(JSON.stringify(tasks))
@@ -111,6 +126,10 @@ class Tasks extends Component {
     render() {
         console.log("Tasks")
         const { tasks, load_page, scroll_has_more } = this.state
+        const {user_key} = this.props.login
+
+        console.log(user_key)
+
 
         return (
             load_page ?
@@ -118,7 +137,7 @@ class Tasks extends Component {
                 <TopBar />
 
                 <div className="tasks__page__add__box__container">
-                   <AddTaskBox updateTasksList={this.updateTasksList} />
+                   <AddTaskBox user_key={user_key} updateTasksList={this.updateTasksList} />
                 </div>
                 
                 <div>
@@ -144,4 +163,10 @@ class Tasks extends Component {
     }
 }
 
-export default Tasks;
+
+
+function mapStateToProps({ login }) {
+    return { login };
+  }
+  
+  export default withRouter(connect(mapStateToProps, actions)(Tasks))

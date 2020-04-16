@@ -3,6 +3,7 @@ import { getAllContacts } from '../../../../../tools/functions/api/contacts_api'
 import SelectBox from '../../../../Inputs/SelectBox';
 import DateSelect from '../../../../DateSelect/DateSelect';
 import { addNewTaskApi } from '../../../../../tools/functions/api/tasks_api';
+import Fade from 'react-reveal/Fade';
 
 class AddTaskBox extends Component {
 
@@ -18,7 +19,10 @@ class AddTaskBox extends Component {
     }
 
     async componentDidMount(){
-         let res = await getAllContacts()
+        const {user_key} = this.props
+        
+
+         let res = await getAllContacts(user_key)
          if(res.ok)
          this.setState({
             contacts_options: res.result,
@@ -56,13 +60,16 @@ class AddTaskBox extends Component {
     submitTask = async ()=>{
         const  {task_date , select_contact ,task_text} = this.state
         const {updateTasksList} = this.props
+        const {user_key} = this.props
+
 
         if( task_text.trim() !== "" ) {
             let body = {
               status: false,
               date: task_date ?task_date : undefined,
               contact_id: select_contact? select_contact._id : undefined,
-              text: task_text
+              text: task_text,
+              user_key
             }
 
                 let new_task = await addNewTaskApi(body)
@@ -96,7 +103,7 @@ class AddTaskBox extends Component {
         return (
 
             load ?
-            
+           
             <div className="add__task__box__container">
 
             <div className="add__task__box__left">
@@ -121,6 +128,7 @@ class AddTaskBox extends Component {
             {validate_task ? null : <div className="task_err">Please Enter a task</div>}
 
           </div>
+       
 
           : null
         );

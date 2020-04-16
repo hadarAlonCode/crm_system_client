@@ -1,9 +1,17 @@
 import { API } from "../../keys"
 import axios from 'axios'
 import { TASK_CREATE } from "../../routs"
+import { getCookie } from "../../cookie/cookie"
 // import { CONTACT_CREATE , CONTACT_UPDATE } from "../../routs"
-export const getTasksPagination = (limit, page) => new Promise(resolve => {
-    axios.get(`${API}/task/pagination/get?limit=${limit}&page=${page}`).then(res => {
+
+export const getTasksPagination = (limit, page , user_key) => new Promise(resolve => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+    axios.get(`${API}/secure/task/pagination/get?limit=${limit}&page=${page}&user_key=${user_key}`, {headers}).then(res => {
         const {
             ok,
             result
@@ -21,7 +29,13 @@ export const getTasksPagination = (limit, page) => new Promise(resolve => {
 
 
 export const addNewTaskApi = (body) => new Promise(resolve => {
-    axios.post(`${API}${TASK_CREATE}`, body).then(res => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+    axios.post(`${API}${TASK_CREATE}`, body,  {headers}).then(res => {
         const {
             ok,
             result
@@ -38,8 +52,13 @@ export const addNewTaskApi = (body) => new Promise(resolve => {
 
 
 export const updateTaskApi = (body , _id) => new Promise(resolve => {
-    
-    axios.post(`${API}/task/update?_id=${_id}`, body).then(res => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+    axios.post(`${API}/secure/task/update?_id=${_id}`, body, {headers}).then(res => {
         const {
             ok,
             result
@@ -55,8 +74,13 @@ export const updateTaskApi = (body , _id) => new Promise(resolve => {
 })
 
 export const deleteTaskApi = (_id) => new Promise(resolve => {
-    
-    axios.post(`${API}/task/delete?_id=${_id}`).then(res => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+    axios.post(`${API}/secure/task/delete?_id=${_id}`, {headers}).then(res => {
         const {
             ok,
             result

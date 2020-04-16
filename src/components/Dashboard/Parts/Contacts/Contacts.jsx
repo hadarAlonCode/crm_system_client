@@ -5,6 +5,10 @@ import InfiniteScroll from 'react-infinite-scroller';
 import FormPopup from '../../../Popups/FormPopup/FormPopup'
 import ContactSideBar from './Parts/ContactSideBar/ContactSideBar';
 import TopBar from '../../../TopBar/TopBar';
+import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
+
+import { connect } from "react-redux";
+import * as actions from '../../../../actions/actions';
 
 
 
@@ -24,18 +28,23 @@ class Contacts extends Component {
     }
 
     componentDidMount() {
-        //demo
-        // this.setState({
-        //     contacts: demo_contacts
-        // })
+   
         this.getContactsFirstTime()
 
     }
 
+    componentDidUpdate(prevProps){
+        const {new_contact} = this.props.contact_reducer
+        if(prevProps.contact_reducer.new_contact !== new_contact ){
+            this.getContactsFirstTime()
+        }
+    }
+    
     getContactsFirstTime = async () => {
         const { limit, page } = this.state
+        const {user_key} = this.props.login
 
-        let contacts = await getContactsPagination(5, 1)
+        let contacts = await getContactsPagination(5, 1, user_key)
         if (contacts.ok && contacts.result.length > 0) {
             this.setState({
                 contacts: contacts.result,
@@ -43,18 +52,26 @@ class Contacts extends Component {
                 scroll_has_more: true,
                 page: 2
             })
+        }else{
+            this.setState({
+                load_page: true,
+                scroll_has_more: true,
+
+            })
         }
     }
 
 
     getContacts = async () => {
         const { limit, page, contacts } = this.state
-        console.log(contacts, "contacts")
+                const {user_key} = this.props.login
+
+        console.log(contacts, user_key, "contacts")
         this.setState({
             scroll_has_more: false,
         }, async () => {
 
-            let res = await getContactsPagination(limit, page)
+            let res = await getContactsPagination(limit, page , user_key  )
             if (res.ok && res.result.length > 0) {
 
                 let copy_contacts = JSON.parse(JSON.stringify(contacts))
@@ -149,6 +166,7 @@ class Contacts extends Component {
 
 
     handleSearch = async (keyword) => {
+        const {user_key} = this.props.login
 
         this.setState({
             filter_name: keyword
@@ -166,7 +184,7 @@ class Contacts extends Component {
 
         } else {
             const timeout = setTimeout(async () => {
-                let res = await searchByName(keyword)
+                let res = await searchByName(keyword ,user_key)
                 if (res.ok) {
                     this.setState({
                         contacts: res.result,
@@ -219,4 +237,10 @@ class Contacts extends Component {
     }
 }
 
-export default Contacts;
+
+
+function mapStateToProps({ login , contact_reducer}) {
+    return { login, contact_reducer };
+  }
+  
+  export default withRouter(connect(mapStateToProps, actions)(Contacts))
