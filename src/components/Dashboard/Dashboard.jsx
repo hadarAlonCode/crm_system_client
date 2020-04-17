@@ -12,6 +12,7 @@ import { loginApi } from '../../tools/functions/api/login_api';
 import { connect } from "react-redux";
 import * as actions from '../../actions/actions';
 import Fade  from 'react-reveal/Fade';
+import { getAllContacts } from '../../tools/functions/api/contacts_api';
 
 
 class Dashboard extends Component {
@@ -34,10 +35,30 @@ class Dashboard extends Component {
             let res = await loginApi({email:"", password: ""})
             if (res.ok){
                this.props.setUserData(res.result)
-              this.setState({
+               this.setState({
                 load_dashboard: true
-              })
-                return
+            })
+
+            return
+
+               
+               // === save all contacts in redux:
+               
+            //    let constcts_res = await getAllContacts(res.result.user_key)
+            //    if(constcts_res.ok){
+            //         this.props.getAllContacts(constcts_res.result)
+
+            //         this.setState({
+            //             load_dashboard: true
+            //         })
+            //         return
+                    
+            //    }else{
+            //        alert("500 ERROR")
+            //    }
+
+                
+            
             }else{
                 this.props.history.push(LOGIN) 
             }

@@ -34,8 +34,6 @@ class NavBar extends Component {
             this.toggleMobileNav(false)
         }
 
-        console.log(innerWidth)
-
 
         for (let tab of tabs) {
             if (window.location.pathname.includes(tab.toLowerCase())) {
@@ -65,13 +63,6 @@ class NavBar extends Component {
         })
     }
 
-
-    // shouldComponentUpdate() {
-    //     console.log(window.location.pathname)
-    //     if (window.location.pathname.includes()) {
-
-    //     }
-    // }
 
     selectTab = (tab_name) => {
         this.setState({

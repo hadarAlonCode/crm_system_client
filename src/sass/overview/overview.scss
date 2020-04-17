@@ -1,0 +1,13 @@
+.overview__container{
+    width:  100%;
+    height: calc(100% - 80px);
+    margin-top: 80px;
+
+    // overflow-y: scroll;
+    // overflow-x: hidden;
+    
+    @include mediaMaxWidth(1000px){
+         width: 100vw 
+     }
+
+}

@@ -1952,3 +1952,11 @@ input {
       flex-direction: column;
       justify-content: center;
       align-items: center; }
+
+.overview__container {
+  width: 100%;
+  height: calc(100% - 80px);
+  margin-top: 80px; }
+  @media screen and (max-width: 1000px) {
+    .overview__container {
+      width: 100vw; } }

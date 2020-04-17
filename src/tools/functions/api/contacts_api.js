@@ -126,6 +126,30 @@ export const searchByName = (keyword, user_key) => new Promise(resolve => {
 })
 
 
+export const getFilterContacts = (user_key , key, value) => new Promise(resolve => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+    
+    axios.get(`${API}/secure/contact/filter/get?user_key=${user_key}&key=${key}&value=${value}`,  {headers}).then(res => {
+        const {
+            ok,
+            result
+        } = res.data
+        const output = {
+            ok,
+            result
+        }
+        resolve(output)
+    }).catch(err => {
+        resolve({ ok: false })
+    })
+})
+
+
 
 
 

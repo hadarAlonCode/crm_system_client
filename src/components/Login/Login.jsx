@@ -22,9 +22,11 @@ class Login extends Component {
 
     componentDidMount(){
         
+        // === logo animation:
         const logo = document.getElementById("logo__container");
-        
         tl.to(logo, {duration: 2, rotation: 360 ,ease: "power3.out", delay: 0.7, });
+
+       
     }
 
 
