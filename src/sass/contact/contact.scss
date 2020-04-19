@@ -37,13 +37,34 @@
     .conatct_text{
         // margin-right: 10px;
         width: calc(100% / 4);
+        
         @include displayFlex(row, start, center);  
         @include mediaMaxWidth(800px){
             padding: 5px;
             padding-left: 0px;
             width: 100%;
         }
+
+       
     }
+
+    .status__container {      
+        display: block;
+
+        &:first-letter {
+            text-transform:capitalize;}
+    }
+
+
+    .name__container {
+        display: block;
+
+        &:first-letter {
+            text-transform:capitalize;}
+    }
+    
+
+  
 
     .conatct_company{
         padding-left: 40px;

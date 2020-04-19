@@ -274,6 +274,14 @@ input {
         padding: 5px;
         padding-left: 0px;
         width: 100%; } }
+  .contact__container .status__container {
+    display: block; }
+    .contact__container .status__container:first-letter {
+      text-transform: capitalize; }
+  .contact__container .name__container {
+    display: block; }
+    .contact__container .name__container:first-letter {
+      text-transform: capitalize; }
   .contact__container .conatct_company {
     padding-left: 40px; }
     @media screen and (max-width: 800px) {

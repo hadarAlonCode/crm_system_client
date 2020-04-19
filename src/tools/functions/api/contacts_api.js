@@ -126,6 +126,35 @@ export const searchByName = (keyword, user_key) => new Promise(resolve => {
 })
 
 
+export const getCountGroupContacts = (user_key , group, match_status) => new Promise(resolve => {
+    let token = getCookie("login_cookie")
+    
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+
+    let rout = `/secure/contact/group/count/get?user_key=${user_key}&group=${group}`
+    if(match_status){
+        rout = `/secure/contact/group/count/get?user_key=${user_key}&group=${group}&match_status=${match_status}` 
+    }
+    
+    axios.get(`${API}${rout}`,  {headers}).then(res => {
+        const {
+            ok,
+            result
+        } = res.data
+        const output = {
+            ok,
+            result
+        }
+        resolve(output)
+    }).catch(err => {
+        resolve({ ok: false })
+    })
+})
+
+
 export const getFilterContacts = (user_key , key, value) => new Promise(resolve => {
     let token = getCookie("login_cookie")
 
@@ -148,7 +177,6 @@ export const getFilterContacts = (user_key , key, value) => new Promise(resolve 
         resolve({ ok: false })
     })
 })
-
 
 
 

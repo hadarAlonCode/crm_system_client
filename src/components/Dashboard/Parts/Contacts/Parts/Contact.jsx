@@ -17,7 +17,7 @@ class Contact extends Component {
 
                     <div className="conatct_text">{contact.email ? contact.email : "-"}</div>
                     <div className="conatct_text conatct_company">{contact.company ? contact.company : "-"}</div>
-                    <div className="conatct_text">{contact.status ? contact.status : "-"}</div>
+                    <div className="conatct_text status__container">{contact.status ? contact.status : "-"}</div>
                 </div>
             </Fade>
 

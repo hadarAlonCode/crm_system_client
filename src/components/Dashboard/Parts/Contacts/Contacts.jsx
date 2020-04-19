@@ -133,8 +133,14 @@ class Contacts extends Component {
     editContactData = async (state_name, val) => {
         const {selected_contact} = this.state
 
+        let value = val
+
+        if(state_name === "status"){
+            value = val.toLowerCase();
+        }
+
         let body ={
-            [state_name]: val,
+            [state_name]: value,
         }
 
         let update = await updateContact(body ,  selected_contact._id)

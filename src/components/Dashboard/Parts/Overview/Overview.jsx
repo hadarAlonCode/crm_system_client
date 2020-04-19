@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 import * as actions from '../../../../actions/actions';
 import DataBox from './Parts/DataBox/DataBox';
-import { getAllContacts, getFilterContacts } from '../../../../tools/functions/api/contacts_api';
+import { getAllContacts, getFilterContacts, getCountGroupContacts } from '../../../../tools/functions/api/contacts_api';
+import BarChartBox from './Parts/BarChartBox/BarChartBox.jsx'
+import PieChart from './Parts/PieChart/PieChart.jsx'
+
 
 
 class Overview extends Component {
@@ -12,7 +15,9 @@ class Overview extends Component {
         super()
         this.state ={
             contacts: [],
-            sold_contacts: []
+            sold_contacts: [],
+            country_chart_data: [], 
+            sold_percentage: 0
         }
     }
 
@@ -36,24 +41,86 @@ class Overview extends Component {
                     this.setState({
                         sold_contacts: sold_conatcts_res.result
                     } ,()=>{
-                        let load_page_res =  this.getSalesPercentage()
-                        if(load_page_res){
-                            this.setState({
-                                load: true
-                            })
-                        }
+                        this.getSalesPercentage()
+                        
                     })
                 }else{
                     
-                    let load_page_res =  this.getSalesPercentage()
-                        if(load_page_res){
-                            this.setState({
-                                load: true
-                            })
-                        }
-                }  
+                     this.getSalesPercentage()
+                       
+                }
                 
                 
+                this.getCountryChartData()
+                this.getStatusChartData()
+                
+                
+    }
+
+    getCountryChartData =  async ()=>{
+        const {user_key} = this.props.login
+
+        let res = await getCountGroupContacts(user_key , "country" )
+
+        let sold_res = await getCountGroupContacts(user_key , "country", "sold" )
+
+        let all_countries_data
+
+        if(res.ok && res.result.length > 0 ){
+
+             all_countries_data = res.result.map(item => {
+                 return {name: item._id , contacts: item.count, sold: 0 }
+            })
+            
+            if(sold_res.ok && sold_res.result.length > 0){
+
+                let sold_countries  = sold_res.result
+
+                let copy_all_countries_data = JSON.parse(JSON.stringify(all_countries_data))
+
+
+                for (let sold_country of sold_countries ){
+                
+                   let update_item =  copy_all_countries_data.find( item => {return item.name == sold_country._id})
+                   update_item.sold = sold_country.count
+                   let index = copy_all_countries_data.findIndex(item => item.name == sold_country._id)
+                   copy_all_countries_data.splice(index, 1, update_item);
+                }
+
+
+                copy_all_countries_data = copy_all_countries_data.map(item => {
+                    return {name: item.name ?  item.name : "Other" ,  contacts: item.contacts, sold: item.sold }
+               })
+
+                this.setState({
+                    country_chart_data: copy_all_countries_data
+                })
+
+            }else{
+
+                 all_countries_data = all_countries_data.map(item => {
+                    return {name: item.name ?  item.name : "Other" ,  contacts: item.contacts, sold: item.sold }
+               })
+                this.setState({
+                    country_chart_data: all_countries_data
+                })
+            }
+
+        }else{
+            this.setState({
+                country_chart_data: []
+            })
+         
+        }
+    }
+
+
+    getStatusChartData =async ()=>{
+        const {user_key} = this.props.login
+
+        let res = await getCountGroupContacts(user_key , "status" )
+        console.log(res)
+
     }
 
 
@@ -70,7 +137,6 @@ class Overview extends Component {
         let sold_contact_number = sold_contacts.length
 
         let sold_percentage =  this.percentage(sold_contact_number, all_contact_number).toFixed(1) 
-        console.log(sold_percentage)
 
         this.setState({
             sold_percentage,
@@ -91,16 +157,18 @@ class Overview extends Component {
 
 
     render() {
-        const {contacts, sold_percentage, load} = this.state
+        const {contacts, sold_percentage, load , country_chart_data} = this.state
         
         return (
-            load ?
             <div className="overview__container">
                 
                 <DataBox value={sold_percentage} data_text={"closed deals"} value_type={"%"}  />
+
+                <BarChartBox chart_data={country_chart_data} name={"name"} dataA={"contacts"} dataA_name={"All contacts"} dataB={"sold"} dataB_name={"Sold"} />
+                 
+                 <PieChart />
             </div>
 
-            : null
         );
     }
 }
