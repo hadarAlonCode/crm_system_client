@@ -53,9 +53,9 @@ class Overview extends Component {
                 
                 this.getCountryChartData()
                 this.getStatusChartData()
-                
-                
     }
+
+
 
     getCountryChartData =  async ()=>{
         const {user_key} = this.props.login
@@ -68,9 +68,12 @@ class Overview extends Component {
 
         if(res.ok && res.result.length > 0 ){
 
+            // === contacts countries - counter
              all_countries_data = res.result.map(item => {
                  return {name: item._id , contacts: item.count, sold: 0 }
             })
+
+            // === sold deals by countries  - counter
             
             if(sold_res.ok && sold_res.result.length > 0){
 
@@ -78,6 +81,7 @@ class Overview extends Component {
 
                 let copy_all_countries_data = JSON.parse(JSON.stringify(all_countries_data))
 
+            // === combine data: 
 
                 for (let sold_country of sold_countries ){
                 
@@ -89,7 +93,7 @@ class Overview extends Component {
 
 
                 copy_all_countries_data = copy_all_countries_data.map(item => {
-                    return {name: item.name ?  item.name : "Other" ,  contacts: item.contacts, sold: item.sold }
+                    return {name: item.name ?  item.name : "Others" ,  contacts: item.contacts, sold: item.sold }
                })
 
                 this.setState({
@@ -97,9 +101,8 @@ class Overview extends Component {
                 })
 
             }else{
-
                  all_countries_data = all_countries_data.map(item => {
-                    return {name: item.name ?  item.name : "Other" ,  contacts: item.contacts, sold: item.sold }
+                    return {name: item.name ?  item.name : "Others" ,  contacts: item.contacts, sold: item.sold }
                })
                 this.setState({
                     country_chart_data: all_countries_data
@@ -117,9 +120,9 @@ class Overview extends Component {
 
     getStatusChartData =async ()=>{
         const {user_key} = this.props.login
-
         let res = await getCountGroupContacts(user_key , "status" )
         console.log(res)
+        //adding data to pie chart!
 
     }
 
