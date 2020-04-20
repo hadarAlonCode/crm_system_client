@@ -1,0 +1,24 @@
+.pie__chart{
+    width: 100%;
+    position: relative;
+
+    @include mediaMaxWidth(600px){
+        font-size: 13px;
+
+    }
+
+    .recharts-wrapper{
+        width: 100%!important;
+
+        .recharts-surface{
+            width: 100%;
+        }
+        
+    }
+
+    .anchor{
+        display: block!important;
+        text-transform: capitalize;
+    
+    }
+}

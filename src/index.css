@@ -1962,9 +1962,135 @@ input {
       align-items: center; }
 
 .overview__container {
-  width: 100%;
+  width: 80vw;
   height: calc(100% - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
   margin-top: 80px; }
   @media screen and (max-width: 1000px) {
     .overview__container {
       width: 100vw; } }
+
+.overview__inner__container {
+  width: 100%;
+  min-height: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  padding-right: 40px;
+  padding-left: 40px; }
+  @media screen and (max-width: 1000px) {
+    .overview__inner__container {
+      padding-right: 60px; } }
+  .overview__inner__container .overview__box {
+    min-width: 285px;
+    width: 43%;
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: #e0dce66b;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    margin: 10px;
+    max-height: 355px;
+    position: relative; }
+    @media screen and (max-width: 1000px) {
+      .overview__inner__container .overview__box {
+        width: 100%; } }
+  .overview__inner__container .overview__box__data__box {
+    padding: 0px; }
+  .overview__inner__container .overview__box__title {
+    position: absolute;
+    top: 10px;
+    font-weight: 500;
+    left: 10px; }
+
+.calendar__conatiner {
+  display: flex; }
+  @media screen and (max-width: 1400px) {
+    .calendar__conatiner {
+      flex-direction: column; } }
+  .calendar__conatiner .event__conatiner {
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: default;
+    margin-left: 5px; }
+    .calendar__conatiner .event__conatiner div {
+      padding: 3px;
+      padding-left: 0px; }
+    @media screen and (max-width: 1400px) {
+      .calendar__conatiner .event__conatiner {
+        margin-left: unset;
+        margin-top: 3px; } }
+    .calendar__conatiner .event__conatiner span {
+      font-weight: 500; }
+  .calendar__conatiner .react-datepicker {
+    box-shadow: unset !important;
+    background-color: transparent; }
+  .calendar__conatiner .react-datepicker__day--highlighted {
+    background-color: #ff7c57 !important; }
+
+.data__box__container {
+  max-width: 100%;
+  min-width: 280px;
+  background-color: #23074d;
+  border-radius: 5px;
+  color: #ff7c57;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  height: 100%;
+  width: 100%;
+  font-size: 26px;
+  position: relative; }
+  .data__box__container .data__box__num {
+    font-size: 50px;
+    font-weight: 500; }
+
+.pie__chart {
+  width: 100%;
+  position: relative; }
+  @media screen and (max-width: 600px) {
+    .pie__chart {
+      font-size: 13px; } }
+  .pie__chart .recharts-wrapper {
+    width: 100% !important; }
+    .pie__chart .recharts-wrapper .recharts-surface {
+      width: 100%; }
+  .pie__chart .anchor {
+    display: block !important;
+    text-transform: capitalize; }
+
+.bar__chart {
+  width: 140%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  .bar__chart .recharts-wrapper {
+    height: unset !important;
+    width: 90% !important;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
+    .bar__chart .recharts-wrapper .recharts-surface:first-of-type {
+      margin-right: 15px; }
+    .bar__chart .recharts-wrapper .recharts-legend-wrapper {
+      bottom: 15px !important;
+      width: unset !important;
+      height: unset !important;
+      left: unset !important; }
+  .bar__chart .recharts-tooltip-wrapper {
+    z-index: 100 !important;
+    left: 100px !important; }

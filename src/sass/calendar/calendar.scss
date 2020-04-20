@@ -1,0 +1,45 @@
+.calendar__conatiner{
+    display: flex;
+
+    @include mediaMaxWidth(1400px){
+        flex-direction: column;
+       
+    }
+
+.event__conatiner{
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: default;
+    
+    margin-left: 5px;
+
+    div{
+        padding: 3px;
+        padding-left: 0px;
+    }
+
+    @include mediaMaxWidth(1400px){
+  
+        margin-left: unset;
+        margin-top: 3px;
+    }
+
+    span{
+        font-weight: 500;
+    }
+}
+
+
+.react-datepicker{
+    box-shadow: unset!important;
+    background-color: transparent;
+}
+
+.react-datepicker__day--highlighted{
+    background-color: #ff7c57!important;
+}
+
+
+}

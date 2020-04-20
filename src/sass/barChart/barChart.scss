@@ -1,0 +1,33 @@
+.bar__chart{
+    width: 140%;
+    position: relative;
+    @include displayFlex(row, center, center);
+    .recharts-wrapper{
+        height: unset!important;
+        width: 90%!important;
+        padding: 15px;
+
+        @include displayFlex(row, center, center);
+
+        .recharts-surface:first-of-type{
+            // width: 100%;
+            // height: 100%;
+            margin-right: 15px;
+
+        }
+
+        .recharts-legend-wrapper{
+            bottom: 15px!important;
+            width: unset!important;
+            height: unset!important;
+            left: unset!important;
+
+          
+        }
+    }
+
+    .recharts-tooltip-wrapper{
+        z-index: 100!important;
+        left: 100px!important;
+    }
+}

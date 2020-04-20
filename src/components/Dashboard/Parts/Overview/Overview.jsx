@@ -6,6 +6,10 @@ import DataBox from './Parts/DataBox/DataBox';
 import { getAllContacts, getFilterContacts, getCountGroupContacts } from '../../../../tools/functions/api/contacts_api';
 import BarChartBox from './Parts/BarChartBox/BarChartBox.jsx'
 import PieChart from './Parts/PieChart/PieChart.jsx'
+import Calendar from './Parts/Calendar/Calendar';
+import { getAllTasks } from '../../../../tools/functions/api/tasks_api';
+import moment from "moment"
+import Fade  from 'react-reveal/Fade';
 
 
 
@@ -17,7 +21,10 @@ class Overview extends Component {
             contacts: [],
             sold_contacts: [],
             country_chart_data: [], 
-            sold_percentage: 0
+            sold_percentage: 0,
+            status_chart_data: [],
+            events_date: [],
+            events:[]
         }
     }
 
@@ -53,6 +60,7 @@ class Overview extends Component {
                 
                 this.getCountryChartData()
                 this.getStatusChartData()
+                this.getAllEvents()
     }
 
 
@@ -93,7 +101,7 @@ class Overview extends Component {
 
 
                 copy_all_countries_data = copy_all_countries_data.map(item => {
-                    return {name: item.name ?  item.name : "Others" ,  contacts: item.contacts, sold: item.sold }
+                    return {name: item.name ?  item.name : "Unknown" ,  contacts: item.contacts, sold: item.sold }
                })
 
                 this.setState({
@@ -102,7 +110,7 @@ class Overview extends Component {
 
             }else{
                  all_countries_data = all_countries_data.map(item => {
-                    return {name: item.name ?  item.name : "Others" ,  contacts: item.contacts, sold: item.sold }
+                    return {name: item.name ?  item.name : "Unknown" ,  contacts: item.contacts, sold: item.sold }
                })
                 this.setState({
                     country_chart_data: all_countries_data
@@ -123,6 +131,18 @@ class Overview extends Component {
         let res = await getCountGroupContacts(user_key , "status" )
         console.log(res)
         //adding data to pie chart!
+        if(res.ok && res.result.length > 0){
+
+            let contacts_status = res.result
+
+            let status_chart_data = contacts_status.map(item => {
+                    return {name: item._id ?  item._id : "Unknown" ,  value: item.count }
+               })
+
+               this.setState({
+                   status_chart_data
+               })
+        }
 
     }
 
@@ -147,9 +167,30 @@ class Overview extends Component {
         })
 
         return true
+    }
 
-       
 
+    getAllEvents = async ()=>{
+        const {user_key} = this.props.login
+
+        let events = await getAllTasks(user_key)
+        let all_events = events.result
+
+        if(events.ok && all_events.length > 0 ){
+
+                let dates = all_events.map(e => {
+                    return  moment(e.date).toDate()
+                })
+
+                console.log(dates)
+                
+                this.setState({
+                    events_date: dates,
+                    events:all_events
+                })
+
+            
+        }
 
     }
 
@@ -160,16 +201,27 @@ class Overview extends Component {
 
 
     render() {
-        const {contacts, sold_percentage, load , country_chart_data} = this.state
+        const {events, events_date , contacts, sold_percentage, load , country_chart_data, status_chart_data} = this.state
         
         return (
             <div className="overview__container">
-                
-                <DataBox value={sold_percentage} data_text={"closed deals"} value_type={"%"}  />
 
-                <BarChartBox chart_data={country_chart_data} name={"name"} dataA={"contacts"} dataA_name={"All contacts"} dataB={"sold"} dataB_name={"Sold"} />
-                 
-                 <PieChart />
+                <div className="overview__inner__container">
+                <Fade  delay={500} >
+                <div className="overview__box overview__box__data__box"><DataBox value={sold_percentage} data_text={"Closed Deals"} value_type={"%"}  /></div>
+                 </Fade>
+                 <Fade  delay={500} >
+                <div className="overview__box"> <div className="overview__box__title">Contacts Status</div><PieChart chart_data={status_chart_data} /></div>
+                </Fade>
+                <Fade  delay={500} >
+                <div className="overview__box"> <div className="overview__box__title">Sales by Country</div><BarChartBox chart_data={country_chart_data} name={"name"} dataA={"contacts"} dataA_name={"All contacts"} dataB={"sold"} dataB_name={"Sold"} /></div>
+                </Fade>
+
+                <Fade  delay={500} >
+                <div className="overview__box"><Calendar dates={events_date} events={events} /></div>
+                </Fade>
+
+                </div>
             </div>
 
         );

@@ -1,0 +1,22 @@
+.data__box__container{
+    max-width: 100%;
+    min-width: 280px;
+    background-color:$background;
+    border-radius: 5px;
+    color: $S_light;
+    @include displayFlex(column, center, center);
+    min-height: 100px;
+    height: 100%;
+    width: 100%;
+    font-size: 26px;
+    position: relative;
+    
+
+    .data__box__num{
+        font-size: 50px;
+        font-weight: 500;;
+
+    }
+
+
+}
