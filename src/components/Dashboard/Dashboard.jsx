@@ -80,7 +80,6 @@ class Dashboard extends Component {
                     <NavBar history={history} />
                     <div className="dashboard">
                         <div className="top__nav__back"></div>
-                    
                         <Route exact path={DASHBOARD_OVERVIEW} component={Overview} />
                         <Route exact path={DASHBOARD_TASKS} component={Tasks} />
                         <Route exact path={DASHBOARD_CONTACTS} component={Contacts} />

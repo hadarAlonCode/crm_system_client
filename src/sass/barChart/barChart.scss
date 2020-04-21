@@ -3,14 +3,12 @@
     position: relative;
     margin-top: 20px;
     @include displayFlex(row, center, center);
+
+
     .recharts-wrapper{
         height: unset!important;
         width: 100%!important;
         padding: 15px;
-
-        // @include displayFlex(row, center, center);
-
-        
 
         .recharts-surface:first-of-type{
         
@@ -35,12 +33,7 @@
                 left: -21%;
                 margin-right: 15px;
               }
-
-           
-
         }
-
-        
 
         .recharts-legend-wrapper{
             bottom: 15px!important;
@@ -65,7 +58,6 @@
 
     .recharts-tooltip-wrapper{
         z-index: 100!important;
-        // left: 100px!important;
         transform: translate(150px, 0px)!important;
     }
 }
