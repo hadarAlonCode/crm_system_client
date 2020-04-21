@@ -23,9 +23,6 @@ class ContactSideBar extends Component {
     render() {
 
         const {toggle_side_bar, contact, editContactdata, toggleSideBar} = this.props
-        console.log(contact)
-
-        
 
         return (
             <div className={toggle_side_bar ? "contact__side__bar__container" : "contact__side__bar__container contact__side__bar__container--off"}>

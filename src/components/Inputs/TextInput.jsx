@@ -25,8 +25,6 @@ class TextInput extends Component {
 
     componentDidUpdate(prevProps) {
 
-        console.log(this.props.check_validation)
-
         if (prevProps.check_validation !== this.props.check_validation) {
             if (this.props.check_validation) {
                 this.validation()

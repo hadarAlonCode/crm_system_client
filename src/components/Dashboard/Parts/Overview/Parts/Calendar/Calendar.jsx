@@ -21,11 +21,7 @@ class Calendar extends Component {
 
     handleChange = date => {
         const { events } = this.props
-
         let filter_event = events.filter(e => moment(e.date).isSame(date, 'day') )
-        console.log(filter_event)
-
-        // this.props.updateForm(state_name, date)
         this.setState({
             events_data: filter_event
         })
@@ -41,8 +37,6 @@ class Calendar extends Component {
         } = this.props
         const {show_event , events_data } = this.state
 
-        console.log(events , "events_date")
-        // console.log(moment("2020-04-28T21:00:00.000Z").toDate())
         return (
             <div className='options__datepicker calendar__conatiner'>
                 <DatePicker

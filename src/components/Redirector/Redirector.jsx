@@ -19,7 +19,6 @@ class Redirector extends Component {
         const { login } = this.state
 
         let token = getCookie("login_cookie" )
-        console.log(token)
 
         if (token) {
             this.props.history.push(DASHBOARD_OVERVIEW)
@@ -29,7 +28,6 @@ class Redirector extends Component {
     }
 
     render() {
-        console.log("Redirector")
         return (
             <div>
 

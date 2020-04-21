@@ -27,13 +27,11 @@ class AddClientForm extends Component {
 
     updateForm = (state_name, value) => {
 
-        console.log(state_name, value)
 
         const { form_data } = this.state
         let copy_form_data = JSON.parse(JSON.stringify(form_data))
         copy_form_data[state_name] = value
 
-        console.log(copy_form_data)
         this.setState({
             form_data: copy_form_data
         })

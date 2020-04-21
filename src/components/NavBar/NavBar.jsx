@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Component } from 'react';
 //routs
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
@@ -8,7 +9,6 @@ import { removeCookie } from '../../tools/cookie/cookie';
 import LOGO from "../../tools/images/w_logo_crm.png"
 
 import Fade from 'react-reveal/Fade';
-import Flip  from 'react-reveal/Fade';
 
 
 class NavBar extends Component {
@@ -78,15 +78,12 @@ class NavBar extends Component {
     logout = () => {
         removeCookie("login_cookie")
         window.location.href = '/login'
-
         document.body.style.overflowY = "auto"
     }
 
 
     toggleOpenMobileNav =()=>{
         const {open_mobile_nav} = this.state
-
-        console.log(open_mobile_nav)
 
 
         if(open_mobile_nav){
@@ -106,8 +103,6 @@ class NavBar extends Component {
 
     render() {
 
-        console.log('Navbar render')
-
         const { selected_tab, tabs , toggle_mobile_nav, open_mobile_nav} = this.state
 
         return (
@@ -115,9 +110,9 @@ class NavBar extends Component {
                 <div onClick={toggle_mobile_nav ? ()=> this.toggleOpenMobileNav() :  null}  className="logo">
                     {toggle_mobile_nav ? 
                         
-                        <button class={open_mobile_nav  ? "hamburger hamburger--squeeze is-active"  :"hamburger hamburger--squeeze" } type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
+                        <button className={open_mobile_nav  ? "hamburger hamburger--squeeze is-active"  :"hamburger hamburger--squeeze" } type="button">
+                            <span className="hamburger-box">
+                                <span className="hamburger-inner"></span>
                             </span>
                         </button>  
                         :

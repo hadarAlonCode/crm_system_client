@@ -64,7 +64,6 @@ class Contacts extends Component {
         const { limit, page, contacts } = this.state
                 const {user_key} = this.props.login
 
-        console.log(contacts, user_key, "contacts")
         this.setState({
             scroll_has_more: false,
         }, async () => {
@@ -236,7 +235,7 @@ class Contacts extends Component {
 
                             {contacts.length > 0  ?
                             contacts.map(contact => {
-                                return <Contact  contact={contact} selectedContact={this.selectedContact} />
+                                return <Contact key={contact._id} contact={contact} selectedContact={this.selectedContact} />
                             })
 
                             :

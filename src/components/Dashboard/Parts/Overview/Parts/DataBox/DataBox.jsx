@@ -5,13 +5,12 @@ import CountUp from 'react-countup';
 
 
 function DataBox(props) {
-    console.log(props.login)
 
     return (
         <div className="data__box__container">
  
             <div className="data__box__num">
-            <CountUp start={0} end={props.value} duration={3} useEasing={true} decimals={1}/>{props.value_type}</div>
+            <CountUp start={0} end={Number(props.value)} duration={3} useEasing={true} decimals={1}/>{props.value_type}</div>
             <div>{props.data_text}</div>
 
             

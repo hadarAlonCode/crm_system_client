@@ -63,7 +63,6 @@ class Tasks extends Component {
         const { limit, page, tasks } = this.state
         const {user_key} = this.props.login
 
-        console.log(tasks, "tasks")
         this.setState({
             scroll_has_more: false,
         }, async () => {
@@ -88,7 +87,6 @@ class Tasks extends Component {
 
     updateTask = async(task_status , task)=>{
 
-        console.log(task)
 
         let body ={
             status : task_status ? false : true
@@ -97,7 +95,6 @@ class Tasks extends Component {
         let task_id = task._id
 
         let update = await updateTaskApi(body, task_id)
-        console.log(update)
     }
 
 
@@ -124,11 +121,8 @@ class Tasks extends Component {
 
 
     render() {
-        console.log("Tasks")
         const { tasks, load_page, scroll_has_more } = this.state
         const {user_key} = this.props.login
-
-        console.log(user_key)
 
 
         return (
@@ -149,7 +143,7 @@ class Tasks extends Component {
                             useWindow={false}
                         >
                             {tasks.map(task => {
-                                return <Task task={task} updateTask={this.updateTask} deleteTask={this.deleteTask} />
+                                return <Task key={task._id} task={task} updateTask={this.updateTask} deleteTask={this.deleteTask} />
                             })}
                         </InfiniteScroll>
 

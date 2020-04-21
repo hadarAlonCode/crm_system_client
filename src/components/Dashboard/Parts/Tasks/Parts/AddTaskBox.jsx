@@ -107,13 +107,13 @@ class AddTaskBox extends Component {
             <div className="add__task__box__container">
 
             <div className="add__task__box__left">
-                <div onClick={()=>this.submitTask()} className="add__task__box__icon"><i class="fas fa-plus"></i></div>
+                <div onClick={()=>this.submitTask()} className="add__task__box__icon"><i className="fas fa-plus"></i></div>
                 <div className="add__task__box__input"><input onChange={(e)=>this.handleTextInput(e)} type="text" placeholder="Add New Task..." value={task_text}></input></div>
             </div>
 
             <div className="add__task__box__center">
                 <div className="add__task__box__contact__icon">
-                    <i class="fas fa-user-plus"></i>
+                    <i className="fas fa-user-plus"></i>
                 </div>
                 <div className="add__task__box__contact__input">
                     {/* <input type="text" placeholder="Add Contact..."></input> */}

@@ -44,7 +44,7 @@ class Task extends Component {
             <div className="task__container">
 
                 <div className="task__left">
-                    <div onClick={()=>this.updateStatus()} className="task__status">{task_status ? <i class="fas fa-check-circle"></i> : <i class="far fa-circle"></i> }</div>
+                    <div onClick={()=>this.updateStatus()} className="task__status">{task_status ? <i className="fas fa-check-circle"></i> : <i class="far fa-circle"></i> }</div>
                     <div className="task__text">{task.text}</div>
                 </div>
 
@@ -67,8 +67,8 @@ class Task extends Component {
 
                 <div className="task__right">
                     
-                    <div className="task__date"><i class="fas fa-calendar-check"></i>{task.date ? moment(task.date).format('L') : "-"}</div>
-                    <div className="task__menu" onClick={()=>deleteTask(task)}><i class="fas fa-trash"></i></div>
+                    <div className="task__date"><i className="fas fa-calendar-check"></i>{task.date ? moment(task.date).format('L') : "-"}</div>
+                    <div className="task__menu" onClick={()=>deleteTask(task)}><i className="fas fa-trash"></i></div>
 
 
                 </div>

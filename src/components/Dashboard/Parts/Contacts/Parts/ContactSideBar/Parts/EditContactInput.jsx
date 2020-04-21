@@ -54,8 +54,6 @@ class EditContactInput extends Component {
         const { value } = this.state
         const { state_name } = this.props
 
-        console.log(state_name)
-
         if (state_name === "email") {
 
 
@@ -173,8 +171,6 @@ class EditContactInput extends Component {
         this.setState({
             value
         })
-
-        console.log(value, "value")
     }
 
 

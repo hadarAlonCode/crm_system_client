@@ -36,8 +36,6 @@ class EmailInput extends Component {
     validation = () => {
         const { value } = this.state
 
-        console.log(validator.isEmail(value))
-
         if (!validator.isEmail(value) && value !== '') {
             this.setState({
                 is_validate: false

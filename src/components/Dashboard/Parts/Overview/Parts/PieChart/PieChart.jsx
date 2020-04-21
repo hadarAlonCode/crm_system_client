@@ -58,7 +58,6 @@ export default class PieChartComponent extends PureComponent {
   render() {
       const {chart_data} = this.props
 
-      console.log(chart_data, "chart_data")
     return (
 
       <div className="pie__chart">

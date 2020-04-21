@@ -1,26 +1,63 @@
 .bar__chart{
     width: 140%;
     position: relative;
+    margin-top: 20px;
     @include displayFlex(row, center, center);
     .recharts-wrapper{
         height: unset!important;
-        width: 90%!important;
+        width: 100%!important;
         padding: 15px;
 
-        @include displayFlex(row, center, center);
+        // @include displayFlex(row, center, center);
+
+        
 
         .recharts-surface:first-of-type{
-            // width: 100%;
-            // height: 100%;
+        
+            width: 100%;
+            position: relative;
+            top: 9px;
+            left: -10px;
             margin-right: 15px;
 
+            @include mediaMaxWidth(800px){
+                width: 122%;
+                position: relative;
+                top: 9px;
+                left: -15%;
+                margin-right: unset;
+            }
+
+            @media screen and (max-width: 1350px) and (min-width: 800px) {
+                width: 130%;
+                position: relative;
+                top: 9px;
+                left: -21%;
+                margin-right: 15px;
+              }
+
+           
+
         }
+
+        
 
         .recharts-legend-wrapper{
             bottom: 15px!important;
             width: unset!important;
             height: unset!important;
             left: unset!important;
+            position: relative!important;
+
+            .recharts-surface{
+        
+                width: unset;
+                position: unset;
+                top: unset;
+                left: unset;
+                margin-right: unset;
+    
+            }
 
           
         }
@@ -28,6 +65,7 @@
 
     .recharts-tooltip-wrapper{
         z-index: 100!important;
-        left: 100px!important;
+        // left: 100px!important;
+        transform: translate(150px, 0px)!important;
     }
 }

@@ -129,8 +129,6 @@ class Overview extends Component {
     getStatusChartData =async ()=>{
         const {user_key} = this.props.login
         let res = await getCountGroupContacts(user_key , "status" )
-        console.log(res)
-        //adding data to pie chart!
         if(res.ok && res.result.length > 0){
 
             let contacts_status = res.result
@@ -181,8 +179,6 @@ class Overview extends Component {
                 let dates = all_events.map(e => {
                     return  moment(e.date).toDate()
                 })
-
-                console.log(dates)
                 
                 this.setState({
                     events_date: dates,

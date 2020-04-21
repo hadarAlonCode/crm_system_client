@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { Component } from 'react';
 import NavBar from '../NavBar/NavBar';
 import Tasks from './Parts/Tasks/Tasks';
@@ -27,8 +28,6 @@ class Dashboard extends Component {
   
 
   async  componentDidMount() {
-        console.log("componentDidMount")
-
         let token = getCookie("login_cookie" )
 
         if (token) {
@@ -73,7 +72,6 @@ class Dashboard extends Component {
     render() {
         const { history } = this.props
         const {load_dashboard} = this.state
-        console.log("dash")
         return (
             load_dashboard ?
             <Fade>

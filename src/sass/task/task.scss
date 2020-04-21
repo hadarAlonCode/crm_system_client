@@ -28,8 +28,6 @@
         position: relative;
         @include mediaMaxWidth(800px){
             width: 100%;
-            
-    
         }
 
         .task__status{

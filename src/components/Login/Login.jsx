@@ -31,7 +31,6 @@ class Login extends Component {
 
 
     handleChange =(e)=>{
-        console.log(e)
         let name =  e.target.name
         let value = e.target.value
         this.setState({
@@ -50,7 +49,6 @@ class Login extends Component {
 
         let res = await loginApi(body)
         if(res.ok){
-            console.log(res)
             setCookie("login_cookie" ,res.result.token )
             this.props.setUserData(res.result)
             this.props.history.push(DASHBOARD_OVERVIEW)
