@@ -3,5 +3,7 @@
     "javascript.autoClosingTags": true,
     "javascript.suggestionActions.enabled": true,
     "javascript.preferences.renameShorthandProperties": true,
-    "javascript.suggest.autoImports": true
+    "javascript.suggest.autoImports": true,
+    "typescript.validate.enable": false,
+    "javascript.validate.enable": false,
 }

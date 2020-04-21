@@ -145,6 +145,13 @@ class AddClientForm extends Component {
                         title_text={"Country"}
                         updateForm={this.updateForm}
                     />
+                    <SelectBox
+                        options={status_options}
+                        state_value={form_data["status"]}
+                        state_name={"status"}
+                        title_text={"Status"}
+                        updateForm={this.updateForm}
+                    />
                     <TextInput
                         state_name={"company"}
                         state_value={form_data["company"]}
@@ -159,13 +166,7 @@ class AddClientForm extends Component {
                         title_text={"Position"}
                         updateForm={this.updateForm}
                     />
-                    <SelectBox
-                        options={status_options}
-                        state_value={form_data["status"]}
-                        state_name={"status"}
-                        title_text={"Status"}
-                        updateForm={this.updateForm}
-                    />
+                    
 
                 </div>
 

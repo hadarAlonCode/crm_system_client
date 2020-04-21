@@ -27,6 +27,7 @@ class Contacts extends Component {
     }
 
    async componentDidMount() {
+       
    
         this.getContactsFirstTime()
     }
@@ -234,19 +235,15 @@ class Contacts extends Component {
                         >
 
                             {contacts.length > 0  ?
-                            contacts.map(contact => {
-                                return <Contact key={contact._id} contact={contact} selectedContact={this.selectedContact} />
-                            })
-
+                                contacts.map(contact => {
+                                    return <Contact key={contact._id} contact={contact} selectedContact={this.selectedContact} />
+                                })
                             :
-
-                            <div className="no__contacts">Please Add New Contact</div>
-                        
+                               <div className="no__contacts">Please Add New Contact</div>
                         }
                            
                         </InfiniteScroll>
                     
-
                     </div>
 
                     {toggle_add_popup ?

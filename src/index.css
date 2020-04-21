@@ -217,7 +217,8 @@ input {
     width: 100%;
     top: 80px;
     background: linear-gradient(to right, #23074dc0, #cc5433d0);
-    height: calc(100vh - 80px); }
+    height: calc(100vh - 80px);
+    min-height: unset; }
   .mobile__navbar__container #mobile__navbar--active li {
     width: 100%;
     position: relative;
@@ -2009,6 +2010,9 @@ input {
   @media screen and (max-width: 1000px) {
     .overview__inner__container {
       padding-right: 60px; } }
+  @media screen and (max-width: 500px) {
+    .overview__inner__container {
+      padding-right: 40px; } }
   .overview__inner__container .overview__box {
     min-width: 285px;
     width: 43%;

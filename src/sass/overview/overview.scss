@@ -29,6 +29,10 @@
         padding-right: 60px;
     }
 
+    @include mediaMaxWidth(500px){
+        padding-right: 40px;
+    }
+
     .overview__box{
         min-width: 285px;
         width: 43%;
