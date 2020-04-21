@@ -1,10 +1,11 @@
 .pie__chart{
     width: 100%;
     position: relative;
+    
+    @include displayFlex(row, center, center);
 
     @include mediaMaxWidth(600px){
         font-size: 13px;
-
     }
 
     .recharts-wrapper{

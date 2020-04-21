@@ -45,29 +45,24 @@
 
         @include mediaMaxWidth(1000px){
             width: 100%;
-        }
-
-        // @include mediaMaxWidth(1000px){
-        //     width: 80%;
-        // }
-
-        
+        }  
     }
 
     .overview__box__data__box{
         padding: 0px;
     }
 
-    // overflow-y: scroll;
-    // overflow-x: hidden;
-
     .overview__box__title{
         position: absolute;
         top: 10px;
         font-weight: 500;
         left: 10px;
-    }
-    
-    
+    } 
 
+}
+
+
+.no__contacts__chart{
+    margin-top: 20px;
+    font-size: 16px!important;
 }

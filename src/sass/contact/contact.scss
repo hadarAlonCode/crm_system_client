@@ -1,7 +1,6 @@
 .contact__container{
     @include displayFlex(row, space-between, center);
     padding: 10px;
-    // padding-right: 20%;
     margin-top: 15px;
     width: 98%;
     background-color: $SL_color;
@@ -35,7 +34,6 @@
     }
 
     .conatct_text{
-        // margin-right: 10px;
         width: calc(100% / 4);
         
         @include displayFlex(row, start, center);  

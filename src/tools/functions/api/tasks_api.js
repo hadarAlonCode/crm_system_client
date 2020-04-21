@@ -33,7 +33,7 @@ export const getAllTasks = (user_key) => new Promise(resolve => {
     if(token){
         headers = {'access-token' : token}
     }
-    axios.get(`${API}/secure/task/get?user_key=${user_key}`, {headers}).then(res => {
+    axios.get(`${API}/secure/task/open/get?user_key=${user_key}`, {headers}).then(res => {
         const {
             ok,
             result
@@ -101,7 +101,11 @@ export const deleteTaskApi = (_id) => new Promise(resolve => {
     if(token){
         headers = {'access-token' : token}
     }
-    axios.post(`${API}/secure/task/delete?_id=${_id}`, {headers}).then(res => {
+
+    let body = {}
+
+
+    axios.post(`${API}/secure/task/delete?_id=${_id}`, body, {headers}).then(res => {
         const {
             ok,
             result

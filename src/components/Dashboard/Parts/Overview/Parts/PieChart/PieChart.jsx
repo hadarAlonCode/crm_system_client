@@ -57,12 +57,15 @@ export default class PieChartComponent extends PureComponent {
 
   render() {
       const {chart_data} = this.props
+
+      console.log(chart_data, "chart_data")
     return (
 
       <div className="pie__chart">
-       
-        
-      <PieChart width={400} height={400}>
+
+        {chart_data.length > 0 ?
+
+        <PieChart width={400} height={400}>
         <Pie
           data={chart_data}
           cx={200}
@@ -77,7 +80,16 @@ export default class PieChartComponent extends PureComponent {
             chart_data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}  />)
           }
         </Pie>
-      </PieChart>
+        </PieChart>
+
+        : 
+
+        <div className="no__contacts__chart">No Contacts</div>
+        
+      }
+       
+        
+ 
 
       </div>
     );

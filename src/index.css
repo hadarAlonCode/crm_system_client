@@ -296,11 +296,15 @@ input {
 
 .contacts__page__container {
   position: relative; }
+  .contacts__page__container .no__contacts {
+    margin-top: 200px;
+    font-size: 20px;
+    font-weight: 500; }
 
 .contacts__container {
   width: 100%;
   height: calc(100vh - 80px);
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden; }
   @media screen and (max-width: 1000px) {
     .contacts__container {
@@ -560,6 +564,19 @@ input {
     .contact__info__container section .edit__title {
       font-weight: 500;
       padding-bottom: 15px; }
+  .contact__info__container .delete__btn {
+    background: #f44336d6;
+    margin-top: 10px;
+    padding: 5px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif !important;
+    border: none;
+    color: white;
+    transition: 0.2s;
+    border-radius: 3px;
+    opacity: 1; }
+    .contact__info__container .delete__btn:hover {
+      background: #ff1100d6; }
 
 .contact__side__bar__title__container {
   display: flex;
@@ -2009,6 +2026,10 @@ input {
     font-weight: 500;
     left: 10px; }
 
+.no__contacts__chart {
+  margin-top: 20px;
+  font-size: 16px !important; }
+
 .calendar__conatiner {
   display: flex; }
   @media screen and (max-width: 1400px) {
@@ -2057,7 +2078,11 @@ input {
 
 .pie__chart {
   width: 100%;
-  position: relative; }
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
   @media screen and (max-width: 600px) {
     .pie__chart {
       font-size: 13px; } }

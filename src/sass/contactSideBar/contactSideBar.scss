@@ -121,6 +121,24 @@
             padding-bottom: 15px;  
         }
     }
+
+
+    .delete__btn{
+        background: #f44336d6;
+        margin-top: 10px;
+        padding: 5px;
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif !important;
+        border: none;
+        color: white;
+        transition: 0.2s;
+        border-radius: 3px;
+        opacity: 1;
+
+        &:hover{
+            background: #ff1100d6;
+        }
+    }
 }
 
 .contact__side__bar__title__container{

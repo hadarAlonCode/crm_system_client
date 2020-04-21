@@ -1,10 +1,6 @@
 .options__datepicker {
     position: relative;
-    // height: 44px;
-    // width: 250px;
-    // margin-left: 10px;
     cursor: pointer;
-    // margin-bottom: 30px;
 }
 .datepicker__label{
     color: rgba(0, 0, 0, .6);
@@ -25,8 +21,7 @@
 }
 
 .react-datepicker-popper {
-    // transform: none !important;
-    // transform: translate(15px, 35px) !important;
+
     top: -50px!important;
     left: -84px!important;
 
@@ -55,7 +50,6 @@
     background-color: white;
     height: 36px;
     width: 100%;
-    // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     @include mediaMaxWidth(800px){
         top: 1px;
 

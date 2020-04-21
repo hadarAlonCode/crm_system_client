@@ -1,12 +1,31 @@
 import React, {Component} from 'react';
 import EditContactInput from './Parts/EditContactInput';
 import moment from "moment"
+import { deleteContact } from '../../../../../../tools/functions/api/contacts_api';
 
 class ContactSideBar extends Component {
+
+
+    deleteContact =async ()=>{
+
+        const {contact, deleteContactsAfterUpdate, toggleSideBar} = this.props
+
+        let res = await deleteContact(contact._id)
+        if(res.ok){
+            deleteContactsAfterUpdate(contact._id)
+            toggleSideBar()
+        }
+
+
+    }
+
+
     render() {
 
         const {toggle_side_bar, contact, editContactdata, toggleSideBar} = this.props
         console.log(contact)
+
+        
 
         return (
             <div className={toggle_side_bar ? "contact__side__bar__container" : "contact__side__bar__container contact__side__bar__container--off"}>
@@ -73,6 +92,10 @@ class ContactSideBar extends Component {
                     <section>
                         <h3 className="edit__title">First Contacted</h3>
                         <p>{contact.firstContact ? moment(contact.firstContact).format('L') : "-"}</p>
+                    </section>
+
+                    <section>
+                        <button className="delete__btn" onClick={()=>this.deleteContact()} >Delete Contact</button>
                     </section>
 
 

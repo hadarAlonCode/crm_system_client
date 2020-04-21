@@ -1,11 +1,18 @@
 .contacts__page__container{
      position: relative;
+
+
+     .no__contacts{
+          margin-top: 200px;
+          font-size: 20px;
+          font-weight: 500;
+     }
 }
 
 .contacts__container{
      width:  100%;
      height: calc(100vh - 80px);
-     overflow-y: scroll;
+     overflow-y: auto;
      overflow-x: hidden;
      
      @include mediaMaxWidth(1000px){
@@ -23,21 +30,3 @@
 
 }
 
-// .contacts__container::-webkit-scrollbar {
-//      width: 10px;
-//    }
-   
-//    /* Track */
-//    .contacts__container::-webkit-scrollbar-track {
-//      background: #f1f1f1; 
-//    }
-    
-//    /* Handle */
-//    .contacts__container::-webkit-scrollbar-thumb {
-//      background: #888; 
-//    }
-   
-//    /* Handle on hover */
-//    .contacts__container::-webkit-scrollbar-thumb:hover {
-//      background: #555; 
-//    }

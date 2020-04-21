@@ -100,6 +100,33 @@ export const updateContact = (body , _id) => new Promise(resolve => {
 })
 
 
+export const deleteContact = ( _id) => new Promise(resolve => {
+    let token = getCookie("login_cookie")
+
+    let headers
+    if(token){
+        headers = {'access-token' : token}
+    }
+
+    let body = {}
+
+
+    axios.post(`${API}/secure/contact/delete?_id=${_id}`, body,  {headers}).then(res => {
+        const {
+            ok,
+            result
+        } = res.data
+        const output = {
+            ok,
+            result
+        }
+        resolve(output)
+    }).catch(err => {
+        resolve({ ok: false })
+    })
+})
+
+
 
 
 export const searchByName = (keyword, user_key) => new Promise(resolve => {

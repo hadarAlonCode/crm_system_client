@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Contact from './Parts/Contact';
-import { getContactsPagination, updateContact, searchByName } from '../../../../tools/functions/api/contacts_api';
+import { getContactsPagination, updateContact, searchByName , addContact } from '../../../../tools/functions/api/contacts_api';
 import InfiniteScroll from 'react-infinite-scroller';
 import FormPopup from '../../../Popups/FormPopup/FormPopup'
 import ContactSideBar from './Parts/ContactSideBar/ContactSideBar';
@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-
 
 import { connect } from "react-redux";
 import * as actions from '../../../../actions/actions';
-
 
 
 class Contacts extends Component {
@@ -27,10 +26,9 @@ class Contacts extends Component {
         }
     }
 
-    componentDidMount() {
+   async componentDidMount() {
    
         this.getContactsFirstTime()
-
     }
 
     componentDidUpdate(prevProps){
@@ -171,6 +169,20 @@ class Contacts extends Component {
     }
 
 
+    deleteContactsAfterUpdate =(id)=>{
+
+        const {  contacts } = this.state
+        let copy_contacts = JSON.parse(JSON.stringify(contacts))
+        let index = copy_contacts.findIndex(contact => contact._id === id)
+        copy_contacts.splice(index, 1);
+
+        this.setState({
+            contacts: copy_contacts
+        })
+
+    }
+
+
     handleSearch = async (keyword) => {
         const {user_key} = this.props.login
 
@@ -221,9 +233,18 @@ class Contacts extends Component {
                             hasMore={scroll_has_more}
                             useWindow={false}
                         >
-                            {contacts.map(contact => {
-                                return <Contact contact={contact} selectedContact={this.selectedContact} />
-                            })}
+
+                            {contacts.length > 0  ?
+                            contacts.map(contact => {
+                                return <Contact  contact={contact} selectedContact={this.selectedContact} />
+                            })
+
+                            :
+
+                            <div className="no__contacts">Please Add New Contact</div>
+                        
+                        }
+                           
                         </InfiniteScroll>
                     
 
@@ -236,7 +257,7 @@ class Contacts extends Component {
                         : null
                     }
 
-                    <ContactSideBar toggleSideBar={this.toggleSideBar} editContactdata={this.editContactData} toggle_side_bar={toggle_side_bar} contact={selected_contact} />
+                    <ContactSideBar deleteContactsAfterUpdate={this.deleteContactsAfterUpdate} toggleSideBar={this.toggleSideBar} editContactdata={this.editContactData} toggle_side_bar={toggle_side_bar} contact={selected_contact} />
                 </div>
                 : null
         );
