@@ -151,8 +151,8 @@
     border: 0px;
     border-top: 2px solid gray;
     border-left: 2px solid gray;
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+    -webkit-transform: rotate(-42deg);
+    transform: rotate(-42deg);
 }
 
 .react-datepicker__navigation--next {
@@ -161,26 +161,26 @@
     border: 0px;
     border-top: 2px solid gray;
     border-right: 2px solid gray;
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+    -webkit-transform: rotate(42deg);
+    transform: rotate(42deg);
     
 }
 
 
-.react-datepicker__current-month::after {
-    // position: absolute;
-    // content: '';
-    // border-top: 2px solid gray;
-    // border-right: 2px solid gray;
-    // -webkit-transform: rotate(-135deg);
-    // transform: rotate(-135deg);
-    // height: 10px;
-    // width: 10px;
-    // left: 20px;
-    // opacity: 0.3;
-    // top: 1px;
-    // pointer-events: none;
-}
+// .react-datepicker__current-month::after {
+//     position: absolute;
+//     content: '';
+//     border-top: 2px solid gray;
+//     border-right: 2px solid gray;
+//     -webkit-transform: rotate(-135deg);
+//     transform: rotate(-135deg);
+//     height: 10px;
+//     width: 10px;
+//     left: 20px;
+//     opacity: 0.3;
+//     top: 1px;
+//     pointer-events: none;
+// }
 
 
 

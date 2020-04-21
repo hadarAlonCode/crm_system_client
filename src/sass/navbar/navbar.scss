@@ -6,6 +6,11 @@
     @include displayFlex(column, unset, unset);
     font-size: 16px;
 
+    @include mediaMaxWidth(1000px){
+        width: 0px;
+        
+    }
+
    
 
     
@@ -155,6 +160,7 @@
         width: 100%;
         top:80px;
         background: linear-gradient(to right, #23074dc0, #cc5433d0);
+        height: calc(100vh - 80px);
       
     }
     

@@ -58,6 +58,7 @@ class NavBar extends Component {
 
 
     toggleMobileNav=(boolean)=>{
+
         this.setState({
             toggle_mobile_nav: boolean
         })
@@ -69,17 +70,32 @@ class NavBar extends Component {
             selected_tab: tab_name,
             open_mobile_nav: false
         })
+
+        document.body.style.overflowY = "auto" 
     }
 
 
     logout = () => {
         removeCookie("login_cookie")
         window.location.href = '/login'
+
+        document.body.style.overflowY = "auto"
     }
 
 
     toggleOpenMobileNav =()=>{
         const {open_mobile_nav} = this.state
+
+        console.log(open_mobile_nav)
+
+
+        if(open_mobile_nav){
+            document.body.style.overflowY = "auto"
+        }else{
+            document.body.style.overflowY = "hidden"
+        }
+
+
         this.setState({
             open_mobile_nav: !open_mobile_nav
         })

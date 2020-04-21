@@ -12,6 +12,7 @@
 
     @include mediaMaxWidth(800px){
         @include displayFlex(column, unset, unset);
+        width: 95%;
     }
 
   
