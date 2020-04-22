@@ -26,10 +26,7 @@ class Tasks extends Component {
     }
 
     componentDidMount() {
-        //demo
-        // this.setState({
-        //     contacts: demo_contacts
-        // })
+       
         this.getTasksFirstTime()
 
     }
@@ -86,7 +83,6 @@ class Tasks extends Component {
 
 
     updateTask = async(task_status , task)=>{
-
 
         let body ={
             status : task_status ? false : true

@@ -15,29 +15,11 @@ class DateSelect extends Component {
 
     }
 
-
-
     handleChange = date => {
         const { state_name } = this.props
         this.props.updateForm(state_name, date)
-        // this.setState({
-        //     validation_error:false
-        // })
+       
     }
-
-
-    // componentWillReceiveProps(nextProps) {
-    //     const { validate_form, value } = this.props
-    //     if (nextProps.validate_form !== validate_form) {
-    //         if (!value) {
-    //             this.setState({
-    //                 validation_error: true
-    //             })
-    //         }
-    //     }
-    // }
-
-
 
     render() {
         const {
@@ -70,14 +52,12 @@ class DateSelect extends Component {
                 <DatePicker
                     selected={value ? value : moment().toDate()}
                     onChange={this.handleChange}
-                    // locale={he}
-                    // maxDate={moment().toDate()}
                     minDate={moment().toDate()}
                     showYearDropdown
                     yearDropdownItemNumber={45}
                     scrollableYearDropdown = {5}
                 />
-                 {/* {validation_error ? <p className='form__error__msg'>{error}</p> : ''} */}
+               
             </div>
         )
     }

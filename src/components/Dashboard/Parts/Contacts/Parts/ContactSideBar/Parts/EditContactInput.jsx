@@ -36,9 +36,7 @@ class EditContactInput extends Component {
             this.setState({
                 value: state_value
             })
-
         }
-
     }
 
 
@@ -140,6 +138,7 @@ class EditContactInput extends Component {
 
     }
 
+
     handleFocus = () => {
         this.setState({
             is_validate: true
@@ -183,8 +182,6 @@ class EditContactInput extends Component {
                 {title_text ? <h3>{title_text}</h3> : null}
 
                 {edit_mode ?
-
-                
 
                     <div className="edit__input__and__btn">
                          {state_name === "country" || state_name === "status" ? 

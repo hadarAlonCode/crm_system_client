@@ -61,8 +61,6 @@ class Login extends Component {
             this.setState({
                 login_validation: false
             })
-
-            //create validation text! 
         }
     }
 

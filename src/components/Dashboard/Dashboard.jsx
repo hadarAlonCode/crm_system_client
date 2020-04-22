@@ -9,7 +9,6 @@ import { DASHBOARD_OVERVIEW, DASHBOARD_CONTACTS, DASHBOARD_TASKS, LOGIN } from '
 import TopBar from '../TopBar/TopBar';
 import { getCookie } from '../../tools/cookie/cookie';
 import { loginApi } from '../../tools/functions/api/login_api';
-
 import { connect } from "react-redux";
 import * as actions from '../../actions/actions';
 import Fade  from 'react-reveal/Fade';
@@ -22,45 +21,26 @@ class Dashboard extends Component {
         super()
         this.state ={
             load_dashboard: false
-
         }
     }
   
 
   async  componentDidMount() {
         let token = getCookie("login_cookie" )
-
         if (token) {
             let res = await loginApi({email:"", password: ""})
+
             if (res.ok){
-               this.props.setUserData(res.result)
-               this.setState({
-                load_dashboard: true
-            })
+                this.props.setUserData(res.result)
+                this.setState({
+                    load_dashboard: true
+                })
 
-            return
-
-               
-               // === save all contacts in redux:
-               
-            //    let constcts_res = await getAllContacts(res.result.user_key)
-            //    if(constcts_res.ok){
-            //         this.props.getAllContacts(constcts_res.result)
-
-            //         this.setState({
-            //             load_dashboard: true
-            //         })
-            //         return
-                    
-            //    }else{
-            //        alert("500 ERROR")
-            //    }
-
-                
-            
-            }else{
-                this.props.history.push(LOGIN) 
+                return
             }
+
+             this.props.history.push(LOGIN) 
+            
             
         }else{
             this.props.history.push(LOGIN)
@@ -85,8 +65,6 @@ class Dashboard extends Component {
                         <Route exact path={DASHBOARD_CONTACTS} component={Contacts} />
                     </div>
                 </Router>
-            
-
             </div>
             </Fade>
             : null

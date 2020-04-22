@@ -3,12 +3,6 @@ import {
   PieChart, Pie, Sector, Cell,
 } from 'recharts';
 
-// const data = [
-//   { name: 'Group A', value: 400 },
-//   { name: 'Group B', value: 300 },
-//   { name: 'Group C', value: 300 },
-//   { name: 'Group D', value: 200 },
-// ];
 
 const COLORS = ['#23074D', '#3B1249', '#5D2144', '#86343E' , '#C95233'];
 
@@ -16,19 +10,19 @@ const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx, cy, midAngle, innerRadius, outerRadius, percent, index, value, name ,payload , fill , startAngle, endAngle
 }) => {
-   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-  const sin = Math.sin(-RADIAN * midAngle);
-  const cos = Math.cos(-RADIAN * midAngle);
-  const sx = cx + (outerRadius + 10) * cos;
-  const sy = cy + (outerRadius + 10) * sin;
-  const mx = cx + (outerRadius + 30) * cos;
-  const my = cy + (outerRadius + 30) * sin;
-  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
-  const ey = my;
-  const textAnchor = cos >= 0 ? 'start' : 'end';
+    const sin = Math.sin(-RADIAN * midAngle);
+    const cos = Math.cos(-RADIAN * midAngle);
+    const sx = cx + (outerRadius + 10) * cos;
+    const sy = cy + (outerRadius + 10) * sin;
+    const mx = cx + (outerRadius + 30) * cos;
+    const my = cy + (outerRadius + 30) * sin;
+    const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+    const ey = my;
+    const textAnchor = cos >= 0 ? 'start' : 'end';
 
   return (
       <g>
@@ -50,7 +44,6 @@ const renderCustomizedLabel = ({
 };
 
 
-
 export default class PieChartComponent extends PureComponent {
 
     
@@ -60,7 +53,7 @@ export default class PieChartComponent extends PureComponent {
 
     return (
 
-      <div className="pie__chart">
+    <div className="pie__chart">
 
         {chart_data.length > 0 ?
 
@@ -86,11 +79,8 @@ export default class PieChartComponent extends PureComponent {
         <div className="no__contacts__chart">No Contacts</div>
         
       }
-       
-        
- 
 
-      </div>
+    </div>
     );
   }
 }

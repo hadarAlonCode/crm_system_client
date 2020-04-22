@@ -1,12 +1,9 @@
-// @ts-nocheck
 import React, { Component } from "react";
-
 //routs
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 //redux
 import { connect } from "react-redux";
 import * as actions from './actions/actions';
-
 //components
 import Login from './components/Login/Login.jsx';
 import Redirector from "./components/Redirector/Redirector.jsx";
@@ -16,23 +13,11 @@ import { LOGIN, DASHBOARD } from "./tools/routs";
 
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    };
-  }
-
-  componentDidMount() {
-
-  }
-
 
   render() {
 
     return (
       <div className="App">
-
         <Router>
           <Route exact path={LOGIN} exact component={Login} />
           <Route path={DASHBOARD} render={() => <Dashboard history={this.props.history} />} />
@@ -43,8 +28,6 @@ class App extends Component {
     )
   }
 }
-
-
 
 function mapStateToProps({ login }) {
   return { login };

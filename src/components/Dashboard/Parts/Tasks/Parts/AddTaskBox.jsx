@@ -116,7 +116,6 @@ class AddTaskBox extends Component {
                     <i className="fas fa-user-plus"></i>
                 </div>
                 <div className="add__task__box__contact__input">
-                    {/* <input type="text" placeholder="Add Contact..."></input> */}
                     <SelectBox  updateForm={this.selectContact}  state_value={select_contact.name} state_name="contact" placeholder="Add Contact..." options={contacts_options} />
                 </div>
             </div>

@@ -183,16 +183,10 @@ class Overview extends Component {
                 this.setState({
                     events_date: dates,
                     events:all_events
-                })
-
-            
+                })  
         }
 
     }
-
-
-
-
 
 
 
@@ -203,17 +197,35 @@ class Overview extends Component {
             <div className="overview__container">
 
                 <div className="overview__inner__container">
-                <Fade  delay={500} >
-                <div className="overview__box overview__box__data__box"><DataBox value={sold_percentage} data_text={"Closed Deals"} value_type={"%"}  /></div>
-                 </Fade>
-                 <Fade  delay={500} >
-                <div className="overview__box"> <div className="overview__box__title">Contacts Status</div><PieChart chart_data={status_chart_data} /></div>
-                </Fade>
-                <Fade  delay={500} >
-                <div className="overview__box"> <div className="overview__box__title">Sales by Country</div><BarChartBox chart_data={country_chart_data} name={"name"} dataA={"contacts"} dataA_name={"All contacts"} dataB={"sold"} dataB_name={"Sold"} /></div>
+
+                <Fade delay={500} >
+                <div className="overview__box overview__box__data__box">
+                    <DataBox value={sold_percentage} data_text={"Closed Deals"} value_type={"%"}  />
+                </div>
                 </Fade>
 
-                <Fade  delay={500} >
+                 <Fade delay={500} >
+                <div className="overview__box"> 
+                    <div className="overview__box__title">Contacts Status</div>
+                    <PieChart chart_data={status_chart_data} />
+                </div>
+                </Fade>
+
+                <Fade delay={500} >
+                <div className="overview__box"> 
+                    <div className="overview__box__title">Sales by Country</div>
+                    <BarChartBox 
+                        chart_data={country_chart_data} 
+                        name={"name"} 
+                        dataA={"contacts"} 
+                        dataA_name={"All contacts"} 
+                        dataB={"sold"} 
+                        dataB_name={"Sold"} 
+                    />
+                </div>
+                </Fade>
+
+                <Fade delay={500} >
                 <div className="overview__box"><Calendar dates={events_date} events={events} /></div>
                 </Fade>
 

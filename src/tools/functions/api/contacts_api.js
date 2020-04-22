@@ -1,6 +1,17 @@
 import { API } from "../../keys"
 import axios from 'axios'
-import { CONTACT_CREATE , CONTACT_UPDATE, CONTACT_GET_ALL } from "../../routs"
+import { 
+    CONTACT_CREATE,
+    CONTACT_GET_FILTER , 
+    CONTACT_UPDATE, 
+    CONTACT_DELETE, 
+    CONTACT_SEARCH_BY_NAME,  
+    CONTACT_PAGINATION, 
+    CONTACT_GET_ALL, 
+    CONTACT_GET_GROUP_COUNT_AND_MATCH_STATUS ,
+    CONTACT_GET_GROUP_COUNT  } 
+from "../../routs"
+
 import { getCookie } from "../../cookie/cookie"
 
 
@@ -12,7 +23,7 @@ export const getContactsPagination = (limit, page, user_key) => new Promise(reso
         headers = {'access-token' : token}
     }
    
-    axios.get(`${API}/secure/contact/pagination/get?limit=${limit}&page=${page}&user_key=${user_key}`,  {headers}).then(res => {
+    axios.get(`${API}${CONTACT_PAGINATION.replace("LIMIT", limit).replace("PAGE", page).replace("USER_KEY", user_key)}`,  {headers}).then(res => {
         const {
             ok,
             result
@@ -36,7 +47,7 @@ export const getAllContacts = (user_key) => new Promise(resolve => {
         headers = {'access-token' : token}
     }
     
-    axios.get(`${API}/secure/contact/get?user_key=${user_key}`,  {headers}).then(res => {
+    axios.get(`${API}${CONTACT_GET_ALL.replace("USER_KEY", user_key)}`,  {headers}).then(res => {
         const {
             ok,
             result
@@ -84,7 +95,7 @@ export const updateContact = (body , _id) => new Promise(resolve => {
         headers = {'access-token' : token}
     }
     
-    axios.post(`${API}/secure/contact/update?_id=${_id}`, body,  {headers}).then(res => {
+    axios.post(`${API}${CONTACT_UPDATE.replace("_ID", _id)}`, body,  {headers}).then(res => {
         const {
             ok,
             result
@@ -111,7 +122,7 @@ export const deleteContact = ( _id) => new Promise(resolve => {
     let body = {}
 
 
-    axios.post(`${API}/secure/contact/delete?_id=${_id}`, body,  {headers}).then(res => {
+    axios.post(`${API}${CONTACT_DELETE.replace("_ID", _id)}`, body,  {headers}).then(res => {
         const {
             ok,
             result
@@ -137,7 +148,7 @@ export const searchByName = (keyword, user_key) => new Promise(resolve => {
         headers = {'access-token' : token}
     }
     
-    axios.get(`${API}/secure/contact/search/name/get?keyword=${keyword}&user_key=${user_key}`,  {headers}).then(res => {
+    axios.get(`${API}${CONTACT_SEARCH_BY_NAME.replace("KEYWORD", keyword).replace("USER_KEY", user_key)}`,  {headers}).then(res => {
         const {
             ok,
             result
@@ -160,10 +171,10 @@ export const getCountGroupContacts = (user_key , group, match_status) => new Pro
     if(token){
         headers = {'access-token' : token}
     }
-
-    let rout = `/secure/contact/group/count/get?user_key=${user_key}&group=${group}`
-    if(match_status){
-        rout = `/secure/contact/group/count/get?user_key=${user_key}&group=${group}&match_status=${match_status}` 
+    
+    let rout = `${CONTACT_GET_GROUP_COUNT.replace("USER_KEY", user_key).replace("GROUP", group)}`
+    if(match_status){   
+        rout = `${CONTACT_GET_GROUP_COUNT_AND_MATCH_STATUS.replace("USER_KEY", user_key).replace("GROUP", group).replace("MATCH_STATUS", match_status)}` 
     }
     
     axios.get(`${API}${rout}`,  {headers}).then(res => {
@@ -188,9 +199,9 @@ export const getFilterContacts = (user_key , key, value) => new Promise(resolve 
     let headers
     if(token){
         headers = {'access-token' : token}
-    }
+    }       
     
-    axios.get(`${API}/secure/contact/filter/get?user_key=${user_key}&key=${key}&value=${value}`,  {headers}).then(res => {
+    axios.get(`${API}${CONTACT_GET_FILTER.replace("USER_KEY", user_key).replace("KEY", key).replace("VALUE", value)}`,  {headers}).then(res => {
         const {
             ok,
             result

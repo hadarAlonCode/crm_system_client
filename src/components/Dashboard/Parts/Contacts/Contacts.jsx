@@ -26,9 +26,8 @@ class Contacts extends Component {
         }
     }
 
+
    async componentDidMount() {
-       
-   
         this.getContactsFirstTime()
     }
 
@@ -39,6 +38,7 @@ class Contacts extends Component {
         }
     }
     
+
     getContactsFirstTime = async () => {
         const { limit, page } = this.state
         const {user_key} = this.props.login
@@ -85,6 +85,7 @@ class Contacts extends Component {
         })
     }
 
+
     toggleAddPopup = (boolean) => {
         this.setState({
             toggle_add_popup: boolean
@@ -109,6 +110,7 @@ class Contacts extends Component {
         }
     }
 
+
     selectedContact = (contact) => {
         const {selected_contact , toggle_side_bar} = this.state
         this.setState({
@@ -122,9 +124,6 @@ class Contacts extends Component {
         if(!toggle_side_bar){
             this.toggleSideBar()
         }
-
-      
-
     }
 
 
@@ -179,10 +178,10 @@ class Contacts extends Component {
         this.setState({
             contacts: copy_contacts
         })
-
     }
 
 
+    
     handleSearch = async (keyword) => {
         const {user_key} = this.props.login
 
@@ -218,7 +217,6 @@ class Contacts extends Component {
     }
 
 
-
     render() {
         const { contacts, load_page, scroll_has_more, toggle_add_popup, toggle_side_bar, selected_contact } = this.state
         return (
@@ -233,15 +231,13 @@ class Contacts extends Component {
                             hasMore={scroll_has_more}
                             useWindow={false}
                         >
-
                             {contacts.length > 0  ?
                                 contacts.map(contact => {
                                     return <Contact key={contact._id} contact={contact} selectedContact={this.selectedContact} />
                                 })
                             :
                                <div className="no__contacts">Please Add New Contact</div>
-                        }
-                           
+                        }      
                         </InfiniteScroll>
                     
                     </div>

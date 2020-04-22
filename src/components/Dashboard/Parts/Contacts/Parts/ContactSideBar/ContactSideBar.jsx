@@ -37,42 +37,70 @@ class ContactSideBar extends Component {
 
                     <section>
 
-                        <EditContactInput  editContactdata={editContactdata}  err_text="Please enter name" state_name="name" title_text="Name" state_value={contact.name} />
+                        <EditContactInput  
+                        editContactdata={editContactdata}  
+                        err_text="Please enter name" 
+                        state_name="name" 
+                        title_text="Name" 
+                        state_value={contact.name} />
 
                     </section>
 
 
                     <section>
 
-                        <EditContactInput editContactdata={editContactdata} err_text="Please enter a valid email" state_name="email" title_text="Email" state_value={contact.email ? contact.email : "-"} />
+                        <EditContactInput 
+                        editContactdata={editContactdata} 
+                        err_text="Please enter a valid email" 
+                        state_name="email" title_text="Email" 
+                        state_value={contact.email ? contact.email : "-"} />
 
                     </section>
 
 
                     <section>
 
-                        <EditContactInput editContactdata={editContactdata} err_text="Please enter a valid phone number" state_name="phone" title_text="Phone" state_value={contact.phone ? contact.phone : "-"} />
+                        <EditContactInput 
+                        editContactdata={editContactdata} 
+                        err_text="Please enter a valid phone number" 
+                        state_name="phone" 
+                        title_text="Phone" 
+                        state_value={contact.phone ? contact.phone : "-"} />
 
                     </section>
 
 
                     <section>
 
-                        <EditContactInput editContactdata={editContactdata} state_name="country" title_text="Country" state_value={contact.country ? contact.country : "-"} />
+                        <EditContactInput 
+                        editContactdata={editContactdata} 
+                        state_name="country" 
+                        title_text="Country" 
+                        state_value={contact.country ? contact.country : "-"} />
 
                     </section>
 
 
                     <section>
 
-                        <EditContactInput  editContactdata={editContactdata} err_text="Please enter company name" state_name="company" title_text="Company" state_value={contact.company ? contact.company : "-"} />
+                        <EditContactInput  
+                        editContactdata={editContactdata} 
+                        err_text="Please enter company name" 
+                        state_name="company" 
+                        title_text="Company" 
+                        state_value={contact.company ? contact.company : "-"} />
 
 
                     </section>
 
                     <section>
 
-                        <EditContactInput editContactdata={editContactdata} err_text={"Please enter position"} state_name="position" title_text="Position" state_value={contact.position ? contact.position : "-"} />
+                        <EditContactInput 
+                        editContactdata={editContactdata} 
+                        err_text={"Please enter position"} 
+                        state_name="position" 
+                        title_text="Position" 
+                        state_value={contact.position ? contact.position : "-"} />
 
                     </section>
 
@@ -80,7 +108,11 @@ class ContactSideBar extends Component {
 
                     <section>
 
-                    <EditContactInput editContactdata={editContactdata} state_name="status" title_text="Status" state_value={contact.status ? contact.status : "-"} />
+                        <EditContactInput 
+                        editContactdata={editContactdata} 
+                        state_name="status" 
+                        title_text="Status" 
+                        state_value={contact.status ? contact.status : "-"} />
 
                     </section>
 

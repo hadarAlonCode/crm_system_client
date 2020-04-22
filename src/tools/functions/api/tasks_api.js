@@ -1,8 +1,14 @@
 import { API } from "../../keys"
 import axios from 'axios'
-import { TASK_CREATE } from "../../routs"
+import { 
+    TASK_CREATE,
+    TASK_PAGINATION,
+    TASK_GET_ALL_OPEN_TASKS,
+    TASK_UPDATE,
+    TASK_DELETE } 
+from "../../routs"
+
 import { getCookie } from "../../cookie/cookie"
-// import { CONTACT_CREATE , CONTACT_UPDATE } from "../../routs"
 
 export const getTasksPagination = (limit, page , user_key) => new Promise(resolve => {
     let token = getCookie("login_cookie")
@@ -11,7 +17,7 @@ export const getTasksPagination = (limit, page , user_key) => new Promise(resolv
     if(token){
         headers = {'access-token' : token}
     }
-    axios.get(`${API}/secure/task/pagination/get?limit=${limit}&page=${page}&user_key=${user_key}`, {headers}).then(res => {
+    axios.get(`${API}${TASK_PAGINATION.replace("LIMIT", limit).replace("PAGE", page).replace("USER_KEY", user_key)}`, {headers}).then(res => {
         const {
             ok,
             result
@@ -33,7 +39,7 @@ export const getAllTasks = (user_key) => new Promise(resolve => {
     if(token){
         headers = {'access-token' : token}
     }
-    axios.get(`${API}/secure/task/open/get?user_key=${user_key}`, {headers}).then(res => {
+    axios.get(`${API}${TASK_GET_ALL_OPEN_TASKS.replace("USER_KEY", user_key)}`, {headers}).then(res => {
         const {
             ok,
             result
@@ -79,7 +85,7 @@ export const updateTaskApi = (body , _id) => new Promise(resolve => {
     if(token){
         headers = {'access-token' : token}
     }
-    axios.post(`${API}/secure/task/update?_id=${_id}`, body, {headers}).then(res => {
+    axios.post(`${API}${TASK_UPDATE.replace("_ID", _id)}`, body, {headers}).then(res => {
         const {
             ok,
             result
@@ -105,7 +111,7 @@ export const deleteTaskApi = (_id) => new Promise(resolve => {
     let body = {}
 
 
-    axios.post(`${API}/secure/task/delete?_id=${_id}`, body, {headers}).then(res => {
+    axios.post(`${API}${TASK_DELETE.replace("_ID", _id)}`, body, {headers}).then(res => {
         const {
             ok,
             result

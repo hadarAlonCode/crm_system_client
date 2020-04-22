@@ -12,8 +12,7 @@ function DataBox(props) {
             <div className="data__box__num">
             <CountUp start={0} end={Number(props.value)} duration={3} useEasing={true} decimals={1}/>{props.value_type}</div>
             <div>{props.data_text}</div>
-
-            
+          
         </div>
     );
 }

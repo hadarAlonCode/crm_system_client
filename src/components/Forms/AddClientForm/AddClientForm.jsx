@@ -169,13 +169,8 @@ class AddClientForm extends Component {
                     
 
                 </div>
-
                 <div className="btn__container"> <button className="btn" onClick={() => this.submitForm()}>ADD CONTACT</button></div>
-
-
             </div>
-
-
         );
     }
 }

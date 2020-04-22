@@ -12,12 +12,8 @@ class Calendar extends Component {
         this.state = {
             show_event: true,
             events_data: [],
-
         }
-
     }
-
-
 
     handleChange = date => {
         const { events } = this.props
@@ -27,8 +23,6 @@ class Calendar extends Component {
         })
 
     }
-
-
 
 
     render() {
@@ -57,7 +51,7 @@ class Calendar extends Component {
                         <div className="event__date"><span>Date: </span> { moment(event.date).format('L')}</div>
                         <div className="event__task"> <span>Task: </span>{ event.text}</div>
                         {event.contact_id ? <div className="event__contact"><span>Contact: </span>{ event.contact_id.name}</div> : null }
-                      </div>)
+                     </div>)
                      
                  })}
 
