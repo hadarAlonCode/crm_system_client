@@ -35,7 +35,7 @@ https://github.com/hadarAlonCode/crm_system_server
 ### features:
 
 - User Authentication - Each user has his own information.
-- Saving login information with cookie.
+- Saving information using Cookies.
 - Create & Update & Delete Contacts.
 - Search Contact.
 - Tasks Tracking - Manage Tasks List With Option to add client and date.
