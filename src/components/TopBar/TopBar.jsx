@@ -18,9 +18,8 @@ class TopBar extends Component {
 
     render() {
         
-        const { openAddPopup, handleSearch } = this.props
+        const { openAddPopup, handleSearch, toggleTaskPopup } = this.props
         const {toggle_search} = this.state
-
 
         let contacts_page = window.location.pathname.includes("contacts")
         let tasks_page = window.location.pathname.includes("tasks")
@@ -49,6 +48,7 @@ class TopBar extends Component {
 
                 <div className="top__bar__nav top__bar__nav__task__page">  
                 {/*  === need to continue */}
+                <button onClick={() => toggleTaskPopup(true)} className="add__btn"><i class="fas fa-plus-circle"></i></button>
 
                       {/* <div className="top__bar__icon__container"> <i class="fas fa-calendar-day"></i></div>
                       <div className="top__bar__icon__container"> <i class="fas fa-calendar-alt"></i> </div>

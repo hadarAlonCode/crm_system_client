@@ -405,7 +405,7 @@ input {
 .top__bar__nav__task__page {
   display: flex;
   flex-direction: row;
-  justify-content: unset;
+  justify-content: flex-end;
   align-items: center; }
   @media screen and (max-width: 1000px) {
     .top__bar__nav__task__page {
@@ -1553,22 +1553,18 @@ input {
     align-items: center;
     width: 100%;
     padding-bottom: 15px;
+    padding-top: 15px;
     transition: 0.2s;
     overflow-y: auto;
-    height: calc(100vh - 175px); }
+    height: calc(100vh - 80px); }
     @media screen and (max-width: 1000px) {
       .tasks__page__container .tasks__scroll__container {
         width: 100vw; } }
     @media screen and (max-width: 900px) {
       .tasks__page__container .tasks__scroll__container {
-        height: calc(100vh - 185px);
         overflow-y: scroll;
         overflow-x: unset;
         -webkit-overflow-scrolling: touch; } }
-    @media screen and (max-width: 800px) {
-      .tasks__page__container .tasks__scroll__container {
-        height: calc(100vh - 262px);
-        padding-bottom: 0px; } }
   .tasks__page__container .tasks__page__add__box__container {
     display: flex;
     flex-direction: column;

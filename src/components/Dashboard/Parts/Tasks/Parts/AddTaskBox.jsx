@@ -21,7 +21,6 @@ class AddTaskBox extends Component {
     async componentDidMount(){
         const {user_key} = this.props
         
-
          let res = await getAllContacts(user_key)
          if(res.ok)
          this.setState({

@@ -108,7 +108,7 @@
 
 
 .top__bar__nav__task__page{
-    @include displayFlex(row, unset, center);
+    @include displayFlex(row, flex-end, center);
 
     @include mediaMaxWidth(1000px){
         @include displayFlex(row, flex-end, center);

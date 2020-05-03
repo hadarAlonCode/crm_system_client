@@ -9,6 +9,7 @@ import AddTaskBox from './Parts/AddTaskBox';
 import { BrowserRouter as Router, Route, Link, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from '../../../../actions/actions';
+import FormPopup from '../../../Popups/FormPopup/FormPopup';
 
 
 class Tasks extends Component {
@@ -112,23 +113,30 @@ class Tasks extends Component {
     }
 
 
+    toggleTaskPopup = (boolean) => {
+        this.setState({
+            toggle_task_popup: boolean
+        })
+    }
+
+
 
 
 
 
     render() {
-        const { tasks, load_page, scroll_has_more } = this.state
+        const { tasks, load_page, scroll_has_more, toggle_task_popup } = this.state
         const {user_key} = this.props.login
 
 
         return (
             load_page ?
             <div className="tasks__page__container"> 
-                <TopBar />
+                <TopBar toggleTaskPopup={this.toggleTaskPopup} />
 
-                <div className="tasks__page__add__box__container">
+                {/* <div className="tasks__page__add__box__container">
                    <AddTaskBox user_key={user_key} updateTasksList={this.updateTasksList} />
-                </div>
+                </div> */}
                 
                 <div>
                   <InfiniteScroll
@@ -144,6 +152,13 @@ class Tasks extends Component {
                         </InfiniteScroll>
 
                 </div>
+
+                {toggle_task_popup ?
+
+                <FormPopup form={"AddTaskForm"} closePopUp={() => this.toggleTaskPopup(false)} user_key={user_key} updateTasksList={this.updateTasksList} />
+
+                : null
+                }
 
                 
             </div>

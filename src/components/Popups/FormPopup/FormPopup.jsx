@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import AddClientForm from '../../Forms/AddClientForm/AddClientForm';
+import AddTaskBox from '../../Dashboard/Parts/Tasks/Parts/AddTaskBox';
 
 //Popup container for Forms & Alerst
 
 
 class FormPopup extends Component {
     render() {
-        const { closePopUp, form } = this.props
+        const { closePopUp, form, updateTasksList, user_key } = this.props
         return (
             <div className="main__popup__container">
                 <div onClick={() => closePopUp()} className="overlay"></div>
@@ -16,7 +17,7 @@ class FormPopup extends Component {
 
                         {form === "AddClientForm" ?
                             <AddClientForm closePopUp={closePopUp} />
-                            : null
+                            : <AddTaskBox user_key={user_key} updateTasksList={updateTasksList} />
                         }
 
                     </div>
