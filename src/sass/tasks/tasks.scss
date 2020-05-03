@@ -1,16 +1,16 @@
 .tasks__page__container{
     position: relative;
 
-    @include mediaMaxWidth(800px){
-        overflow: hidden;
-    }
+    // @include mediaMaxWidth(800px){
+    //     overflow: hidden;
+    // }
 
     .tasks__container{
         overflow-y: auto;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 190px);
     
         @include mediaMaxWidth(900px){
-            // height: calc(100vh - 185px);
+            height: calc(100vh - 235px);
             overflow-y:scroll;
             overflow-x:unset;
             -webkit-overflow-scrolling:touch;
@@ -27,13 +27,12 @@
         width: 100%;
         padding-bottom: 15px;
         padding-top: 15px;
-
         transition: 0.2s;
         // overflow-y: auto;
         // height: calc(100vh - 80px);
     
         @include mediaMaxWidth(1000px){
-            width: 100vw 
+            // width: 100vw 
         }
 
         // @include mediaMaxWidth(900px){
@@ -42,6 +41,8 @@
         //     overflow-x:unset;
         //     -webkit-overflow-scrolling:touch;
         // }
+
+
         @include mediaMaxWidth(800px){
             // height: calc(100vh - 262px);
             // padding-bottom: 0px;
@@ -54,11 +55,11 @@
         justify-content: unset;
         align-items: center;
         width: 100%;
-        padding-bottom: 15px;
+        height: 90px;
         transition: 0.2s;
 
         @include mediaMaxWidth(800px){
-            // width: calc(100vw - 20px);
+            height: 155px;
             
                 
         }

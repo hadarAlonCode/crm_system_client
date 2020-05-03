@@ -113,19 +113,11 @@ class Tasks extends Component {
     }
 
 
-    toggleTaskPopup = (boolean) => {
-        this.setState({
-            toggle_task_popup: boolean
-        })
-    }
-
-
-
-
+  
 
 
     render() {
-        const { tasks, load_page, scroll_has_more, toggle_task_popup } = this.state
+        const { tasks, load_page, scroll_has_more } = this.state
         const {user_key} = this.props.login
 
 
@@ -153,12 +145,7 @@ class Tasks extends Component {
 
                 </div>
 
-                {toggle_task_popup ?
-
-                <FormPopup form={"AddTaskForm"} closePopUp={() => this.toggleTaskPopup(false)} user_key={user_key} updateTasksList={this.updateTasksList} />
-
-                : null
-                }
+               
 
                 
             </div>

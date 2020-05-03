@@ -1543,14 +1543,12 @@ input {
 
 .tasks__page__container {
   position: relative; }
-  @media screen and (max-width: 800px) {
-    .tasks__page__container {
-      overflow: hidden; } }
   .tasks__page__container .tasks__container {
     overflow-y: auto;
-    height: calc(100vh - 80px); }
+    height: calc(100vh - 190px); }
     @media screen and (max-width: 900px) {
       .tasks__page__container .tasks__container {
+        height: calc(100vh - 235px);
         overflow-y: scroll;
         overflow-x: unset;
         -webkit-overflow-scrolling: touch; } }
@@ -1563,17 +1561,17 @@ input {
     padding-bottom: 15px;
     padding-top: 15px;
     transition: 0.2s; }
-    @media screen and (max-width: 1000px) {
-      .tasks__page__container .tasks__scroll__container {
-        width: 100vw; } }
   .tasks__page__container .tasks__page__add__box__container {
     display: flex;
     flex-direction: column;
     justify-content: unset;
     align-items: center;
     width: 100%;
-    padding-bottom: 15px;
+    height: 90px;
     transition: 0.2s; }
+    @media screen and (max-width: 800px) {
+      .tasks__page__container .tasks__page__add__box__container {
+        height: 155px; } }
 
 .task__container:first-child {
   margin-top: 0px; }
@@ -1597,8 +1595,7 @@ input {
       flex-direction: column;
       justify-content: unset;
       align-items: unset;
-      width: 95%;
-      height: 322px; } }
+      width: 95%; } }
   .task__container .task__left {
     display: flex;
     flex-direction: row;

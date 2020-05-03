@@ -8,7 +8,7 @@ import AddTaskBox from '../../Dashboard/Parts/Tasks/Parts/AddTaskBox';
 
 class FormPopup extends Component {
     render() {
-        const { closePopUp, form, updateTasksList, user_key } = this.props
+        const { closePopUp, form } = this.props
         return (
             <div className="main__popup__container">
                 <div onClick={() => closePopUp()} className="overlay"></div>
@@ -17,7 +17,7 @@ class FormPopup extends Component {
 
                         {form === "AddClientForm" ?
                             <AddClientForm closePopUp={closePopUp} />
-                            : <AddTaskBox user_key={user_key} updateTasksList={updateTasksList} />
+                            : null
                         }
 
                     </div>
