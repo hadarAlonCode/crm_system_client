@@ -32,14 +32,11 @@
 
         @include mediaMaxWidth(900px){
             width: 100%;
-            
         }
 
         @include mediaMaxWidth(800px){
             flex-direction: row-reverse;
         }
-
-       
 
         .add__task__box__icon{
             margin-right: 20px;
@@ -106,11 +103,6 @@
                     width: 200px;
                 }
             }
-
-
-
-
-
 
         }
     }
