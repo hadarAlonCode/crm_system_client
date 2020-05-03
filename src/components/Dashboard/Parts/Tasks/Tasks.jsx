@@ -134,11 +134,11 @@ class Tasks extends Component {
             <div className="tasks__page__container"> 
                 <TopBar toggleTaskPopup={this.toggleTaskPopup} />
 
-                {/* <div className="tasks__page__add__box__container">
+                <div className="tasks__page__add__box__container">
                    <AddTaskBox user_key={user_key} updateTasksList={this.updateTasksList} />
-                </div> */}
+                </div>
                 
-                <div>
+                <div className="tasks__container"> 
                   <InfiniteScroll
                             className="tasks__scroll__container"
                             pageStart={0}

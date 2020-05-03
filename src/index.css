@@ -1546,6 +1546,14 @@ input {
   @media screen and (max-width: 800px) {
     .tasks__page__container {
       overflow: hidden; } }
+  .tasks__page__container .tasks__container {
+    overflow-y: auto;
+    height: calc(100vh - 80px); }
+    @media screen and (max-width: 900px) {
+      .tasks__page__container .tasks__container {
+        overflow-y: scroll;
+        overflow-x: unset;
+        -webkit-overflow-scrolling: touch; } }
   .tasks__page__container .tasks__scroll__container {
     display: flex;
     flex-direction: column;
@@ -1554,17 +1562,10 @@ input {
     width: 100%;
     padding-bottom: 15px;
     padding-top: 15px;
-    transition: 0.2s;
-    overflow-y: auto;
-    height: calc(100vh - 80px); }
+    transition: 0.2s; }
     @media screen and (max-width: 1000px) {
       .tasks__page__container .tasks__scroll__container {
         width: 100vw; } }
-    @media screen and (max-width: 900px) {
-      .tasks__page__container .tasks__scroll__container {
-        overflow-y: scroll;
-        overflow-x: unset;
-        -webkit-overflow-scrolling: touch; } }
   .tasks__page__container .tasks__page__add__box__container {
     display: flex;
     flex-direction: column;
