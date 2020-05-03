@@ -1569,7 +1569,7 @@ input {
     width: 100%;
     height: 90px;
     transition: 0.2s; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 900px) {
       .tasks__page__container .tasks__page__add__box__container {
         height: 155px; } }
 
@@ -1589,7 +1589,7 @@ input {
   transition: 0.5s;
   position: relative;
   justify-content: unset; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     .task__container {
       display: flex;
       flex-direction: column;
@@ -1603,7 +1603,7 @@ input {
     align-items: center;
     width: 40%;
     position: relative; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 900px) {
       .task__container .task__left {
         width: 100%;
         height: 35px; } }
@@ -1622,7 +1622,7 @@ input {
     justify-content: unset;
     align-items: center;
     width: 20%; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 900px) {
       .task__container .task__center {
         width: 100%;
         padding-top: 10px;
@@ -1639,7 +1639,7 @@ input {
     align-items: center;
     width: 20%;
     margin-left: auto; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 900px) {
       .task__container .task__right {
         width: 100%;
         padding-top: 10px;
@@ -1660,7 +1660,7 @@ input {
         font-size: 25px;
         margin-right: 20px;
         color: #CC5333; }
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 900px) {
           .task__container .task__right .task__date i {
             display: block; } }
     .task__container .task__right .task__menu {
@@ -1682,7 +1682,7 @@ input {
   transition: 0.5s;
   position: relative;
   justify-content: unset; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     .add__task__box__container {
       display: flex;
       flex-direction: column;
@@ -1820,7 +1820,7 @@ input {
   background-color: white;
   height: 36px;
   width: 100%; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     .options__datepicker aside {
       top: 1px; } }
   .options__datepicker aside i {

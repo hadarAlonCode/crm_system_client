@@ -9,14 +9,13 @@
     position: relative;
     justify-content: unset;
 
-    @include mediaMaxWidth(800px){
+    @include mediaMaxWidth(900px){
         @include displayFlex(column, unset, unset);
         border-bottom: 2px solid $light;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
         width: 95%;
-
-            
+       
     }
 
 

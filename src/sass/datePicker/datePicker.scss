@@ -50,7 +50,7 @@
     background-color: white;
     height: 36px;
     width: 100%;
-    @include mediaMaxWidth(800px){
+    @include mediaMaxWidth(900px){
         top: 1px;
 
     }
