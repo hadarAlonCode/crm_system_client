@@ -1556,7 +1556,10 @@ input {
         width: 100vw; } }
     @media screen and (max-width: 900px) {
       .tasks__page__container .tasks__scroll__container {
-        height: calc(100vh - 185px); } }
+        height: calc(100vh - 185px);
+        overflow-y: scroll;
+        overflow-x: unset;
+        -webkit-overflow-scrolling: touch; } }
     @media screen and (max-width: 800px) {
       .tasks__page__container .tasks__scroll__container {
         height: calc(100vh - 247px); } }

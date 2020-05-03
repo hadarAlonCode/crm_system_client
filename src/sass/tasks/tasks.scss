@@ -19,6 +19,9 @@
 
         @include mediaMaxWidth(900px){
             height: calc(100vh - 185px);
+            overflow-y:scroll;
+            overflow-x:unset;
+            -webkit-overflow-scrolling:touch;
         }
         @include mediaMaxWidth(800px){
             height: calc(100vh - 247px);
