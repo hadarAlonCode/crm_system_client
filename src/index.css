@@ -314,7 +314,9 @@ input {
   overflow-x: hidden; }
   @media screen and (max-width: 1000px) {
     .contacts__container {
-      width: 100vw; } }
+      width: 100vw;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch; } }
 
 .contacts__scroll__container {
   display: flex;
@@ -1598,7 +1600,8 @@ input {
       flex-direction: column;
       justify-content: unset;
       align-items: unset;
-      width: 95%; } }
+      width: 95%;
+      height: 322px; } }
   .task__container .task__left {
     display: flex;
     flex-direction: row;
@@ -1608,7 +1611,8 @@ input {
     position: relative; }
     @media screen and (max-width: 800px) {
       .task__container .task__left {
-        width: 100%; } }
+        width: 100%;
+        height: 35px; } }
     .task__container .task__left .task__status {
       color: #23074d;
       margin-right: 20px; }
@@ -1627,7 +1631,8 @@ input {
     @media screen and (max-width: 800px) {
       .task__container .task__center {
         width: 100%;
-        padding-top: 10px; } }
+        padding-top: 10px;
+        height: 35px; } }
     .task__container .task__center .task__contact__icon {
       color: #5f0f4e;
       margin-right: 20px; }
@@ -1648,7 +1653,8 @@ input {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin-left: unset; } }
+        margin-left: unset;
+        height: 35px; } }
     .task__container .task__right .task__date {
       margin-right: 40px;
       display: flex;

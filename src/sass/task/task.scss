@@ -19,6 +19,7 @@
     @include mediaMaxWidth(800px){
         @include displayFlex(column, unset, unset);
         width: 95%;
+        height: 322px;
 
     }
 
@@ -28,6 +29,7 @@
         position: relative;
         @include mediaMaxWidth(800px){
             width: 100%;
+            height: 35px;
         }
 
         .task__status{
@@ -55,6 +57,7 @@
         @include mediaMaxWidth(800px){
             width: 100%;
             padding-top:10px;
+            height: 35px;
         }
 
         .task__contact__icon{
@@ -79,6 +82,7 @@
             padding-top:10px;
             @include displayFlex(row, space-between, center);
             margin-left: unset;
+            height: 35px;
 
         }
 

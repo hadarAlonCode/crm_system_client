@@ -16,7 +16,9 @@
      overflow-x: hidden;
      
      @include mediaMaxWidth(1000px){
-          width: 100vw 
+          width: 100vw;
+          overflow-y:scroll;
+          -webkit-overflow-scrolling:touch;
       }
 
 }
