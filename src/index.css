@@ -1541,6 +1541,9 @@ input {
 
 .tasks__page__container {
   position: relative; }
+  @media screen and (max-width: 800px) {
+    .tasks__page__container {
+      overflow: hidden; } }
   .tasks__page__container .tasks__scroll__container {
     display: flex;
     flex-direction: column;
@@ -1562,7 +1565,8 @@ input {
         -webkit-overflow-scrolling: touch; } }
     @media screen and (max-width: 800px) {
       .tasks__page__container .tasks__scroll__container {
-        height: calc(100vh - 247px); } }
+        height: calc(100vh - 262px);
+        padding-bottom: 0px; } }
   .tasks__page__container .tasks__page__add__box__container {
     display: flex;
     flex-direction: column;

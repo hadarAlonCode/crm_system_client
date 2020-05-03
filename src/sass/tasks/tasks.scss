@@ -1,6 +1,11 @@
 .tasks__page__container{
     position: relative;
 
+    @include mediaMaxWidth(800px){
+        overflow: hidden;
+    }
+    
+
 
     .tasks__scroll__container{
         display: flex;
@@ -24,7 +29,8 @@
             -webkit-overflow-scrolling:touch;
         }
         @include mediaMaxWidth(800px){
-            height: calc(100vh - 247px);
+            height: calc(100vh - 262px);
+            padding-bottom: 0px;
         }
     }
 
@@ -39,6 +45,7 @@
 
         @include mediaMaxWidth(800px){
             // width: calc(100vw - 20px);
+            
                 
         }
     }
