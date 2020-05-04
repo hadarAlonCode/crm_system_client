@@ -27,3 +27,5 @@ export const TASK_GET_ALL_OPEN_TASKS = '/secure/task/open/get?user_key=USER_KEY'
 
 // === login api:
 export const LOGIN_AUTH = '/auth/login'
+export const REGISTER_AUTH = '/auth/register'
+

@@ -45,5 +45,4 @@ https://github.com/hadarAlonCode/crm_system_server
 
 ### login:
 
-You can currently log in to the site with the demo account 
-*The option to add new user will be added later
+You can currently log in to the site with the demo account or create new acount

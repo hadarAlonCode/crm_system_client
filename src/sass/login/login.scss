@@ -38,7 +38,7 @@
 
 
         .input__container{
-            @include displayFlex(column, unset , unset);
+            @include displayFlex(column, center , unset);
             span{
                 font-weight: 500;
             }
@@ -47,14 +47,15 @@
                 margin: 5px;
                 margin-left: 0px;
             }
+            padding-left: 10px;
         }
 
         .err__text{
             position: absolute;
             font-size: 12px;
             color: #F44336;
-            bottom: 62px;
-            left: 27px;
+            bottom: 104px;
+            // left: 27px;
         }
 
        
@@ -69,5 +70,54 @@
 
         }
     }
+
+
+
+
+
+     .sign__question{
+        text-align: center;
+        font-size: 13px;
+        margin-top: 10px;
+     }
+
+     .sign__link{
+        text-align: center;
+        font-size: 15px;
+        color: $strong;
+        margin-top: 10px;
+        font-weight: 500;
+     }
+
+     .confetti{
+         position: fixed;
+         top: 0;
+         left: 0;
+         background-color: rgba(0, 0, 0, 0.418);
+         width: 100vw;
+         height: 100vh;
+         display: flex;
+        }
+
+     .new__acount__msg{
+        @include displayFlex(column, center , center);
+        margin: auto;
+        background-color: white;
+        color: black;
+        width: 200px;
+        flex-direction: column;
+        border-radius: 5px;
+        padding: 21px;
+        @include shadow();
+
+        
+        div:nth-child(2){
+            text-align: center;
+            margin-top: 5px;
+        }
+     }
+    
+
+    
     
 }

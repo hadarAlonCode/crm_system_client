@@ -1970,8 +1970,9 @@ input {
     .login__container .login__inner__container .input__container {
       display: flex;
       flex-direction: column;
-      justify-content: unset;
-      align-items: unset; }
+      justify-content: center;
+      align-items: unset;
+      padding-left: 10px; }
       .login__container .login__inner__container .input__container span {
         font-weight: 500; }
       .login__container .login__inner__container .input__container input {
@@ -1982,8 +1983,7 @@ input {
       position: absolute;
       font-size: 12px;
       color: #F44336;
-      bottom: 62px;
-      left: 27px; }
+      bottom: 104px; }
     .login__container .login__inner__container button {
       width: 160px;
       margin: 5px;
@@ -1992,6 +1992,40 @@ input {
       flex-direction: column;
       justify-content: center;
       align-items: center; }
+  .login__container .sign__question {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 10px; }
+  .login__container .sign__link {
+    text-align: center;
+    font-size: 15px;
+    color: #5f0f4e;
+    margin-top: 10px;
+    font-weight: 500; }
+  .login__container .confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.418);
+    width: 100vw;
+    height: 100vh;
+    display: flex; }
+  .login__container .new__acount__msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: white;
+    color: black;
+    width: 200px;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 21px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); }
+    .login__container .new__acount__msg div:nth-child(2) {
+      text-align: center;
+      margin-top: 5px; }
 
 .overview__container {
   width: 80vw;
