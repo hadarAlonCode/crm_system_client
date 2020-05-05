@@ -35,8 +35,6 @@ class Login extends Component {
         // === logo animation:
         const logo = document.getElementById("logo__container");
         tl.to(logo, {duration: 2, rotation: 360 ,ease: "power3.out", delay: 0.7, });
-
-      
        
     }
 
@@ -46,9 +44,6 @@ class Login extends Component {
         let name =  e.target.name
         let value = e.target.value
 
-        
-
-
         this.setState({
             [name] : value,
             
@@ -56,6 +51,8 @@ class Login extends Component {
         this.resetValidation()
     }
 
+
+    
     login = async()=>{
         const {email, password} = this.state
 
@@ -103,7 +100,6 @@ class Login extends Component {
 
 
    }
-
 
 
 
