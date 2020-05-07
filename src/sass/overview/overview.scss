@@ -1,16 +1,19 @@
 
 
 .overview__container{
-    width: 80vw;
-    height: calc(100% - 80px);
+    width: calc(100vw - 80px);
+    height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
     margin-top: 80px;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     @include mediaMaxWidth(1000px){
-        width: 100vw 
+        width: 100vw
+
     }
 }
 
@@ -23,6 +26,7 @@
     padding: 20px;
     padding-right: 40px;
     padding-left: 40px;
+    height: 100%;
     
 
     @include mediaMaxWidth(1000px){

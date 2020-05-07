@@ -120,7 +120,7 @@
         transition: transform 0.2s;
         background: linear-gradient(to right, #23074d93, #cc54338a);
         transform-origin: top;
-        position: fixed;
+        
         width: 100%;
         top:80px;
 
@@ -156,7 +156,7 @@
         transform: scaleY(1);
         transition: transform 0.2s;
         transform-origin: top;
-        position: fixed;
+        
         width: 100%;
         top:80px;
         background: linear-gradient(to right, #23074dc0, #cc5433d0);

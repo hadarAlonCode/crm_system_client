@@ -17,13 +17,5 @@
     @include gradient();
     height: 80px;
     width: 100%;
-    z-index: 100;
-   
-
-    @include mediaMaxWidth(1000px){
-        position: fixed;
-        top: 0;
-        left:0;
-    }
-
+    
 }
