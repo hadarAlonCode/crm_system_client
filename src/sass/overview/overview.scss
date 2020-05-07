@@ -59,6 +59,7 @@
     .overview__box__Calendar__box{
         @include mediaMaxWidth(1000px){
             max-height: unset;
+            margin-bottom: 50px;
         } 
        
     }

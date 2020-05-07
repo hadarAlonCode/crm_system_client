@@ -85,14 +85,6 @@ class NavBar extends Component {
     toggleOpenMobileNav =()=>{
         const {open_mobile_nav} = this.state
 
-
-        // if(open_mobile_nav){
-        //     document.body.style.overflowY = "auto"
-        // }else{
-        //     document.body.style.overflowY = "hidden"
-        // }
-
-
         this.setState({
             open_mobile_nav: !open_mobile_nav
         })

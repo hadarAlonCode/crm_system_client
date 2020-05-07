@@ -2085,7 +2085,8 @@ input {
         width: 100%; } }
   @media screen and (max-width: 1000px) {
     .overview__inner__container .overview__box__Calendar__box {
-      max-height: unset; } }
+      max-height: unset;
+      margin-bottom: 50px; } }
   .overview__inner__container .overview__box__data__box {
     padding: 0px; }
   .overview__inner__container .overview__box__title {
