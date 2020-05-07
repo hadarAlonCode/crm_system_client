@@ -86,11 +86,11 @@ class NavBar extends Component {
         const {open_mobile_nav} = this.state
 
 
-        if(open_mobile_nav){
-            document.body.style.overflowY = "auto"
-        }else{
-            document.body.style.overflowY = "hidden"
-        }
+        // if(open_mobile_nav){
+        //     document.body.style.overflowY = "auto"
+        // }else{
+        //     document.body.style.overflowY = "hidden"
+        // }
 
 
         this.setState({
