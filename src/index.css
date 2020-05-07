@@ -65,7 +65,7 @@ input {
   box-sizing: border-box; }
 
 *::-webkit-scrollbar {
-  width: 20px; }
+  width: 10px; }
 
 /* Track */
 *::-webkit-scrollbar-track {
@@ -2051,10 +2051,6 @@ input {
     .overview__container {
       width: 100vw; } }
 
-.overview__boxes {
-  padding-bottom: 20px;
-  height: 100%; }
-
 .overview__inner__container {
   width: 100%;
   min-height: 85%;
@@ -2064,8 +2060,7 @@ input {
   padding: 20px;
   padding-right: 40px;
   padding-left: 40px;
-  height: 100%;
-  padding-bottom: 20px; }
+  height: 100%; }
   @media screen and (max-width: 1000px) {
     .overview__inner__container {
       padding-right: 60px; } }
@@ -2103,6 +2098,9 @@ input {
 .no__contacts__chart {
   margin-top: 20px;
   font-size: 16px !important; }
+
+.space {
+  padding: 5px; }
 
 .calendar__conatiner {
   display: flex; }

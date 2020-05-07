@@ -17,10 +17,6 @@
     }
 }
 
-.overview__boxes{
-    padding-bottom: 20px;
-    height: 100%;
-}
 
 .overview__inner__container{
     width: 100%;
@@ -32,7 +28,7 @@
     padding-right: 40px;
     padding-left: 40px;
     height: 100%;
-    padding-bottom: 20px;
+  
     
 
     @include mediaMaxWidth(1000px){
@@ -89,4 +85,8 @@
 .no__contacts__chart{
     margin-top: 20px;
     font-size: 16px!important;
+}
+
+.space{
+    padding: 5px;
 }
