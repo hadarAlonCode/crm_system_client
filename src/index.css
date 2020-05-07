@@ -117,7 +117,9 @@ input {
   background: linear-gradient(to right, #23074d, #cc5333);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 80px;
-  width: 100%; }
+  width: 100%;
+  z-index: 100;
+  position: fixed; }
 
 .navbar__container {
   background-color: #23074d;
@@ -196,38 +198,45 @@ input {
   .mobile__navbar__container #mobile__navbar--off {
     transform: scaleY(0);
     transition: transform 0.2s;
-    background: linear-gradient(to right, #23074d93, #cc54338a); }
+    background: linear-gradient(to right, #23074d93, #cc54338a);
+    transform-origin: top;
+    position: fixed;
+    width: 100%;
+    top: 80px; }
+    .mobile__navbar__container #mobile__navbar--off li {
+      width: 100%;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      color: transparent !important; }
+      .mobile__navbar__container #mobile__navbar--off li a {
+        color: transparent !important; }
     .mobile__navbar__container #mobile__navbar--off i {
       font-size: 0px; }
     .mobile__navbar__container #mobile__navbar--off .selected__tab a {
       background-color: transparent !important; }
-  .mobile__navbar__container #mobile__navbar--off li {
-    width: 100%;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    color: transparent !important; }
-    .mobile__navbar__container #mobile__navbar--off li a {
-      color: transparent !important; }
   .mobile__navbar__container #mobile__navbar--active {
     z-index: 20;
     transform: scaleY(1);
     transition: transform 0.2s;
-    transform-origin: left;
+    transform-origin: top;
+    position: fixed;
     width: 100%;
     top: 80px;
     background: linear-gradient(to right, #23074dc0, #cc5433d0);
     height: calc(100vh - 80px);
     min-height: unset; }
-  .mobile__navbar__container #mobile__navbar--active li {
-    width: 100%;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    justify-content: unset;
-    align-items: center;
-    font-size: 20px; }
+    .mobile__navbar__container #mobile__navbar--active li {
+      width: 100%;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      justify-content: unset;
+      align-items: center;
+      font-size: 20px; }
+    .mobile__navbar__container #mobile__navbar--active .logout__tab {
+      bottom: 30px; }
   .mobile__navbar__container .logout__tab {
     width: 100%;
     display: flex;
@@ -301,7 +310,8 @@ input {
   transition: 0.5s; }
 
 .contacts__page__container {
-  position: relative; }
+  position: relative;
+  z-index: 101; }
   .contacts__page__container .no__contacts {
     margin-top: 200px;
     font-size: 20px;
@@ -737,6 +747,8 @@ input {
   width: 8px; }
 
 .hamburger {
+  position: fixed;
+  top: 25px;
   display: inline-block;
   cursor: pointer;
   transition-property: opacity, filter;
@@ -1808,6 +1820,8 @@ input {
   padding-right: 1px;
   max-width: 27px;
   max-height: 27px; }
+  .react-datepicker__day-name:focus, .react-datepicker__day:focus, .react-datepicker__time-name:focus {
+    outline: 0; }
 
 .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range {
   color: white !important; }
@@ -1903,7 +1917,7 @@ input {
   background-color: #0091ff    !important; }
 
 .react-datepicker__navigation--previous {
-  left: 7px !important;
+  left: 80px !important;
   border: 0px;
   border-top: 2px solid gray;
   border-left: 2px solid gray;
@@ -1912,7 +1926,7 @@ input {
 
 .react-datepicker__navigation--next {
   right: auto;
-  left: 30px;
+  left: 110px;
   border: 0px;
   border-top: 2px solid gray;
   border-right: 2px solid gray;
@@ -2067,11 +2081,14 @@ input {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     margin: 10px;
-    max-height: 355px;
+    max-height: 385px;
     position: relative; }
     @media screen and (max-width: 1000px) {
       .overview__inner__container .overview__box {
         width: 100%; } }
+  @media screen and (max-width: 1000px) {
+    .overview__inner__container .overview__box__Calendar__box {
+      max-height: unset; } }
   .overview__inner__container .overview__box__data__box {
     padding: 0px; }
   .overview__inner__container .overview__box__title {
@@ -2086,6 +2103,9 @@ input {
 
 .calendar__conatiner {
   display: flex; }
+  @media screen and (max-width: 1000px) {
+    .calendar__conatiner {
+      padding: 25px; } }
   @media screen and (max-width: 1400px) {
     .calendar__conatiner {
       flex-direction: column; } }

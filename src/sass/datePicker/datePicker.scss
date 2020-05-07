@@ -37,6 +37,10 @@
     padding-right: 1px;
     max-width: 27px;
     max-height: 27px;
+
+    &:focus {
+        outline: 0;
+        }
 }
 .react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range, .react-datepicker__month-text--selected, .react-datepicker__month-text--in-selecting-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--selected, .react-datepicker__quarter-text--in-selecting-range, .react-datepicker__quarter-text--in-range{
     color: white!important;
@@ -145,7 +149,7 @@
 }
 
 .react-datepicker__navigation--previous {
-    left: 7px!important;
+    left: 80px!important;
     border: 0px;
     border-top: 2px solid gray;
     border-left: 2px solid gray;
@@ -155,7 +159,7 @@
 
 .react-datepicker__navigation--next {
     right: auto;
-    left: 30px;
+    left: 110px;
     border: 0px;
     border-top: 2px solid gray;
     border-right: 2px solid gray;

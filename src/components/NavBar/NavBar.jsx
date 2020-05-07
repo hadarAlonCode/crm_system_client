@@ -116,7 +116,7 @@ class NavBar extends Component {
                             </span>
                         </button>  
                         :
-                        <Fade top delay={100} duration={3000} > <img src={LOGO} alt="logo" height="55" width="55"></img></Fade>
+                        <Fade top delay={100} duration={2000} > <img src={LOGO} alt="logo" height="55" width="55"></img></Fade>
 
                         }
                     
@@ -137,7 +137,7 @@ class NavBar extends Component {
                 </Fade>
                
                 <Fade left delay={100} duration={2500} > 
-                    <li onClick={() => this.selectTab(tabs[3])} className={selected_tab === tabs[2] ? "selected__tab" : null} >
+                    <li onClick={() => this.selectTab(tabs[2])} className={selected_tab === tabs[2] ? "selected__tab" : null} >
                         <Link to={`/dashboard/contacts`}><i className="far fa-address-book"></i><div>{tabs[2]}</div></Link>
                     </li>
                 </Fade>

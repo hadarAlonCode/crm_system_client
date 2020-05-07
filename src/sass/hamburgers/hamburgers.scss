@@ -1,6 +1,8 @@
 
 .hamburger {
     // padding: 15px 15px;
+    position: fixed;
+    top: 25px;
     display: inline-block;
     cursor: pointer;
     transition-property: opacity, filter;

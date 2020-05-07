@@ -213,7 +213,7 @@ class Overview extends Component {
 
                 <Fade delay={500} >
                 <div className="overview__box"> 
-                    <div className="overview__box__title">Sales by Country</div>
+                    <div className="overview__box__title">Sales By Country</div>
                     <BarChartBox 
                         chart_data={country_chart_data} 
                         name={"name"} 
@@ -226,7 +226,11 @@ class Overview extends Component {
                 </Fade>
 
                 <Fade delay={500} >
-                <div className="overview__box"><Calendar dates={events_date} events={events} /></div>
+                <div className="overview__box overview__box__Calendar__box">
+                <div className="overview__box__title">Tasks Tracker</div>
+
+                    <Calendar dates={events_date} events={events} />
+                </div>
                 </Fade>
 
                 </div>

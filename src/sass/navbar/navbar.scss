@@ -122,6 +122,22 @@
         transform: scaleY(0);
         transition: transform 0.2s;
         background: linear-gradient(to right, #23074d93, #cc54338a);
+        transform-origin: top;
+        position: fixed;
+        width: 100%;
+        top:80px;
+
+        li{
+            width: 100%;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            color: transparent!important;
+    
+            a{
+                color: transparent!important;
+            }
+          }
 
 
         i{
@@ -136,46 +152,36 @@
         }
       
       }
-    
-      #mobile__navbar--off li{
-        width: 100%;
-        cursor: pointer;
-        align-items: center;
-        justify-content: center;
-        color: transparent!important;
-
-        a{
-            color: transparent!important;
-        }
-      }
       
-     
       
       #mobile__navbar--active {
         z-index: 20;
         transform: scaleY(1);
         transition: transform 0.2s;
-        transform-origin: left;
-
+        transform-origin: top;
+        position: fixed;
         width: 100%;
         top:80px;
         background: linear-gradient(to right, #23074dc0, #cc5433d0);
         height: calc(100vh - 80px);
         min-height: unset;
+
+        li{
+            width: 100%;
+            position: relative;
+            cursor: pointer;
+           
+            @include displayFlex(row, unset , center);
+            font-size: 20px;
+        
+          }
+
+          .logout__tab{
+              bottom: 30px;
+          }
       
     }
     
-    
-      
-      #mobile__navbar--active li{
-        width: 100%;
-        position: relative;
-        cursor: pointer;
-       
-        @include displayFlex(row, unset , center);
-        font-size: 20px;
-    
-      }
 
 
       .logout__tab{

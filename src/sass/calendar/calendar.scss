@@ -1,5 +1,9 @@
 .calendar__conatiner{
     display: flex;
+   
+    @include mediaMaxWidth(1000px){
+        padding: 25px;
+    }
 
     @include mediaMaxWidth(1400px){
         flex-direction: column;

@@ -44,12 +44,19 @@
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
         margin: 10px;
-        max-height: 355px;
+        max-height: 385px;
         position: relative;
 
         @include mediaMaxWidth(1000px){
             width: 100%;
         }  
+    }
+
+    .overview__box__Calendar__box{
+        @include mediaMaxWidth(1000px){
+            max-height: unset;
+        } 
+       
     }
 
     .overview__box__data__box{
