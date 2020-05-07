@@ -2038,7 +2038,7 @@ input {
       margin-top: 5px; }
 
 .overview__container {
-  width: calc(100vw - 80px);
+  width: calc(100vw - 150px);
   height: calc(100vh - 80px);
   display: flex;
   align-items: center;
@@ -2099,8 +2099,9 @@ input {
   margin-top: 20px;
   font-size: 16px !important; }
 
-.space {
-  padding: 5px; }
+@media screen and (max-width: 1000px) {
+  .space {
+    padding: 5px; } }
 
 .calendar__conatiner {
   display: flex; }
