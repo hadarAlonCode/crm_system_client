@@ -351,7 +351,8 @@ input {
         margin-left: auto; } }
     .top__bar__nav .top__bar__search__container .top__bar__search__icon {
       padding-left: 20px;
-      padding-right: 20px; }
+      padding-right: 20px;
+      cursor: pointer; }
       @media screen and (max-width: 440px) {
         .top__bar__nav .top__bar__search__container .top__bar__search__icon {
           padding-right: 10px; } }
@@ -2001,7 +2002,8 @@ input {
     font-size: 15px;
     color: #5f0f4e;
     margin-top: 10px;
-    font-weight: 500; }
+    font-weight: 500;
+    cursor: pointer; }
   .login__container .confetti {
     position: fixed;
     top: 0;
@@ -2193,3 +2195,74 @@ input {
   .bar__chart .recharts-tooltip-wrapper {
     z-index: 100 !important;
     transform: translate(150px, 0px) !important; }
+
+.loader-container {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  margin: 0 15px 15px 0;
+  position: relative;
+  background: #e5e5e5;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+
+.loader-1 {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto; }
+
+.loader-dot {
+  background: var(--color);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  background-color: #5f0f4e; }
+
+.loader-dot-1 {
+  animation-name: jump-1; }
+
+.loader-dot-2 {
+  animation-name: jump-2; }
+
+.loader-dot-3 {
+  animation-name: jump-3; }
+
+@keyframes jump-1 {
+  0% {
+    margin-bottom: 0px; }
+  25% {
+    margin-bottom: 30px; }
+  50% {
+    margin-bottom: 0px; }
+  100% {
+    margin-bottom: 0px; } }
+
+@keyframes jump-2 {
+  0% {
+    margin-bottom: 0px; }
+  25% {
+    margin-bottom: 15px; }
+  50% {
+    margin-bottom: 30px; }
+  75% {
+    margin-bottom: 0px; } }
+
+@keyframes jump-3 {
+  25% {
+    margin-bottom: 0px; }
+  50% {
+    margin-bottom: 15px; }
+  75% {
+    margin-bottom: 30px; }
+  100% {
+    margin-bottom: 0px; } }

@@ -12,7 +12,8 @@ import validator from 'validator';
 
 
 import { gsap } from "gsap";
-import Confetti from '../confetti/Confetti';
+import Confetti from "../confetti/Confetti";
+import Loader from '../Loader/Loader';
 
 let tl = gsap.timeline();
 
@@ -26,7 +27,12 @@ class Login extends Component {
             login_step: 2,  // 1: register, 2: login
             email:'',
             password:'',
-            new_register: false
+            new_register: false,
+
+            signFunc: this.login,
+            sign_text:[ 'Login', 'Need an account?' , 'Sign Up'],
+            loader_toggle: false
+
         }
     }
 
@@ -56,6 +62,10 @@ class Login extends Component {
     login = async()=>{
         const {email, password} = this.state
 
+        this.setState({
+            loader_toggle:true 
+        })
+
         let body ={
             email,
             password
@@ -68,10 +78,56 @@ class Login extends Component {
 
         }else {
             this.setState({
-                login_validation: false
+                login_validation: false,
+                loader_toggle: false 
             })
         }
     }
+
+
+    
+   register = async ()=>{
+    const {email, password} = this.state
+
+    this.setState({
+        loader_toggle:true 
+    })
+
+    if(this.inputValidation()){
+
+        let body = {
+            email,
+            password,
+            user_key:email
+        }
+
+        let res = await registerApi(body)
+
+        if(res.result === "USER_ERROR_USER_ALREADY_EXISTS"){
+            return this.setState({
+                user_already_exists: true
+            })
+        }
+        
+        if(res.ok){
+
+            this.setState({
+                new_register: true,
+                loader_toggle:false 
+            })
+
+            setTimeout(()=>{ this.setUserDataState(res) }, 3000);
+
+                
+            
+
+        }else {
+            this.setState({
+                login_validation: false
+            })
+        }
+    } 
+}
 
 
 
@@ -103,43 +159,6 @@ class Login extends Component {
 
 
 
-   register = async ()=>{
-        const {email, password} = this.state
-
-        if(this.inputValidation()){
-
-            let body = {
-                email,
-                password,
-                user_key:email
-            }
-    
-            let res = await registerApi(body)
-    
-            if(res.result === "USER_ERROR_USER_ALREADY_EXISTS"){
-                return this.setState({
-                    user_already_exists: true
-                })
-            }
-            
-            if(res.ok){
-
-                this.setState({
-                    new_register: true
-                })
-
-                setTimeout(()=>{ this.setUserDataState(res) }, 3000);
-
-                    
-                
-    
-            }else {
-                this.setState({
-                    login_validation: false
-                })
-            }
-        } 
-   }
 
 
 
@@ -155,11 +174,29 @@ class Login extends Component {
 
 
     toggleSign =(num)=>{
+     const {login_step} = this.state
+
+     if(login_step === 2) {
+
         this.setState({
-            login_step: num,
+            login_step: 1,
+            signFunc: this.register,
+            sign_text:[ 'Register', 'Already have an account?' , 'Sign In'],
             email:'',
             password:'',
         })
+
+     }else{
+
+        this.setState({
+            login_step: 2,
+            signFunc: this.login,
+            sign_text:[ 'Login', 'Need an account?' , 'Sign Up'],
+            email:'',
+            password:'',
+        })    
+     }
+
         this.resetValidation()
     }
 
@@ -175,7 +212,16 @@ class Login extends Component {
 
 
     render() {
-        const {login_validation, login_step, email, password, user_already_exists, new_register} = this.state
+        const {
+            loader_toggle,
+            signFunc,
+            sign_text,
+            login_validation,
+            login_step,
+            email,
+            password, 
+            user_already_exists, 
+            new_register} = this.state
 
         return (
             
@@ -187,22 +233,16 @@ class Login extends Component {
                     
                     <div className="input__container"><span>Email</span><input value={email} onChange={(e)=>this.handleChange(e)} type="text" name="email"></input></div>
                     <div className="input__container"><span>Password</span> <input  value={password} onChange={(e)=>this.handleChange(e)} type="password" name="password"></input></div>
-      
-                    {login_step === 2 ? 
+           
                     <div>
-                        <button className="btn" onClick ={()=> this.login()}>Login</button> 
-                        <div className="sign__question">Need an account?</div>
-                        <div className="sign__link"onClick={()=>this.toggleSign(1)}>Sign Up</div>   
-                        
+                        {loader_toggle ?
+                            <Loader /> 
+                            :
+                            <button className="btn" onClick ={()=> signFunc()}>{sign_text[0]}</button> 
+                        }
+                        <div className="sign__question">{sign_text[1]}</div>
+                        <div className="sign__link"onClick={()=>this.toggleSign(1)}>{sign_text[2]}</div>       
                      </div>
-                    :
-                    <div>
-                        <button className="btn" onClick ={()=> this.register()}>Register</button> 
-                        <div className="sign__question">Already have an account?</div>   
-                        <div className="sign__link" onClick={()=>this.toggleSign(2)}>Sign In</div>
-                    </div>
-                   
-                  }
 
                     {login_validation ? null : <div className="err__text">{"Email or password incorrect"}</div>}
                     {user_already_exists ? <div className="err__text">{"User already exists"}</div> : null }
