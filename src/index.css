@@ -118,8 +118,11 @@ input {
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 80px;
   width: 100%;
-  z-index: 100;
-  position: fixed; }
+  z-index: 100; }
+  @media screen and (max-width: 1000px) {
+    .top__nav__back {
+      position: fixed;
+      top: 0; } }
 
 .navbar__container {
   background-color: #23074d;
