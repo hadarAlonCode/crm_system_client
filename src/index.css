@@ -122,7 +122,8 @@ input {
   @media screen and (max-width: 1000px) {
     .top__nav__back {
       position: fixed;
-      top: 0; } }
+      top: 0;
+      left: 0; } }
 
 .navbar__container {
   background-color: #23074d;
