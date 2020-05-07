@@ -197,6 +197,7 @@ class Overview extends Component {
             <div className="overview__container">
 
                 <div className="overview__inner__container">
+                    {/* <div className="overview__boxes"> */}
 
                 <Fade delay={500} >
                 <div className="overview__box overview__box__data__box">
@@ -232,8 +233,9 @@ class Overview extends Component {
                     <Calendar dates={events_date} events={events} />
                 </div>
                 </Fade>
-
                 </div>
+
+                {/* </div> */}
             </div>
 
         );

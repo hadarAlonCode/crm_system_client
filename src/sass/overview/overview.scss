@@ -17,6 +17,11 @@
     }
 }
 
+.overview__boxes{
+    padding-bottom: 20px;
+    height: 100%;
+}
+
 .overview__inner__container{
     width: 100%;
     min-height: 85%;
@@ -27,6 +32,7 @@
     padding-right: 40px;
     padding-left: 40px;
     height: 100%;
+    padding-bottom: 20px;
     
 
     @include mediaMaxWidth(1000px){
@@ -63,6 +69,8 @@
         } 
        
     }
+
+    
 
     .overview__box__data__box{
         padding: 0px;
