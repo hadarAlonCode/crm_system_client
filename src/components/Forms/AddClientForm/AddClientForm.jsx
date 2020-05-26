@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TextInput from '../../Inputs/TextInput';
-import EmailInput from '../../Inputs/EmailInput';
 import SelectBox from '../../Inputs/SelectBox';
 import countries_options  from '../../../tools/functions/data/countries_options';
 import { addContact } from '../../../tools/functions/api/contacts_api';
@@ -39,9 +38,8 @@ class AddClientForm extends Component {
 
 
     validationForm = () => {
-        // if validation class is on - valitadion wrong
-
-        // check all the outfot types 
+        // === if validation class is on - valitadion wrong
+        // === check all the inputs with componentDidUpdate 
 
         this.setState({
             check_validation: true
@@ -61,9 +59,9 @@ class AddClientForm extends Component {
 
     submitForm = async () => {
 
-        //validate
+        // === (1)validate --> (2)update api
 
-        //update api
+        
         const { closePopUp } = this.props
         const { form_data } = this.state
         const { user_key } = this.props.login

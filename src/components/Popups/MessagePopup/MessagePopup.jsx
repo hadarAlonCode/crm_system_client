@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import AddClientForm from '../../Forms/AddClientForm/AddClientForm';
 
-//Popup container for Forms & Alerst
-
 
 class MessagePopup extends Component {
     render() {

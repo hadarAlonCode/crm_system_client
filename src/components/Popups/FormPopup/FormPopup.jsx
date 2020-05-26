@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import AddClientForm from '../../Forms/AddClientForm/AddClientForm';
-import AddTaskBox from '../../Dashboard/Parts/Tasks/Parts/AddTaskBox';
 
 //Popup container for Forms & Alerst
-
 
 class FormPopup extends Component {
     render() {

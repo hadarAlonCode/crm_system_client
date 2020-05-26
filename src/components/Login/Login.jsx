@@ -24,7 +24,7 @@ class Login extends Component {
         this.state={
             login_validation: true,
             user_already_exists: false,
-            login_step: 2,  // 1: register, 2: login
+            login_step: 2,  // === 1: register, 2: login
             email:'',
             password:'',
             new_register: false,
@@ -86,116 +86,114 @@ class Login extends Component {
 
 
     
-   register = async ()=>{
-    const {email, password} = this.state
+    register = async ()=>{
+        const {email, password} = this.state
 
-    this.setState({
-        loader_toggle:true 
-    })
+        this.setState({
+            loader_toggle:true 
+        })
 
-    if(this.inputValidation()){
+        if(this.inputValidation()){
 
-        let body = {
-            email,
-            password,
-            user_key:email
-        }
+            let body = {
+                email,
+                password,
+                user_key:email
+            }
 
-        let res = await registerApi(body)
+            let res = await registerApi(body)
 
-        if(res.result === "USER_ERROR_USER_ALREADY_EXISTS"){
-            return this.setState({
-                user_already_exists: true
-            })
-        }
-        
-        if(res.ok){
-
-            this.setState({
-                new_register: true,
-                loader_toggle:false 
-            })
-
-            setTimeout(()=>{ this.setUserDataState(res) }, 3000);
-
-                
+            if(res.result === "USER_ERROR_USER_ALREADY_EXISTS"){
+                return this.setState({
+                    user_already_exists: true
+                })
+            }
             
+            if(res.ok){
 
-        }else {
+                this.setState({
+                    new_register: true,
+                    loader_toggle:false 
+                })
+
+                setTimeout(()=>{ this.setUserDataState(res) }, 3000);
+
+                    
+                
+
+            }else {
+                this.setState({
+                    login_validation: false
+                })
+            }
+        } 
+    }
+
+
+
+    inputValidation =()=>{
+        const { email, password } = this.state
+        console.log(!validator.isEmail(email))
+
+        if (!validator.isEmail(email)) {
+
             this.setState({
                 login_validation: false
             })
+
+            return false
         }
-    } 
-}
 
 
+        if ( password.trim() === '' ) {
+            this.setState({
+                login_validation: false
+            })
+            return false
+        }
 
-   inputValidation =()=>{
-    const { email, password } = this.state
-    console.log(!validator.isEmail(email))
+        return true
 
-    if (!validator.isEmail(email)) {
 
-        this.setState({
-            login_validation: false
-        })
-
-        return false
     }
 
 
-    if ( password.trim() === '' ) {
+
+    setUserDataState =(res)=>{
+        setCookie("login_cookie" ,res.result.token )
+        const {setUserData , history} = this.props
+        setUserData(res.result)
+        history.push(DASHBOARD_OVERVIEW)
+
         this.setState({
-            login_validation: false
+            login_validation: true
         })
-        return false
     }
-
-    return true
-
-
-   }
-
-
-
-
-
-
-   setUserDataState =(res)=>{
-    setCookie("login_cookie" ,res.result.token )
-    this.props.setUserData(res.result)
-    this.props.history.push(DASHBOARD_OVERVIEW)
-
-    this.setState({
-        login_validation: true
-    })
-}
 
 
     toggleSign =(num)=>{
-     const {login_step} = this.state
+        const {login_step} = this.state
 
-     if(login_step === 2) {
+        if(login_step === 2) {
 
-        this.setState({
-            login_step: 1,
-            signFunc: this.register,
-            sign_text:[ 'Register', 'Already have an account?' , 'Sign In'],
-            email:'',
-            password:'',
-        })
+            this.setState({
+                login_step: 1,
+                signFunc: this.register,
+                sign_text:[ 'Register', 'Already have an account?' , 'Sign In'],
+                email:'',
+                password:'',
+            })
 
-     }else{
+        }else{
 
-        this.setState({
-            login_step: 2,
-            signFunc: this.login,
-            sign_text:[ 'Login', 'Need an account?' , 'Sign Up'],
-            email:'',
-            password:'',
-        })    
-     }
+            this.setState({
+                login_step: 2,
+                signFunc: this.login,
+                sign_text:[ 'Login', 'Need an account?' , 'Sign Up'],
+                email:'',
+                password:'',
+            })    
+        }
 
         this.resetValidation()
     }

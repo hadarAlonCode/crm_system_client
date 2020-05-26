@@ -63,7 +63,7 @@ class Contacts extends Component {
 
     getContacts = async () => {
         const { limit, page, contacts } = this.state
-                const {user_key} = this.props.login
+        const { user_key } = this.props.login
 
         this.setState({
             scroll_has_more: false,
@@ -73,7 +73,7 @@ class Contacts extends Component {
             if (res.ok && res.result.length > 0) {
 
                 let copy_contacts = JSON.parse(JSON.stringify(contacts))
-                const new_contacts = copy_contacts.concat(res.result);
+                let new_contacts = copy_contacts.concat(res.result);
                 this.setState({
                     contacts: new_contacts,
                 })

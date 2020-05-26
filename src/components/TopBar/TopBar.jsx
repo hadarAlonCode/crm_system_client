@@ -20,7 +20,6 @@ class TopBar extends Component {
         
         const { openAddPopup, handleSearch, toggleTaskPopup } = this.props
         const {toggle_search} = this.state
-
         let contacts_page = window.location.pathname.includes("contacts")
         let tasks_page = window.location.pathname.includes("tasks")
 

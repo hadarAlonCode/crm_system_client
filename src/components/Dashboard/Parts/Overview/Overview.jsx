@@ -146,9 +146,9 @@ class Overview extends Component {
 
 
 
-     percentage = (partialValue, totalValue) => {
+    percentage = (partialValue, totalValue) => {
         return (100 * partialValue) / totalValue;
-     }
+    }
 
 
     getSalesPercentage =()=>{
