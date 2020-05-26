@@ -12,7 +12,6 @@ import { loginApi } from '../../tools/functions/api/login_api';
 import { connect } from "react-redux";
 import * as actions from '../../actions/actions';
 import Fade  from 'react-reveal/Fade';
-import { getAllContacts } from '../../tools/functions/api/contacts_api';
 
 
 class Dashboard extends Component {

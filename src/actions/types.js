@@ -1,4 +1,3 @@
 export const SET_USER_DATA = "SET_USER_DATA"
 export const ADD_NEW_CONTACT = "ADD_NEW_CONTACT"
-export const GET_ALL_CONTACTS = "GET_ALL_CONTACTS"
 

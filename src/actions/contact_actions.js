@@ -1,4 +1,4 @@
-import { ADD_NEW_CONTACT, GET_ALL_CONTACTS } from './types'
+import { ADD_NEW_CONTACT } from './types'
 
 export const setNewContact = (data) => async dispatch => {
     dispatch({
@@ -8,9 +8,3 @@ export const setNewContact = (data) => async dispatch => {
 }
 
 
-export const getAllContacts = (data) => async dispatch => {
-    dispatch({
-        type: GET_ALL_CONTACTS,
-        payload: data
-    })
-}
