@@ -34,6 +34,7 @@ class DateSelect extends Component {
             placeholder,
             value
         } = this.props
+
         const {validation_error} = this.state
         return (
             <div className='options__datepicker'>
@@ -55,7 +56,7 @@ class DateSelect extends Component {
                     minDate={moment().toDate()}
                     showYearDropdown
                     yearDropdownItemNumber={45}
-                    scrollableYearDropdown = {5}
+                    scrollableYearDropdown={5}
                 />
                
             </div>

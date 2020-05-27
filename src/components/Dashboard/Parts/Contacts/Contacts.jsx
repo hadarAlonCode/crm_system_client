@@ -117,13 +117,10 @@ class Contacts extends Component {
             selected_contact: contact
         })
 
-        if(contact._id === selected_contact._id ){
+        if(contact._id === selected_contact._id || !toggle_side_bar ){
             this.toggleSideBar()
         }
 
-        if(!toggle_side_bar){
-            this.toggleSideBar()
-        }
     }
 
 
@@ -145,12 +142,10 @@ class Contacts extends Component {
             this.setState({
                 selected_contact: update.result
             }) 
+        this.editContactsAfterUpdate(update.result)
 
-            this.editContactsAfterUpdate(update.result)
-
-            return update
+        return update
         }
-
     }
 
 
@@ -212,7 +207,6 @@ class Contacts extends Component {
             this.setState({
                 timeout
             })
-
         }
     }
 
