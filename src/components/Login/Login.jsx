@@ -98,7 +98,7 @@ class Login extends Component {
             let body = {
                 email,
                 password,
-                user_key:email
+                user_key: email
             }
 
             let res = await registerApi(body)

@@ -13,18 +13,16 @@ import { connect } from "react-redux";
 import * as actions from '../../actions/actions';
 import Fade  from 'react-reveal/Fade';
 
-
 class Dashboard extends Component {
-
     constructor(){
         super()
         this.state ={
             load_dashboard: false
         }
     }
-  
 
-  async  componentDidMount() {
+
+  async componentDidMount() {
         let token = getCookie("login_cookie" )
         if (token) {
             let res = await loginApi({email:"", password: ""})

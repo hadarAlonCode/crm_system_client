@@ -31,6 +31,7 @@ class Contacts extends Component {
         this.getContactsFirstTime()
     }
 
+
     componentDidUpdate(prevProps){
         const {new_contact} = this.props.contact_reducer
         if(prevProps.contact_reducer.new_contact !== new_contact ){
@@ -113,6 +114,7 @@ class Contacts extends Component {
 
     selectedContact = (contact) => {
         const {selected_contact , toggle_side_bar} = this.state
+        
         this.setState({
             selected_contact: contact
         })

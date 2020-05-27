@@ -23,11 +23,11 @@ class App extends Component {
           <Route path={DASHBOARD} render={() => <Dashboard history={this.props.history} />} />
           <Route exact path={'/'} render={() => <Redirector history={this.props.history} />} />
         </Router>
-
       </div>
     )
   }
 }
+
 
 function mapStateToProps({ login }) {
   return { login };
